@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&amp;display=swap');
+    .path {
+      fill: none;
+      stroke: white;
+      stroke-width: 10;
+      stroke-linecap: round;
+    }
+    .bg {
+      fill: #1e40af;
+    }
+    .title {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 72px;
+      font-weight: 800;
+      fill: white;
+    }
+    .subtitle {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 36px;
+      font-weight: 400;
+      fill: #93c5fd;
+    }
+  </style>
+  
+  <!-- Background -->
+  <rect class="bg" width="100%" height="100%" />
+  
+  <!-- Center the logo -->
+  <g transform="translate(300,115) scale(2.5)">
+    <!-- Middle line with rounded right end -->
+    <path id="middle-line" class="path" 
+          d="M15,50 L95,50" />
+    
+    <!-- Top line: horizontal then 45-degree angle -->
+    <path id="top-line" class="path"
+          d="M15,20 L55,20 L70,50" />
+    
+    <!-- Bottom line: horizontal then 45-degree angle -->
+    <path id="bottom-line" class="path"
+          d="M15,80 L55,80 L70,50" />
+  </g>
+
+  <!-- Text -->
+  <text x="300" y="450" class="title">JunctionTech</text>
+  <text x="300" y="510" class="subtitle">Where Modern Systems Converge</text>
+</svg>
