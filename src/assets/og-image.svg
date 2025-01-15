@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <style>
+    .path {
+      fill: none;
+      stroke: white;
+      stroke-width: 10;
+      stroke-linecap: round;
+    }
+    .bg {
+      fill: #1e40af;
+    }
+  </style>
+  
+  <!-- Background -->
+  <rect class="bg" width="100%" height="100%" />
+  
+  <!-- Center the logo in the 1200x630 viewport -->
+  <g transform="translate(450,165) scale(3)">
+    <!-- Middle line with rounded right end -->
+    <path id="middle-line" class="path" 
+          d="M15,50 L95,50" />
+    
+    <!-- Top line: horizontal then 45-degree angle -->
+    <path id="top-line" class="path"
+          d="M15,20 L55,20 L70,50" />
+    
+    <!-- Bottom line: horizontal then 45-degree angle -->
+    <path id="bottom-line" class="path"
+          d="M15,80 L55,80 L70,50" />
+  </g>
+</svg>

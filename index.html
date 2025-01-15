@@ -1,9 +1,43 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Connecting legacy infrastructure with cutting-edge technology. We build the bridges that power your digital transformation."
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://junctiontech.ca/" />
+    <meta
+      property="og:title"
+      content="JunctionTech - Where Modern Systems Converge"
+    />
+    <meta
+      property="og:description"
+      content="Connecting legacy infrastructure with cutting-edge technology. We build the bridges that power your digital transformation."
+    />
+    <meta property="og:image" content="https://junctiontech.ca/og-image.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://junctiontech.ca/" />
+    <meta
+      property="twitter:title"
+      content="JunctionTech - Where Modern Systems Converge"
+    />
+    <meta
+      property="twitter:description"
+      content="Connecting legacy infrastructure with cutting-edge technology. We build the bridges that power your digital transformation."
+    />
+    <meta
+      property="twitter:image"
+      content="https://junctiontech.dev/og-image.png"
+    />
+
     <title>JunctionTech</title>
   </head>
   <body>
@@ -12,9 +46,13 @@
   </body>
 </html>
 <script>
-  if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-    document.documentElement.classList.add('dark')
+  if (
+    localStorage.theme === "dark" ||
+    (!("theme" in localStorage) &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
+  ) {
+    document.documentElement.classList.add("dark");
   } else {
-    document.documentElement.classList.remove('dark')
+    document.documentElement.classList.remove("dark");
   }
 </script>
