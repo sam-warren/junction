@@ -43,25 +43,26 @@ interface LogoConfig {
   duration: number;
   size: number;
   opacity: number;
-  fadeInPoint: number;
-  fadeOutPoint: number;
 }
 
 const GridBackground: React.FC = () => {
   const logos = useMemo<LogoConfig[]>(() => {
-    return Array.from({ length: 15 }, (_, i) => {
-      const fadeInPoint = 5 + Math.random() * 10;
-      const fadeOutPoint = 85 + Math.random() * 10;
+    const TOTAL_LOGOS = 15;
+    const BASE_DURATION = 30;
+    const DURATION_VARIANCE = 2;
+    const TOTAL_DELAY_SPREAD = BASE_DURATION / 2;
+    
+    return Array.from({ length: TOTAL_LOGOS }, (_, i) => {
+      const baseDelay = (TOTAL_DELAY_SPREAD / TOTAL_LOGOS) * i;
+      const delay = baseDelay + (Math.random() * 0.5);
       
       return {
         id: i,
         initialY: Math.random() * 100,
-        delay: Math.random() * 8,
-        duration: 20 + Math.random() * 15,
+        delay,
+        duration: BASE_DURATION + (Math.random() * DURATION_VARIANCE),
         size: 20 + Math.random() * 15,
         opacity: 0.1 + Math.random() * 0.1,
-        fadeInPoint,
-        fadeOutPoint,
       };
     });
   }, []);
@@ -73,24 +74,20 @@ const GridBackground: React.FC = () => {
       <style>
         {logos.map((logo) => `
           @keyframes float-${logo.id} {
-            0%, 3% { 
-              transform: translateX(-100%);
+            0% { 
+              transform: translateX(15vw);
               opacity: 0;
             }
-            ${logo.fadeInPoint}% { 
-              transform: translateX(${logo.fadeInPoint}vw);
-              opacity: 0;
-            }
-            ${logo.fadeInPoint + 2}% { 
-              transform: translateX(${logo.fadeInPoint + 2}vw);
+            4% {
+              transform: translateX(20vw);
               opacity: var(--opacity);
             }
-            ${logo.fadeOutPoint}% { 
-              transform: translateX(${logo.fadeOutPoint}vw);
+            85% { 
+              transform: translateX(80vw);
               opacity: var(--opacity);
             }
-            ${logo.fadeOutPoint + 2}% { 
-              transform: translateX(${logo.fadeOutPoint + 2}vw);
+            89% { 
+              transform: translateX(85vw);
               opacity: 0;
             }
             100% { 
@@ -113,6 +110,7 @@ const GridBackground: React.FC = () => {
               opacity: 0,
               animation: `float-${logo.id} ${logo.duration}s linear infinite ${logo.delay}s`,
               '--opacity': logo.opacity,
+              transform: 'translateX(-100%)'
             } as React.CSSProperties}
           >
             <JunctionLogo className="w-full h-full text-blue-500 dark:text-blue-400" />
