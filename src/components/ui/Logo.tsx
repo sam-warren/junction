@@ -34,14 +34,16 @@ const Logo = () => {
           
           #middle-line {
             stroke-dasharray: 120;
-            stroke-dashoffset: ${mounted ? 0 : 120};
-            animation: ${mounted ? 'drawPath 1.2s ease forwards' : 'none'};
+            stroke-dashoffset: 120;
+            animation: ${mounted ? 'drawPath 2.5s ease forwards' : 'none'};
+            animation-delay: 0.5s;
           }
           
           #top-line, #bottom-line {
             stroke-dasharray: 100;
-            stroke-dashoffset: ${mounted ? 0 : 100};
-            animation: ${mounted ? 'drawPath 1.2s ease forwards' : 'none'};
+            stroke-dashoffset: 100;
+            animation: ${mounted ? 'drawPath 2.5s ease forwards' : 'none'};
+            animation-delay: 0.5s;
           }
         `}
       </style>
