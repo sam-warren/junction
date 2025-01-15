@@ -1,10 +1,10 @@
-import GridBackground from '../ui/GridBackground';
+import GridBackground from "../ui/GridBackground";
 
 const HeroSection = () => {
   return (
     <div className="relative h-full min-h-screen bg-white dark:bg-gray-900 overflow-hidden flex items-center justify-center">
       <GridBackground />
-      
+
       <style>
         {`
           @keyframes fadeInUp {
@@ -36,19 +36,23 @@ const HeroSection = () => {
           }
         `}
       </style>
-      
+
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center max-w-4xl mx-auto">
           <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white sm:text-5xl md:text-6xl">
             <span className="block fade-in-up">Where Modern Systems</span>
-            <span className="block text-blue-600 dark:text-blue-400 fade-in-up delay-200">Converge</span>
+            <span className="block text-blue-600 dark:text-blue-400 fade-in-up delay-200">
+              Converge
+            </span>
           </h1>
-          
+
           <p className="mt-6 text-gray-500 dark:text-gray-400 text-lg sm:text-xl md:text-2xl leading-relaxed fade-in-up delay-400">
             Connecting legacy infrastructure with cutting-edge technology.
+          </p>
+          <p className="mt-2 text-gray-500 dark:text-gray-400 text-lg sm:text-xl md:text-2xl leading-relaxed fade-in-up delay-400">
             We build the bridges that power your digital transformation.
           </p>
-          
+
           <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 fade-in-up delay-600">
             <a
               href="#portfolio"
