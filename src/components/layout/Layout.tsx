@@ -1,6 +1,6 @@
-import { ReactNode } from 'react';
-import Header from './Header';
-import Footer from './Footer';
+import { ReactNode } from "react";
+import Header from "./Header";
+import Footer from "./Footer";
 
 interface LayoutProps {
   children: ReactNode;
@@ -8,13 +8,14 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className="h-full min-h-screen flex flex-col bg-white dark:bg-gray-900 pb-16">
-      <Header />
-      <main className="flex-grow">
-        {children}
-      </main>
-      <Footer/>
-    </div>
+    <>
+      <div className="fixed inset-0 bg-white dark:bg-gray-900 -z-10" />
+      <div className="h-full min-h-screen flex flex-col pb-16">
+        <Header />
+        <main className="flex-grow">{children}</main>
+        <Footer />
+      </div>
+    </>
   );
 };
 
