@@ -9,7 +9,7 @@ const socialLinks = [
   },
   {
     name: "LinkedIn",
-    href: "https://linkedin.com/company/sam-warren",
+    href: "https://linkedin.com/company/samwarrendev",
     icon: LinkedInIcon,
   },
 ];
