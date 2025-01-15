@@ -2,7 +2,7 @@ import GridBackground from '../ui/GridBackground';
 
 const HeroSection = () => {
   return (
-    <div className="relative min-h-screen bg-white dark:bg-gray-900 overflow-hidden flex items-center justify-center">
+    <div className="relative h-full min-h-screen bg-white dark:bg-gray-900 overflow-hidden flex items-center justify-center">
       <GridBackground />
       
       <style>
