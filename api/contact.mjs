@@ -1,7 +1,6 @@
-import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { Resend } from "resend";
 
-const formatMessage = (message: string): string => {
+const formatMessage = (message) => {
   return message
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
@@ -14,7 +13,7 @@ const formatMessage = (message: string): string => {
     .join("<br>");
 };
 
-const handler = async (req: VercelRequest, res: VercelResponse) => {
+export default async function handler(req, res) {
   const resend = new Resend(process.env.RESEND_API_KEY);
 
   res.setHeader("Access-Control-Allow-Credentials", "true");
@@ -53,15 +52,15 @@ const handler = async (req: VercelRequest, res: VercelResponse) => {
       to: process.env.CONTACT_EMAIL,
       subject: `${name} | JunctionTech Inquiry`,
       html: `
-       <div style="font-family: sans-serif; font-size: 16px; line-height: 1.6; color: #333; max-width: 600px;">
-         <div style="white-space: pre-wrap;">
-           ${formatMessage(message)}
-         </div>
-         <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #eee; color: #666; font-size: 14px;">
-           From: ${name} (${email})
-         </div>
-       </div>
-     `,
+        <div style="font-family: sans-serif; font-size: 16px; line-height: 1.6; color: #333; max-width: 600px;">
+          <div style="white-space: pre-wrap;">
+            ${formatMessage(message)}
+          </div>
+          <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #eee; color: #666; font-size: 14px;">
+            From: ${name} (${email})
+          </div>
+        </div>
+      `,
       replyTo: email,
     });
 
@@ -73,6 +72,4 @@ const handler = async (req: VercelRequest, res: VercelResponse) => {
       details: process.env.NODE_ENV === "development" ? error : undefined,
     });
   }
-};
-
-export { handler as default };
+}
