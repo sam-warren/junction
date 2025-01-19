@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
-import Header from "./Header";
+import GridBackground from "../ui/GridBackground";
 import Footer from "./Footer";
+import Header from "./Header";
 
 interface LayoutProps {
   children: ReactNode;
@@ -8,14 +9,14 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <>
-      <div className="fixed inset-0 bg-white dark:bg-gray-900 -z-10" />
-      <div className="h-full min-h-screen flex flex-col pb-16">
-        <Header />
-        <main className="flex-grow">{children}</main>
-        <Footer />
-      </div>
-    </>
+    <div className="relative flex min-h-screen flex-col bg-transparent">
+      <Header />
+      <GridBackground />
+      <main className="relative flex-grow overflow-y-auto pt-16 lg:pt-0">
+        {children}
+      </main>
+      <Footer />
+    </div>
   );
 };
 
