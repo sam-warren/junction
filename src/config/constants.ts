@@ -1,12 +1,15 @@
+import githubIcon from '@/assets/github.svg'  // or '@/assets/github.svg' if @ alias is configured
+import linkedinIcon from '@/assets/linkedin.svg'
+
 export const SOCIAL_LINKS = [
   {
     name: "GitHub",
     href: "https://github.com/sam-warren/junction",
-    icon: "/src/assets/github.svg",
+    icon: githubIcon,
   },
   {
     name: "LinkedIn",
     href: "https://www.linkedin.com/in/samwarrendev/",
-    icon: "/src/assets/linkedin.svg",
+    icon: linkedinIcon,
   },
 ] as const;
