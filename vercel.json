@@ -4,5 +4,10 @@
       "source": "/api/:path*",
       "destination": "/api/:path*"
     }
-  ]
+  ],
+  "functions": {
+    "api/*.mjs": {
+      "runtime": "nodejs18.x"
+    }
+  }
 }
