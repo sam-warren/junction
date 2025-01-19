@@ -1,8 +1,6 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 const formatMessage = (message: string): string => {
   return message
     .replace(/&/g, "&amp;")
@@ -16,7 +14,9 @@ const formatMessage = (message: string): string => {
     .join("<br>");
 };
 
-export default async function handler(req: VercelRequest, res: VercelResponse) {
+const handler = async (req: VercelRequest, res: VercelResponse) => {
+  const resend = new Resend(process.env.RESEND_API_KEY);
+
   res.setHeader("Access-Control-Allow-Credentials", "true");
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
@@ -73,4 +73,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       details: process.env.NODE_ENV === "development" ? error : undefined,
     });
   }
-}
+};
+
+export { handler as default };
