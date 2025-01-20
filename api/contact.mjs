@@ -1,5 +1,7 @@
 import { Resend } from "resend";
 
+export const runtime = "nodejs";
+
 const formatMessage = (message) => {
   return message
     .replace(/&/g, "&amp;")
