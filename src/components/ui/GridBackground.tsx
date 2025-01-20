@@ -56,10 +56,9 @@ const GridBackground: React.FC = () => {
     if (!containerRef.current) return;
 
     const updateWidth = debounce(() => {
-      const { width } = containerRef.current?.getBoundingClientRect() ?? {
-        width: 0,
-      };
-      setContainerWidth(width);
+      if (!containerRef.current) return;
+      // Use window.innerWidth instead of getBoundingClientRect to avoid scrollbar-induced changes
+      setContainerWidth(window.innerWidth);
     }, 100);
 
     const resizeObserver = new ResizeObserver(updateWidth);
