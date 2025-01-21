@@ -26,17 +26,18 @@ const Header = () => {
       <header className="fixed top-0 z-50 w-full border-b border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between sm:h-16 lg:h-20">
-            <div className="flex items-center space-x-3">
+            <Link
+              to="/"
+              className="flex items-center space-x-3 transition-opacity"
+            >
               <div className="text-gray-900 dark:text-white">
                 <Logo />
               </div>
-              <Link
-                to="/"
-                className="whitespace-nowrap text-xl font-bold text-gray-900 sm:text-2xl md:text-3xl dark:text-white"
-              >
+              <span className="whitespace-nowrap text-xl font-bold text-gray-900 sm:text-2xl md:text-3xl dark:text-white">
                 JunctionTech
-              </Link>
-            </div>
+              </span>
+            </Link>
+
             <div className="flex items-center">
               <nav className="hidden items-center md:flex">
                 {ROUTES.map((route) => (
@@ -104,18 +105,18 @@ const Header = () => {
           }`}
         >
           <div className="flex h-16 items-center justify-between border-b border-gray-200 px-4 dark:border-gray-800">
-            <div className="flex items-center space-x-2">
+            <Link
+              to="/"
+              className="flex items-center space-x-2 transition-opacity hover:opacity-80"
+              onClick={() => setIsMenuOpen(false)}
+            >
               <div className="h-8 w-8 text-gray-900 dark:text-white">
                 <Logo />
               </div>
-              <Link
-                to="/"
-                className="text-lg font-bold text-gray-900 dark:text-white"
-                onClick={() => setIsMenuOpen(false)}
-              >
+              <span className="text-lg font-bold text-gray-900 dark:text-white">
                 JunctionTech
-              </Link>
-            </div>
+              </span>
+            </Link>
           </div>
 
           <div className="border-b border-gray-200 px-6 py-4 dark:border-gray-800">

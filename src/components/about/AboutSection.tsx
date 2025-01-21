@@ -1,32 +1,32 @@
-import profileImage from "@/assets/profile.jpg";
-import { Code2, Server, Database, GitBranch } from "lucide-react";
+import { Code2, Database, GitBranch, Server } from "lucide-react";
+import React from "react";
 
 import {
-  ReactIcon,
   AngularIcon,
-  VueIcon,
-  TailwindIcon,
-  ViteIcon,
-  TypeScriptIcon,
-  NodeIcon,
-  PythonIcon,
-  DjangoIcon,
-  GraphQLIcon,
-  PostgreSQLIcon,
-  MongoDBIcon,
-  DockerIcon,
-  KubernetesIcon,
   AzureIcon,
-  OpenshiftIcon,
   BootstrapIcon,
-  MUIIcon,
-  ReduxIcon,
-  GitIcon,
+  DjangoIcon,
+  DockerIcon,
   DotnetIcon,
   DynamicsIcon,
+  GitIcon,
+  GraphQLIcon,
+  KubernetesIcon,
+  MongoDBIcon,
+  MUIIcon,
   MySQLIcon,
+  NodeIcon,
+  OpenshiftIcon,
+  PostgreSQLIcon,
+  PythonIcon,
+  ReactIcon,
   RedisIcon,
+  ReduxIcon,
+  TailwindIcon,
+  TypeScriptIcon,
+  VueIcon,
 } from "@/assets";
+import CollapsibleSection from "../ui/CollapsibleSection";
 import TechnologyChip from "../ui/TechnologyChip";
 
 interface Technology {
@@ -47,6 +47,7 @@ interface ExperienceHighlight {
   description: string;
   technologies: TechnologyChip[];
 }
+
 const AboutSection: React.FC = () => {
   const technologies: TechnologyCategory[] = [
     {
@@ -56,7 +57,6 @@ const AboutSection: React.FC = () => {
         { name: "React", icon: ReactIcon },
         { name: "TypeScript", icon: TypeScriptIcon },
         { name: "Tailwind CSS", icon: TailwindIcon },
-        { name: "Vite", icon: ViteIcon },
         { name: "Angular", icon: AngularIcon },
         { name: "Vue.js", icon: VueIcon },
       ],
@@ -66,6 +66,7 @@ const AboutSection: React.FC = () => {
       icon: <Server className="h-8 w-8 text-blue-500" />,
       items: [
         { name: "Microsoft .NET", icon: DotnetIcon },
+        { name: "Django ORM", icon: DjangoIcon },
         { name: "Node.js", icon: NodeIcon },
         { name: "GraphQL", icon: GraphQLIcon },
       ],
@@ -75,7 +76,6 @@ const AboutSection: React.FC = () => {
       icon: <Database className="h-8 w-8 text-blue-500" />,
       items: [
         { name: "PostgreSQL", icon: PostgreSQLIcon },
-        { name: "Django ORM", icon: DjangoIcon },
         { name: "MySQL", icon: MySQLIcon },
         { name: "Redis", icon: RedisIcon },
         { name: "MongoDB", icon: MongoDBIcon },
@@ -169,6 +169,7 @@ const AboutSection: React.FC = () => {
           label: "Kubernetes",
           href: "https://kubernetes.io/",
         },
+        { icon: GitIcon, label: "Git", href: "https://git-scm.com/" },
       ],
     },
     {
@@ -206,26 +207,29 @@ const AboutSection: React.FC = () => {
           label: "Kubernetes",
           href: "https://kubernetes.io/",
         },
+        { icon: GitIcon, label: "Git", href: "https://git-scm.com/" },
       ],
     },
   ];
 
   return (
     <div className="relative">
-      <section className="relative mx-auto w-full max-w-7xl p-4 sm:px-6 lg:px-8 lg:pt-40">
+      <section className="relative mx-auto w-full max-w-7xl p-3 sm:p-4 sm:px-6 lg:px-8 lg:pt-40">
         {/* Introduction and Proficiency Grid Row */}
-        <div className="mb-20 flex flex-col lg:flex-row lg:gap-16 xl:gap-24">
+        <div className="mb-8 flex flex-col lg:mb-20 lg:flex-row lg:gap-16 xl:gap-24">
           {/* Left Column - Text Content */}
-          <div className="mb-12 lg:mb-0 lg:w-1/2">
-            <h2 className="mb-2 text-4xl font-bold text-gray-900 sm:text-5xl dark:text-white">
+          <div className="mb-8 lg:mb-0 lg:w-1/2">
+            <h2 className="mb-2 text-3xl font-bold text-gray-900 dark:text-white">
               About JunctionTech
             </h2>
-            <p className="mb-12 text-lg text-gray-600 dark:text-gray-300">
-              Specializing in bridging legacy systems with modern technology,
-              JunctionTech delivers innovative solutions for enterprise digital
-              transformation. We bring technical excellence and practical
-              solutions to complex challenges.
+            <p className="mb-8 text-lg text-gray-600 dark:text-gray-300">
+              JunctionTech is an independent software consultancy specializing
+              in bridging legacy systems with modern technology. JunctionTech
+              delivers enterprise solutions that transform complex technical
+              challenges into practical, efficient, and beautiful systems.
             </p>
+
+            <div className="divider my-6 h-px w-full bg-gray-200 lg:hidden dark:bg-gray-800"></div>
 
             <h2 className="mb-2 text-3xl font-bold text-gray-900 dark:text-white">
               <span className="inline-block bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 bg-clip-text text-transparent dark:from-blue-400 dark:via-blue-500 dark:to-blue-600">
@@ -234,104 +238,181 @@ const AboutSection: React.FC = () => {
               Sam Warren
             </h2>
             <div className="relative">
-              <div className="float-left mb-2 mr-6 w-32 pt-1">
-                <div className="aspect-square w-full overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800">
-                  <img
-                    src={profileImage}
-                    alt="Sam Warren"
-                    className="h-full w-full object-cover"
-                  />
-                </div>
+              <div className="space-y-3 sm:space-y-4">
+                <p className="mt-0 text-base text-gray-600 sm:text-lg dark:text-gray-300">
+                  Founder of JunctionTech and a Software Engineering graduate
+                  from the University of Victoria, Sam is a Senior Full Stack
+                  Developer with six years of experience crafting resilient,
+                  scalable enterprise applications.
+                </p>
+                <p className="text-base text-gray-600 sm:text-lg dark:text-gray-300">
+                  Sam specializes in modern JavaScript frameworks, robust API
+                  development, and cloud-native architecture. Working directly
+                  with clients, Sam brings a personal commitment to delivering
+                  high-quality software solutions that exceed expectations and
+                  solve real business challenges.
+                </p>
               </div>
-              <p className="mt-0 text-lg text-gray-600 dark:text-gray-300">
-                Sam is a Senior Full Stack Developer with six years of
-                experience crafting resilient, scalable enterprise web and
-                mobile applications. Sam specializes in modern JavaScript
-                frameworks, robust API development, cloud-native architecture
-                and enterprise-scale solutions. Sam has a proven track record of
-                delivering high quality software solutions that meet business
-                needs and exceed stakeholder expectations.
-              </p>
             </div>
           </div>
 
+          <div className="divider my-6 h-px w-full bg-gray-200 lg:hidden dark:bg-gray-800"></div>
+
           {/* Right Column - Technical Expertise Grid */}
           <div className="lg:w-1/2">
-            <h2 className="mb-4 text-3xl font-bold text-gray-900 dark:text-white">
-              Specializations
-            </h2>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-              {technologies.map((tech) => (
-                <div
-                  key={tech.category}
-                  className="rounded-lg border border-gray-200 bg-white/50 p-6 backdrop-blur dark:border-gray-800 dark:bg-gray-900/50"
-                >
-                  <div className="flex flex-col">
-                    <div className="mb-4 flex items-center">
-                      {tech.icon}
-                      <h4 className="ml-3 text-xl font-semibold text-gray-900 dark:text-white">
-                        {tech.category}
-                      </h4>
-                    </div>
-                    <div className="space-y-3">
-                      {tech.items.map((item) => (
-                        <div
-                          key={item.name}
-                          className="flex items-center gap-2"
-                        >
-                          <img
-                            src={item.icon}
-                            alt={item.name}
-                            className="h-5 w-5"
-                          />
-                          <span className="text-gray-600 dark:text-gray-300">
-                            {item.name}
-                          </span>
+            <div className="lg:hidden">
+              <CollapsibleSection title="Specializations">
+                <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6">
+                  {technologies.map((tech) => (
+                    <div
+                      key={tech.category}
+                      className="rounded-lg border border-gray-200 bg-white/50 p-6 backdrop-blur dark:border-gray-800 dark:bg-gray-900/50"
+                    >
+                      <div className="flex flex-col">
+                        <div className="mb-4 flex items-center">
+                          {tech.icon}
+                          <h4 className="ml-3 text-xl font-semibold text-gray-900 dark:text-white">
+                            {tech.category}
+                          </h4>
                         </div>
-                      ))}
+                        <div className="space-y-3">
+                          {tech.items.map((item) => (
+                            <div
+                              key={item.name}
+                              className="flex items-center gap-2"
+                            >
+                              <img
+                                src={item.icon}
+                                alt={item.name}
+                                className="h-5 w-5"
+                              />
+                              <span className="text-gray-600 dark:text-gray-300">
+                                {item.name}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </CollapsibleSection>
+            </div>
+            <div className="hidden lg:block">
+              <h2 className="mb-4 text-3xl font-bold text-gray-900 dark:text-white">
+                Specializations
+              </h2>
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                {technologies.map((tech) => (
+                  <div
+                    key={tech.category}
+                    className="rounded-lg border border-gray-200 bg-white/50 p-6 backdrop-blur dark:border-gray-800 dark:bg-gray-900/50"
+                  >
+                    <div className="flex flex-col">
+                      <div className="mb-4 flex items-center">
+                        {tech.icon}
+                        <h4 className="ml-3 text-xl font-semibold text-gray-900 dark:text-white">
+                          {tech.category}
+                        </h4>
+                      </div>
+                      <div className="space-y-3">
+                        {tech.items.map((item) => (
+                          <div
+                            key={item.name}
+                            className="flex items-center gap-2"
+                          >
+                            <img
+                              src={item.icon}
+                              alt={item.name}
+                              className="h-5 w-5"
+                            />
+                            <span className="text-gray-600 dark:text-gray-300">
+                              {item.name}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Experience Highlights Row */}
+        <div className="divider my-6 h-px w-full bg-gray-200 lg:hidden dark:bg-gray-800"></div>
+
         <div>
-          <h2 className="mb-4 text-3xl font-bold text-gray-900 dark:text-white">
-            Experience Highlights
-          </h2>
-          <div className="mb-24 space-y-6">
-            {experienceHighlights.map((exp) => (
-              <div
-                key={exp.project}
-                className="rounded-lg border border-gray-200 bg-white/50 p-6 backdrop-blur dark:border-gray-800 dark:bg-gray-900/50"
-              >
-                <h3 className="mb-2 text-xl font-semibold text-gray-900 dark:text-white">
-                  {exp.role}
-                </h3>
-                <h4 className="mb-2 text-gray-900 dark:text-white">
-                  {exp.client}
-                </h4>
-                <h4 className="mb-2 inline-block bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 bg-clip-text text-lg font-medium text-transparent dark:from-blue-400 dark:via-blue-500 dark:to-blue-600">
-                  {exp.project}
-                </h4>
-                <p className="mb-4 text-gray-600 dark:text-gray-300">
-                  {exp.description}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {exp.technologies.map((tech) => (
-                    <TechnologyChip
-                      key={tech.label}
-                      icon={tech.icon}
-                      label={tech.label}
-                      href={tech.href}
-                    />
-                  ))}
-                </div>
+          <div className="pb-4 lg:hidden">
+            <CollapsibleSection title="Experience Highlights">
+              <div className="mt-4 space-y-4 sm:space-y-6">
+                {experienceHighlights.map((exp) => (
+                  <div
+                    key={exp.project}
+                    className="rounded-lg border border-gray-200 bg-white/50 p-4 backdrop-blur sm:p-6 dark:border-gray-800 dark:bg-gray-900/50"
+                  >
+                    <h3 className="mb-2 text-xl font-semibold text-gray-900 dark:text-white">
+                      {exp.role}
+                    </h3>
+                    <h4 className="mb-2 text-gray-900 dark:text-white">
+                      {exp.client}
+                    </h4>
+                    <h4 className="mb-2 inline-block bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 bg-clip-text text-lg font-medium text-transparent dark:from-blue-400 dark:via-blue-500 dark:to-blue-600">
+                      {exp.project}
+                    </h4>
+                    <p className="mb-4 text-gray-600 dark:text-gray-300">
+                      {exp.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {exp.technologies.map((tech) => (
+                        <TechnologyChip
+                          key={tech.label}
+                          icon={tech.icon}
+                          label={tech.label}
+                          href={tech.href}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
+            </CollapsibleSection>
+          </div>
+          <div className="mb-16 hidden sm:mb-24 lg:block">
+            <h2 className="mb-4 text-3xl font-bold text-gray-900 dark:text-white">
+              Experience Highlights
+            </h2>
+            <div className="space-y-6">
+              {experienceHighlights.map((exp) => (
+                <div
+                  key={exp.project}
+                  className="rounded-lg border border-gray-200 bg-white/50 p-6 backdrop-blur dark:border-gray-800 dark:bg-gray-900/50"
+                >
+                  <h3 className="mb-2 text-xl font-semibold text-gray-900 dark:text-white">
+                    {exp.role}
+                  </h3>
+                  <h4 className="mb-2 text-gray-900 dark:text-white">
+                    {exp.client}
+                  </h4>
+                  <h4 className="mb-2 inline-block bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 bg-clip-text text-lg font-medium text-transparent dark:from-blue-400 dark:via-blue-500 dark:to-blue-600">
+                    {exp.project}
+                  </h4>
+                  <p className="mb-4 text-gray-600 dark:text-gray-300">
+                    {exp.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {exp.technologies.map((tech) => (
+                      <TechnologyChip
+                        key={tech.label}
+                        icon={tech.icon}
+                        label={tech.label}
+                        href={tech.href}
+                      />
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

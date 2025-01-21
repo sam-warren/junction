@@ -36,11 +36,21 @@ const JunctionLogo = memo(({ className }: { className?: string }) => (
 const GridBackground: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [containerWidth, setContainerWidth] = useState(0);
-  const BASE_SPEED = 100;
+  const BASE_SPEED = 50;
+
+  // Calculate number of logos based on viewport width
+  const getLogoCount = useCallback((width: number) => {
+    // Base number of logos for mobile
+    const BASE_LOGOS = 8;
+    // Additional logos per 500px of width
+    const LOGOS_PER_500PX = 2;
+
+    return Math.floor(BASE_LOGOS + (width / 500) * LOGOS_PER_500PX);
+  }, []);
 
   const logos = useMemo(() => {
-    const TOTAL_LOGOS = 15;
-    const TOTAL_DELAY_SPREAD = 20;
+    const TOTAL_LOGOS = getLogoCount(containerWidth);
+    const TOTAL_DELAY_SPREAD = 50;
     return Array.from({ length: TOTAL_LOGOS }, (_, i) => ({
       id: i,
       initialY: Math.random() * 100,
@@ -48,7 +58,7 @@ const GridBackground: React.FC = () => {
       size: 20 + Math.random() * 15,
       opacity: 0.1 + Math.random() * 0.1,
     }));
-  }, []);
+  }, [containerWidth, getLogoCount]);
 
   const getDuration = useCallback((width: number) => width / BASE_SPEED, []);
 
@@ -57,7 +67,6 @@ const GridBackground: React.FC = () => {
 
     const updateWidth = debounce(() => {
       if (!containerRef.current) return;
-      // Use window.innerWidth instead of getBoundingClientRect to avoid scrollbar-induced changes
       setContainerWidth(window.innerWidth);
     }, 100);
 

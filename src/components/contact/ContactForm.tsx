@@ -166,13 +166,13 @@ const ContactForm: React.FC = () => {
     <div className="relative mx-auto w-full max-w-7xl p-4 sm:px-6 lg:px-8 lg:pt-40">
       <div className="flex flex-col lg:flex-row lg:items-start lg:gap-10">
         <div className="mb-4 lg:mb-0 lg:flex-1 lg:self-auto">
-          <h2 className="text-4xl font-bold text-gray-900 sm:text-5xl dark:text-white">
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
             Let's{" "}
             <span className="bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 bg-clip-text text-transparent dark:from-blue-400 dark:via-blue-500 dark:to-blue-500">
               Connect
             </span>
           </h2>
-          <p className="pt-2 text-lg text-gray-600 sm:text-xl md:text-2xl dark:text-gray-400">
+          <p className="pt-2 text-lg text-gray-600 dark:text-gray-400">
             Your enterprise deserves solutions that bridge the gap between
             established and emerging technologies. Let's make it happen.
           </p>

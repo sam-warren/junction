@@ -15,10 +15,12 @@ const HeroSection = () => {
           </h1>
           <div className="mt-6 space-y-2 px-4 sm:px-0">
             <p className="animate-fade-up-400 text-lg leading-relaxed text-gray-500 opacity-0 sm:text-xl md:text-2xl dark:text-gray-400">
-              Connecting legacy infrastructure with cutting-edge technology.
+              Specializing in bridging legacy infrastructure with cutting-edge
+              technology.
             </p>
             <p className="animate-fade-up-400 text-lg leading-relaxed text-gray-500 opacity-0 sm:text-xl md:text-2xl dark:text-gray-400">
-              We build the bridges that power your digital transformation.
+              We transform your complex technical challenges into efficient,
+              modern solutions.
             </p>
           </div>
           <div className="mt-8 flex animate-fade-up-600 flex-col items-center justify-center gap-4 opacity-0 sm:mt-10 sm:flex-row">
@@ -40,5 +42,4 @@ const HeroSection = () => {
     </section>
   );
 };
-
 export default HeroSection;
