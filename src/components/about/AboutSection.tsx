@@ -263,10 +263,13 @@ const AboutSection: React.FC = () => {
             <div className="lg:hidden">
               <CollapsibleSection title="Specializations">
                 <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6">
-                  {technologies.map((tech) => (
+                  {technologies.map((tech, index) => (
                     <div
                       key={tech.category}
-                      className="rounded-lg border border-gray-200 bg-white/50 p-6 backdrop-blur dark:border-gray-800 dark:bg-gray-900/50"
+                      style={{
+                        animationDelay: `${index * 0.1}s`,
+                      }}
+                      className="animate-fade-up rounded-lg border border-gray-200 bg-white/50 p-6 opacity-0 backdrop-blur dark:border-gray-800 dark:bg-gray-900/50"
                     >
                       <div className="flex flex-col">
                         <div className="mb-4 flex items-center">
@@ -303,10 +306,13 @@ const AboutSection: React.FC = () => {
                 Specializations
               </h2>
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                {technologies.map((tech) => (
+                {technologies.map((tech, index) => (
                   <div
                     key={tech.category}
-                    className="rounded-lg border border-gray-200 bg-white/50 p-6 backdrop-blur dark:border-gray-800 dark:bg-gray-900/50"
+                    style={{
+                      animationDelay: `${index * 0.1}s`,
+                    }}
+                    className="animate-fade-up rounded-lg border border-gray-200 bg-white/50 p-6 opacity-0 backdrop-blur dark:border-gray-800 dark:bg-gray-900/50"
                   >
                     <div className="flex flex-col">
                       <div className="mb-4 flex items-center">
@@ -346,10 +352,13 @@ const AboutSection: React.FC = () => {
           <div className="pb-4 lg:hidden">
             <CollapsibleSection title="Experience Highlights">
               <div className="mt-4 space-y-4 sm:space-y-6">
-                {experienceHighlights.map((exp) => (
+                {experienceHighlights.map((exp, index) => (
                   <div
                     key={exp.project}
-                    className="rounded-lg border border-gray-200 bg-white/50 p-4 backdrop-blur sm:p-6 dark:border-gray-800 dark:bg-gray-900/50"
+                    style={{
+                      animationDelay: `${0.5 + index * 0.1}s`,
+                    }}
+                    className="animate-fade-up rounded-lg border border-gray-200 bg-white/50 p-6 opacity-0 backdrop-blur dark:border-gray-800 dark:bg-gray-900/50"
                   >
                     <h3 className="mb-2 text-xl font-semibold text-gray-900 dark:text-white">
                       {exp.role}
@@ -383,10 +392,13 @@ const AboutSection: React.FC = () => {
               Experience Highlights
             </h2>
             <div className="space-y-6">
-              {experienceHighlights.map((exp) => (
+              {experienceHighlights.map((exp, index) => (
                 <div
                   key={exp.project}
-                  className="rounded-lg border border-gray-200 bg-white/50 p-6 backdrop-blur dark:border-gray-800 dark:bg-gray-900/50"
+                  style={{
+                    animationDelay: `${0.5 + index * 0.1}s`,
+                  }}
+                  className="animate-fade-up rounded-lg border border-gray-200 bg-white/50 p-6 opacity-0 backdrop-blur dark:border-gray-800 dark:bg-gray-900/50"
                 >
                   <h3 className="mb-2 text-xl font-semibold text-gray-900 dark:text-white">
                     {exp.role}

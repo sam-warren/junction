@@ -20,14 +20,14 @@ const CollapsibleSection: React.FC<CollapsibleSectionProps> = ({
     <div className={`w-full ${className}`}>
       <button
         onClick={() => setIsExpanded(!isExpanded)}
-        className="relative flex w-full items-center rounded-lg bg-transparent py-2 text-left"
+        className="relative flex w-full items-center rounded-lg bg-transparent text-left"
       >
         <ChevronRight
           className={`absolute left-0 h-6 w-6 transform text-gray-900 transition-transform duration-200 ease-in-out dark:text-white ${
             isExpanded ? "rotate-90" : ""
           }`}
         />
-        <h2 className="pl-9 text-3xl font-bold text-gray-900 dark:text-white">
+        <h2 className="pl-9 text-2xl font-bold text-gray-900 dark:text-white">
           {title}
         </h2>
       </button>

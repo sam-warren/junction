@@ -1,45 +1,115 @@
 import { Link } from "react-router-dom";
+import {
+  Code2,
+  Database,
+  Workflow,
+  ShieldCheck,
+  ArrowRight,
+} from "lucide-react";
+
+const services = [
+  {
+    icon: <Code2 className="h-8 w-8 text-blue-500" />,
+    title: "Custom Development",
+    description:
+      "Tailored software solutions that bridge legacy systems with modern technology, ensuring seamless integration and optimal performance.",
+  },
+  {
+    icon: <Database className="h-8 w-8 text-blue-500" />,
+    title: "System Integration",
+    description:
+      "Expert integration of diverse systems and databases, creating unified solutions that enhance operational efficiency.",
+  },
+  {
+    icon: <Workflow className="h-8 w-8 text-blue-500" />,
+    title: "Process Automation",
+    description:
+      "Streamline workflows and reduce manual tasks with intelligent automation solutions designed for your specific needs.",
+  },
+  {
+    icon: <ShieldCheck className="h-8 w-8 text-blue-500" />,
+    title: "Security Solutions",
+    description:
+      "Robust security implementations that protect your systems and data while maintaining compliance with industry standards.",
+  },
+];
 
 const HeroSection = () => {
   return (
-    <section className="relative flex min-h-screen items-center">
-      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-4xl text-center">
-          <h1 className="tracking-tigh px-2 text-3xl font-extrabold sm:text-5xl md:text-6xl">
-            <span className="block animate-fade-up text-gray-700 opacity-0 dark:text-gray-200">
+    <section className="relative flex min-h-screen flex-col pb-24 sm:pb-12">
+      <div className="mx-auto w-full max-w-7xl px-4 pt-32 sm:px-6 lg:px-8">
+        {/* Main hero content */}
+        <div className="relative mx-auto max-w-4xl text-center">
+          <h1 className="px-2 text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl">
+            <span className="block animate-fade-up text-gray-900 opacity-0 dark:text-gray-100">
               Where Modern Systems
             </span>
-            <span className="inline-block animate-fade-up-200 bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 bg-clip-text text-6xl leading-normal text-transparent opacity-0 dark:from-blue-400 dark:via-blue-500 dark:to-blue-600">
+            <span className="mt-2 block animate-fade-up-200 bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 bg-clip-text pb-2 text-5xl leading-tight text-transparent opacity-0 sm:text-6xl md:text-7xl dark:from-blue-400 dark:via-blue-500 dark:to-blue-600">
               Converge
             </span>
           </h1>
           <div className="mt-6 space-y-2 px-4 sm:px-0">
-            <p className="animate-fade-up-400 text-lg leading-relaxed text-gray-500 opacity-0 sm:text-xl md:text-2xl dark:text-gray-400">
+            <p className="animate-fade-up-400 text-lg leading-relaxed text-gray-600 opacity-0 sm:text-xl md:text-2xl dark:text-gray-300">
               Specializing in bridging legacy infrastructure with cutting-edge
               technology.
             </p>
-            <p className="animate-fade-up-400 text-lg leading-relaxed text-gray-500 opacity-0 sm:text-xl md:text-2xl dark:text-gray-400">
+            <p className="animate-fade-up-400 text-lg leading-relaxed text-gray-600 opacity-0 sm:text-xl md:text-2xl dark:text-gray-300">
               We transform your complex technical challenges into efficient,
               modern solutions.
             </p>
           </div>
+
+          {/* CTA buttons */}
           <div className="mt-8 flex animate-fade-up-600 flex-col items-center justify-center gap-4 opacity-0 sm:mt-10 sm:flex-row">
             <Link
               to="/contact"
-              className="w-full rounded-md bg-blue-600 px-8 py-3 text-center text-base font-medium text-white transition-colors hover:bg-blue-700 sm:w-80 md:px-10 md:py-4 md:text-lg"
+              className="group relative w-full overflow-hidden rounded-md bg-blue-600 px-8 py-3 text-center text-base font-medium text-white transition-all hover:bg-blue-700 sm:w-80 md:px-10 md:py-4 md:text-lg"
             >
-              Get In Touch
+              <span className="relative z-10 flex items-center justify-center">
+                Get In Touch
+                <ArrowRight className="ml-2 h-5 w-5 transform transition-transform group-hover:translate-x-1" />
+              </span>
+              <div className="absolute inset-0 -translate-x-full transform bg-blue-700 transition-transform group-hover:translate-x-0"></div>
             </Link>
             <Link
               to="/about"
-              className="w-full rounded-md border border-gray-300 bg-white px-8 py-3 text-center text-base font-medium text-gray-700 transition-colors hover:border-gray-400 hover:bg-gray-100 hover:text-gray-900 sm:w-80 md:px-10 md:py-4 md:text-lg dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:border-gray-500 dark:hover:bg-gray-700 dark:hover:text-gray-100"
+              className="group w-full rounded-md border border-gray-300 bg-white px-8 py-3 text-center text-base font-medium text-gray-700 transition-all hover:border-gray-400 hover:bg-gray-50 sm:w-80 md:px-10 md:py-4 md:text-lg dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:border-gray-500 dark:hover:bg-gray-700"
             >
               Learn More
+              <ArrowRight className="ml-2 inline-block h-5 w-5 transform transition-transform group-hover:translate-x-1" />
             </Link>
+          </div>
+        </div>
+
+
+        {/* Services cards with staggered animation */}
+        <div className="mt-24">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {services.map((service, index) => (
+              <div
+                key={index}
+                style={{
+                  animationDelay: `${0.4 + index * 0.1}s`,
+                }}
+                className="group relative animate-fade-up overflow-hidden rounded-lg border border-gray-200 bg-white/50 p-6 opacity-0 backdrop-blur transition-all duration-500 hover:border-blue-200 hover:bg-blue-50/50 dark:border-gray-800 dark:bg-gray-900/50 dark:hover:border-blue-900 dark:hover:bg-blue-900/20"
+              >
+                <div className="absolute -right-10 -top-10 h-24 w-24 transform rounded-full bg-blue-50 transition-all duration-500 group-hover:scale-150 dark:bg-blue-900/20"></div>
+                <div className="relative flex h-full flex-col items-start">
+                  <div className="mb-4">{service.icon}</div>
+                  <h3 className="mb-2 text-xl font-semibold text-gray-900 dark:text-white">
+                    {service.title}
+                  </h3>
+                  <p className="text-left text-gray-600 dark:text-gray-300">
+                    {service.description}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
     </section>
   );
 };
+
 export default HeroSection;
