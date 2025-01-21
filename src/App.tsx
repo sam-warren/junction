@@ -6,8 +6,8 @@ import { ROUTES } from "./config/routes";
 
 function App() {
   return (
-    <Router>
-      <div>
+    <div className="h-full w-full">
+      <Router>
         <Analytics />
         <SpeedInsights />
         <Layout>
@@ -21,8 +21,8 @@ function App() {
             ))}
           </Routes>
         </Layout>
-      </div>
-    </Router>
+      </Router>
+    </div>
   );
 }
 
