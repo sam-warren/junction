@@ -9,12 +9,10 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className="relative flex min-h-screen flex-col bg-transparent">
+    <div className="relative flex min-h-[100dvh] flex-col bg-transparent pb-[env(safe-area-inset-bottom)]">
       <Header />
       <GridBackground />
-      <main className="relative flex-grow pt-16 lg:pt-0">
-        {children}
-      </main>
+      <main className="relative flex-grow pt-16 lg:pt-0">{children}</main>
       <Footer />
     </div>
   );
