@@ -6,23 +6,17 @@ import { ROUTES } from "./config/routes";
 
 function App() {
   return (
-    <div className="h-full w-full">
-      <Router>
-        <Analytics />
-        <SpeedInsights />
-        <Layout>
-          <Routes>
-            {ROUTES.map((route) => (
-              <Route
-                key={route.path}
-                path={route.path}
-                element={route.element}
-              />
-            ))}
-          </Routes>
-        </Layout>
-      </Router>
-    </div>
+    <Router>
+      <Analytics />
+      <SpeedInsights />
+      <Layout>
+        <Routes>
+          {ROUTES.map((route) => (
+            <Route key={route.path} path={route.path} element={route.element} />
+          ))}
+        </Routes>
+      </Layout>
+    </Router>
   );
 }
 

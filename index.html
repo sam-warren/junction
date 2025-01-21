@@ -2,12 +2,27 @@
 <html lang="en">
   <head>
     <style>
+      html {
+        background-color: rgb(
+          17 24 39
+        ); /* This is the dark:bg-gray-900 color */
+        color-scheme: dark;
+      }
+
       html,
       body,
       #root {
         min-height: 100%;
         margin: 0;
         padding: 0;
+        overscroll-behavior: none;
+      }
+
+      @media (prefers-color-scheme: light) {
+        html {
+          background-color: rgb(255 255 255); /* white */
+          color-scheme: light;
+        }
       }
     </style>
     <meta charset="UTF-8" />

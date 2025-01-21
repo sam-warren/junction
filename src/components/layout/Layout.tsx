@@ -9,12 +9,21 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className="relative flex min-h-[100dvh] flex-col bg-transparent pb-[env(safe-area-inset-bottom)]">
-      <Header />
-      <GridBackground />
-      <main className="relative flex-grow pt-16 lg:pt-0">{children}</main>
-      <Footer />
-    </div>
+    <>
+      {/* Fixed background layer */}
+      <div className="fixed inset-0 bg-white dark:bg-gray-900">
+        <GridBackground />
+      </div>
+
+      {/* Scrollable content layer */}
+      <div className="fixed inset-0 flex flex-col">
+        <Header />
+        <div className="relative flex-grow overflow-y-auto pb-[env(safe-area-inset-bottom)]">
+          <main className="relative pt-16 lg:pt-0">{children}</main>
+          <Footer />
+        </div>
+      </div>
+    </>
   );
 };
 

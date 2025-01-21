@@ -83,8 +83,7 @@ const GridBackground: React.FC = () => {
   const duration = getDuration(containerWidth);
 
   return (
-    <div ref={containerRef} className="pointer-events-none fixed inset-0">
-      <div className="absolute inset-0 bg-white dark:bg-gray-900" />
+    <div ref={containerRef} className="pointer-events-none h-full w-full">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/50 to-white dark:via-gray-900/50 dark:to-gray-900" />
       <div className="absolute inset-0">
         {logos.map((logo) => (
