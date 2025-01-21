@@ -211,17 +211,14 @@ const AboutSection: React.FC = () => {
   ];
 
   return (
-    <div className="relative min-h-screen">
+    <div className="relative">
       <section className="relative mx-auto w-full max-w-7xl p-4 sm:px-6 lg:px-8 lg:pt-40">
         {/* Introduction and Proficiency Grid Row */}
         <div className="mb-20 flex flex-col lg:flex-row lg:gap-16 xl:gap-24">
           {/* Left Column - Text Content */}
           <div className="mb-12 lg:mb-0 lg:w-1/2">
             <h2 className="mb-2 text-4xl font-bold text-gray-900 sm:text-5xl dark:text-white">
-              About{" "}
-              <span className="inline-block bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 bg-clip-text text-transparent dark:from-blue-400 dark:via-blue-500 dark:to-blue-600">
-                JunctionTech
-              </span>
+              About JunctionTech
             </h2>
             <p className="mb-12 text-lg text-gray-600 dark:text-gray-300">
               Specializing in bridging legacy systems with modern technology,

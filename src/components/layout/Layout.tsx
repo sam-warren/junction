@@ -12,7 +12,7 @@ const Layout = ({ children }: LayoutProps) => {
     <div className="relative flex min-h-screen flex-col bg-transparent">
       <Header />
       <GridBackground />
-      <main className="relative flex-grow overflow-y-auto pt-16 lg:pt-0">
+      <main className="relative flex-grow pt-16 lg:pt-0">
         {children}
       </main>
       <Footer />
