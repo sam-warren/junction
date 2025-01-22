@@ -90,7 +90,7 @@ const HeroSection = () => {
                 style={{
                   animationDelay: `${0.4 + index * 0.1}s`,
                 }}
-                className="group relative animate-fade-up overflow-hidden rounded-lg border border-gray-200 bg-white/50 p-6 opacity-0 backdrop-blur transition-all duration-500 hover:border-blue-200 hover:bg-blue-50/50 dark:border-gray-800 dark:bg-gray-900/50 dark:hover:border-blue-900 dark:hover:bg-blue-900/20"
+                className="group relative animate-fade-up overflow-hidden rounded-lg border border-gray-200 bg-white/20 p-6 opacity-0 backdrop-blur-[5px] transition-all duration-500 hover:border-blue-200 hover:bg-blue-50/50 dark:border-gray-800 dark:bg-gray-900/20 dark:hover:border-blue-900 dark:hover:bg-blue-900/20"
               >
                 <div className="absolute -right-10 -top-10 h-24 w-24 transform rounded-full bg-blue-50 transition-all duration-500 group-hover:scale-150 dark:bg-blue-900/20"></div>
                 <div className="relative flex h-full flex-col items-start">

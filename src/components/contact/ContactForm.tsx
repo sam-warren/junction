@@ -184,7 +184,8 @@ const ContactForm: React.FC = () => {
           <form
             onSubmit={handleSubmit}
             noValidate
-            className="relative rounded-lg border border-gray-200 bg-white/20 p-4 backdrop-blur-[3px] dark:border-gray-800 dark:bg-gray-900/20"          >
+            className="relative rounded-lg border border-gray-200 bg-white/20 p-4 backdrop-blur-[5px] dark:border-gray-800 dark:bg-gray-900/20"
+          >
             <div className="hidden">
               <input
                 type="text"
