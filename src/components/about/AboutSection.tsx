@@ -219,25 +219,26 @@ const AboutSection: React.FC = () => {
         <div className="mb-8 flex flex-col lg:mb-20 lg:flex-row lg:gap-16 xl:gap-24">
           {/* Left Column - Text Content */}
           <div className="mb-8 lg:mb-0 lg:w-1/2">
-            <h2 className="mb-2 text-3xl font-bold text-gray-900 dark:text-white">
+            <h2 className="mb-2 animate-fade-up text-3xl font-bold text-gray-900 dark:text-white">
               About JunctionTech
             </h2>
-            <p className="mb-8 text-lg text-gray-600 dark:text-gray-300">
+            <p className="mb-8 animate-fade-up text-lg text-gray-600 dark:text-gray-300">
               JunctionTech is an independent software consultancy specializing
-              in bridging legacy systems with modern technology. JunctionTech
-              delivers enterprise solutions that transform complex technical
-              challenges into practical, efficient, and beautiful systems.
+              in modernizing legacy systems with emerging technologies.
+              JunctionTech delivers enterprise solutions that transform complex
+              technical challenges into practical, efficient, and beautiful
+              systems.
             </p>
 
             <div className="divider my-6 h-px w-full bg-gray-200 lg:hidden dark:bg-gray-800"></div>
 
-            <h2 className="mb-2 text-3xl font-bold text-gray-900 dark:text-white">
+            <h2 className="mb-2 animate-fade-up-200 text-3xl font-bold text-gray-900 opacity-0 dark:text-white">
               <span className="inline-block bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 bg-clip-text text-transparent dark:from-blue-400 dark:via-blue-500 dark:to-blue-600">
                 Meet
               </span>{" "}
               Sam Warren
             </h2>
-            <div className="relative">
+            <div className="relative animate-fade-up-200 opacity-0">
               <div className="space-y-3 sm:space-y-4">
                 <p className="mt-0 text-base text-gray-600 sm:text-lg dark:text-gray-300">
                   Founder of JunctionTech and a Software Engineering graduate
@@ -256,7 +257,7 @@ const AboutSection: React.FC = () => {
             </div>
           </div>
 
-          <div className="divider my-6 h-px w-full bg-gray-200 lg:hidden dark:bg-gray-800"></div>
+          <div className="divider mb-6 h-px w-full bg-gray-200 lg:hidden dark:bg-gray-800"></div>
 
           {/* Right Column - Technical Expertise Grid */}
           <div className="lg:w-1/2">
@@ -349,9 +350,9 @@ const AboutSection: React.FC = () => {
         <div className="divider my-6 h-px w-full bg-gray-200 lg:hidden dark:bg-gray-800"></div>
 
         <div>
-          <div className="pb-4 lg:hidden">
+          <div className="lg:hidden">
             <CollapsibleSection title="Experience Highlights">
-              <div className="mt-4 space-y-4 sm:space-y-6">
+              <div className="mt-4 space-y-4 sm:space-y-6 md:mb-16">
                 {experienceHighlights.map((exp, index) => (
                   <div
                     key={exp.project}
@@ -387,7 +388,7 @@ const AboutSection: React.FC = () => {
               </div>
             </CollapsibleSection>
           </div>
-          <div className="mb-16 hidden sm:mb-24 lg:block">
+          <div className="hidden pb-16 lg:block">
             <h2 className="mb-4 text-3xl font-bold text-gray-900 dark:text-white">
               Experience Highlights
             </h2>
