@@ -225,9 +225,9 @@ const AboutSection: React.FC = () => {
             <p className="mb-8 animate-fade-up text-lg text-gray-600 dark:text-gray-300">
               JunctionTech is an independent software consultancy specializing
               in modernizing legacy systems with emerging technologies.
-              JunctionTech delivers enterprise solutions that transform complex
+              JunctionTech delivers enterprise software that transforms complex
               technical challenges into practical, efficient, and beautiful
-              systems.
+              solutions.
             </p>
 
             <div className="divider my-6 h-px w-full bg-gray-200 lg:hidden dark:bg-gray-800"></div>
@@ -250,8 +250,8 @@ const AboutSection: React.FC = () => {
                   Sam specializes in modern JavaScript frameworks, robust API
                   development, and cloud-native architecture. Working directly
                   with clients, Sam brings a personal commitment to delivering
-                  high-quality software solutions that exceed expectations and
-                  solve real business challenges.
+                  high-quality software solutions that exceed stakeholder
+                  expectations and solve real business challenges.
                 </p>
               </div>
             </div>

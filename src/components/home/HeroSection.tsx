@@ -24,7 +24,7 @@ const services = [
     icon: <Workflow className="h-8 w-8 text-blue-500" />,
     title: "Process Automation",
     description:
-      "Streamline workflows and reduce manual tasks with intelligent automation solutions designed for your specific needs.",
+      "Streamline workflows and reduce manual tasks with intelligent automation solutions designed for your specific business needs.",
   },
   {
     icon: <ShieldCheck className="h-8 w-8 text-blue-500" />,
