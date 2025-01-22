@@ -36,8 +36,8 @@ const services = [
 
 const HeroSection = () => {
   return (
-    <section className="relative flex min-h-screen flex-col pb-24 sm:pb-12">
-      <div className="mx-auto w-full max-w-7xl px-4 pt-40 sm:px-6 lg:px-8">
+    <section className="relative flex min-h-screen flex-col pb-4 md:pb-32">
+      <div className="mx-auto w-full max-w-7xl px-4 pt-24 sm:px-6 sm:pt-32 md:pt-40 lg:px-8">
         {/* Main hero content */}
         <div className="relative mx-auto max-w-4xl text-center">
           <h1 className="px-2 text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl">
