@@ -180,12 +180,11 @@ const ContactForm: React.FC = () => {
         </div>
 
         {/* Form with delayed fade-up animation */}
-        <div className="w-full animate-fade-up-400 bg-opacity-100 opacity-0 lg:w-1/2">
+        <div className="w-full animate-fade-up-400 bg-opacity-100 lg:w-1/2">
           <form
             onSubmit={handleSubmit}
             noValidate
-            className="relative rounded-lg border border-gray-200/50 bg-white/20 p-4 backdrop-blur dark:border-gray-800/50 dark:bg-gray-900/20"
-          >
+            className="relative rounded-lg border border-gray-200 bg-white/20 p-4 backdrop-blur-[3px] dark:border-gray-800 dark:bg-gray-900/20"          >
             <div className="hidden">
               <input
                 type="text"

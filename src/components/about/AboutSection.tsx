@@ -269,7 +269,7 @@ const AboutSection: React.FC = () => {
                       style={{
                         animationDelay: `${index * 0.1}s`,
                       }}
-                      className="animate-fade-up rounded-lg border border-gray-200 bg-white/50 p-6 opacity-0 backdrop-blur dark:border-gray-800 dark:bg-gray-900/50"
+                      className="animate-fade-up rounded-lg border border-gray-200 bg-white/20 p-6 opacity-0 backdrop-blur-[3px] dark:border-gray-800 dark:bg-gray-900/20"
                     >
                       <div className="flex flex-col">
                         <div className="mb-4 flex items-center">
@@ -312,7 +312,7 @@ const AboutSection: React.FC = () => {
                     style={{
                       animationDelay: `${index * 0.1}s`,
                     }}
-                    className="animate-fade-up rounded-lg border border-gray-200 bg-white/50 p-6 opacity-0 backdrop-blur dark:border-gray-800 dark:bg-gray-900/50"
+                    className="animate-fade-up rounded-lg border border-gray-200 bg-white/20 p-6 opacity-0 backdrop-blur-[3px] dark:border-gray-800 dark:bg-gray-900/20"
                   >
                     <div className="flex flex-col">
                       <div className="mb-4 flex items-center">
@@ -358,7 +358,7 @@ const AboutSection: React.FC = () => {
                     style={{
                       animationDelay: `${0.5 + index * 0.1}s`,
                     }}
-                    className="animate-fade-up rounded-lg border border-gray-200 bg-white/50 p-6 opacity-0 backdrop-blur dark:border-gray-800 dark:bg-gray-900/50"
+                    className="animate-fade-up rounded-lg border border-gray-200 bg-white/20 p-6 opacity-0 backdrop-blur-[3px] dark:border-gray-800 dark:bg-gray-900/20"
                   >
                     <h3 className="mb-2 text-xl font-semibold text-gray-900 dark:text-white">
                       {exp.role}
@@ -398,7 +398,7 @@ const AboutSection: React.FC = () => {
                   style={{
                     animationDelay: `${0.5 + index * 0.1}s`,
                   }}
-                  className="animate-fade-up rounded-lg border border-gray-200 bg-white/50 p-6 opacity-0 backdrop-blur dark:border-gray-800 dark:bg-gray-900/50"
+                  className="animate-fade-up rounded-lg border border-gray-200 bg-white/20 p-6 opacity-0 backdrop-blur-[3px] dark:border-gray-800 dark:bg-gray-900/20"
                 >
                   <h3 className="mb-2 text-xl font-semibold text-gray-900 dark:text-white">
                     {exp.role}

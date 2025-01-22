@@ -12,7 +12,7 @@ const services = [
     icon: <Code2 className="h-8 w-8 text-blue-500" />,
     title: "Custom Development",
     description:
-      "Tailored software solutions that bridge legacy systems with modern technology, ensuring seamless integration and optimal performance.",
+      "Custom tailored software solutions specific to your business needs, complete with beautiful interfaces and powerful functionality.",
   },
   {
     icon: <Database className="h-8 w-8 text-blue-500" />,
@@ -37,14 +37,14 @@ const services = [
 const HeroSection = () => {
   return (
     <section className="relative flex min-h-screen flex-col pb-24 sm:pb-12">
-      <div className="mx-auto w-full max-w-7xl px-4 pt-32 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-7xl px-4 pt-40 sm:px-6 lg:px-8">
         {/* Main hero content */}
         <div className="relative mx-auto max-w-4xl text-center">
           <h1 className="px-2 text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl">
             <span className="block animate-fade-up text-gray-900 opacity-0 dark:text-gray-100">
               Where Modern Systems
             </span>
-            <span className="mt-2 block animate-fade-up-200 bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 bg-clip-text pb-2 text-5xl leading-tight text-transparent opacity-0 sm:text-6xl md:text-7xl dark:from-blue-400 dark:via-blue-500 dark:to-blue-600">
+            <span className="mt-2 block animate-fade-up-200 bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 bg-clip-text pb-4 text-5xl leading-normal text-transparent opacity-0 sm:text-6xl md:text-7xl dark:from-blue-400 dark:via-blue-500 dark:to-blue-600">
               Converge
             </span>
           </h1>
@@ -80,7 +80,6 @@ const HeroSection = () => {
             </Link>
           </div>
         </div>
-
 
         {/* Services cards with staggered animation */}
         <div className="mt-24">
