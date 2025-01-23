@@ -28,6 +28,7 @@ import {
 } from "@/assets";
 import CollapsibleSection from "../ui/CollapsibleSection";
 import TechnologyChip from "../ui/TechnologyChip";
+import FrostedCard from "../ui/FrostedCard";
 
 interface Technology {
   name: string;
@@ -214,9 +215,9 @@ const AboutSection: React.FC = () => {
 
   return (
     <div className="relative">
-      <section className="relative mx-auto w-full max-w-7xl p-3 sm:p-4 sm:px-6 lg:px-8 pt-6 lg:pt-8">
+      <section className="relative mx-auto w-full max-w-7xl p-3 pt-6 sm:p-4 sm:px-6 lg:px-8 lg:pt-8">
         {/* Introduction and Proficiency Grid Row */}
-        <div className="mb-8 flex flex-col lg:mb-20 lg:flex-row lg:gap-16 xl:gap-24">
+        <div className="mb-8 flex flex-col lg:mb-12 lg:flex-row lg:gap-16 xl:gap-24">
           {/* Left Column - Text Content */}
           <div className="mb-8 lg:mb-0 lg:w-1/2">
             <h2 className="mb-2 animate-fade-up text-3xl font-bold text-gray-900 dark:text-white">
@@ -303,7 +304,7 @@ const AboutSection: React.FC = () => {
               </CollapsibleSection>
             </div>
             <div className="hidden lg:block">
-              <h2 className="mb-4 text-3xl font-bold text-gray-900 dark:text-white">
+              <h2 className="animate-fade-up opacity-0 mb-4 text-3xl font-bold text-gray-900 dark:text-white">
                 Specializations
               </h2>
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -311,7 +312,7 @@ const AboutSection: React.FC = () => {
                   <div
                     key={tech.category}
                     style={{
-                      animationDelay: `${index * 0.1}s`,
+                      animationDelay: `${0.1 + index * 0.1}s`,
                     }}
                     className="animate-fade-up rounded-lg border border-gray-200 bg-white/20 p-6 opacity-0 backdrop-blur-[5px] dark:border-gray-800 dark:bg-gray-900/20"
                   >
@@ -351,15 +352,15 @@ const AboutSection: React.FC = () => {
 
         <div>
           <div className="lg:hidden">
-            <CollapsibleSection title="Experience Highlights">
-              <div className="mt-4 space-y-4 sm:space-y-6 md:mb-16">
+            <CollapsibleSection title="Experience Highlights" className="pb-4">
+              <div className="mt-4 space-y-4 sm:space-y-4">
                 {experienceHighlights.map((exp, index) => (
-                  <div
+                  <FrostedCard
                     key={exp.project}
                     style={{
                       animationDelay: `${0.5 + index * 0.1}s`,
                     }}
-                    className="animate-fade-up rounded-lg border border-gray-200 bg-white/20 p-6 opacity-0 backdrop-blur-[5px] dark:border-gray-800 dark:bg-gray-900/20"
+                    className="animate-fade-up opacity-0"
                   >
                     <h3 className="mb-2 text-xl font-semibold text-gray-900 dark:text-white">
                       {exp.role}
@@ -383,23 +384,20 @@ const AboutSection: React.FC = () => {
                         />
                       ))}
                     </div>
-                  </div>
+                  </FrostedCard>
                 ))}
               </div>
             </CollapsibleSection>
           </div>
-          <div className="hidden lg:block">
-            <h2 className="mb-4 text-3xl font-bold text-gray-900 dark:text-white">
+          <div className="mb-6 hidden lg:block">
+            <h2 className="animate-fade-up-600 opacity-0 mb-4 text-3xl font-bold text-gray-900 dark:text-white">
               Experience Highlights
             </h2>
             <div className="space-y-6">
               {experienceHighlights.map((exp, index) => (
-                <div
-                  key={exp.project}
-                  style={{
-                    animationDelay: `${0.5 + index * 0.1}s`,
-                  }}
-                  className="animate-fade-up rounded-lg border border-gray-200 bg-white/20 p-6 opacity-0 backdrop-blur-[5px] dark:border-gray-800 dark:bg-gray-900/20"
+                <FrostedCard
+                  className="animate-fade-up opacity-0"
+                  style={{ animationDelay: `${0.5 + index * 0.1}s` }}
                 >
                   <h3 className="mb-2 text-xl font-semibold text-gray-900 dark:text-white">
                     {exp.role}
@@ -423,7 +421,7 @@ const AboutSection: React.FC = () => {
                       />
                     ))}
                   </div>
-                </div>
+                </FrostedCard>
               ))}
             </div>
           </div>

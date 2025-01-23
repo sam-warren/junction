@@ -6,6 +6,7 @@ import {
   ShieldCheck,
   ArrowRight,
 } from "lucide-react";
+import FrostedCard from "../ui/FrostedCard";
 
 const services = [
   {
@@ -37,13 +38,13 @@ const services = [
 const HeroSection = () => {
   return (
     <section className="relative flex flex-col">
-      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 pt-16 pb-8">
+      <div className="mx-auto w-full max-w-7xl px-4 pb-8 pt-16 sm:px-6 lg:px-8">
         <div className="relative mx-auto max-w-4xl text-center">
           <h1 className="px-2 text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
             <span className="block animate-fade-up text-gray-900 opacity-0 dark:text-gray-100">
               Where Modern Systems
             </span>
-            <span className="mt-1 block animate-fade-up-200 bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 bg-clip-text pb-2 text-5xl leading-normal text-transparent opacity-0 sm:mt-2 md:text-6xl lg:text-7xl dark:from-blue-400 dark:via-blue-500 dark:to-blue-600">
+            <span className="block animate-fade-up-200 bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 bg-clip-text md:pb-4 text-5xl leading-normal text-transparent opacity-0 sm:mt-0 md:text-6xl lg:pb-4 lg:text-7xl dark:from-blue-400 dark:via-blue-500 dark:to-blue-600">
               Converge
             </span>
           </h1>
@@ -57,8 +58,6 @@ const HeroSection = () => {
               modern solutions.
             </p>
           </div>
-
-          {/* CTA buttons */}
           <div className="mt-6 flex animate-fade-up-600 flex-col items-center justify-center gap-3 opacity-0 sm:mt-8 sm:flex-row sm:gap-4">
             <Link
               to="/contact"
@@ -79,15 +78,13 @@ const HeroSection = () => {
             </Link>
           </div>
         </div>
-
-        {/* Services cards with staggered animation */}
-        <div className="mt-8">
+        <div className="mt-8 lg:mt-16">
           <div className="grid grid-cols-1 gap-4 sm:gap-5 md:gap-6 lg:grid-cols-4">
             {services.map((service, index) => (
-              <div
+              <FrostedCard
                 key={index}
                 style={{ animationDelay: `${0.4 + index * 0.1}s` }}
-                className="group relative animate-fade-up overflow-hidden rounded-lg border border-gray-200 bg-white/20 p-4 opacity-0 backdrop-blur-[5px] transition-all duration-500 hover:border-blue-200 hover:bg-blue-50/50 sm:p-5 md:p-6 dark:border-gray-800 dark:bg-gray-900/20 dark:hover:border-blue-900 dark:hover:bg-blue-900/20"
+                className="group relative animate-fade-up overflow-hidden opacity-0 transition-all duration-500 hover:border-blue-200 hover:bg-blue-50/50 sm:p-5 md:p-6"
               >
                 <div className="absolute -right-10 -top-10 h-24 w-24 transform rounded-full bg-blue-50 transition-all duration-500 group-hover:scale-150 dark:bg-blue-900/20"></div>
                 <div className="relative flex h-full flex-col items-start">
@@ -99,7 +96,7 @@ const HeroSection = () => {
                     {service.description}
                   </p>
                 </div>
-              </div>
+              </FrostedCard>
             ))}
           </div>
         </div>

@@ -7,6 +7,7 @@ import {
   CheckCircle,
   XCircle,
 } from "lucide-react";
+import FrostedCard from "../ui/FrostedCard";
 
 interface FormData {
   name: string;
@@ -180,7 +181,7 @@ const ContactForm: React.FC = () => {
         </div>
 
         {/* Form with delayed fade-up animation */}
-        <div className="relative w-full animate-fade-up-400 rounded-lg border border-gray-200 bg-white/20 bg-opacity-100 p-4 opacity-0 backdrop-blur-[5px] lg:w-1/2 dark:border-gray-800 dark:bg-gray-900/20">
+        <FrostedCard className="relative w-full animate-fade-up-200 p-4 opacity-0 lg:w-1/2">
           <form onSubmit={handleSubmit} noValidate>
             <div className="hidden">
               <input
@@ -326,7 +327,7 @@ const ContactForm: React.FC = () => {
               )}
             </div>
           </form>
-        </div>
+        </FrostedCard>
       </div>
     </div>
   );
