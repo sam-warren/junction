@@ -18,11 +18,11 @@ const Logo = () => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 100 100"
-      className="h-6 w-auto transition-colors duration-300 sm:h-7 md:h-8 lg:h-9"
+      className="h-6 w-auto sm:h-7 md:h-8 lg:h-9"
     >
       <path
         id="middle-line"
-        className={`transition-colors duration-300 ${mounted ? "animate-draw delay-[1500ms]" : ""}`}
+        className={`${mounted ? "animate-draw delay-[1500ms]" : ""}`}
         d="M15,50 L95,50"
         style={{
           fill: "none",
@@ -36,7 +36,7 @@ const Logo = () => {
       />
       <path
         id="top-line"
-        className={`transition-colors duration-300 ${mounted ? "animate-draw delay-[1500ms]" : ""}`}
+        className={`${mounted ? "animate-draw delay-[1500ms]" : ""}`}
         d="M15,20 L55,20 L70,50"
         style={{
           fill: "none",
@@ -50,7 +50,7 @@ const Logo = () => {
       />
       <path
         id="bottom-line"
-        className={`transition-colors duration-300 ${mounted ? "animate-draw delay-[1500ms]" : ""}`}
+        className={`${mounted ? "animate-draw delay-[1500ms]" : ""}`}
         d="M15,80 L55,80 L70,50"
         style={{
           fill: "none",
