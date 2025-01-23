@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import GridBackground from "../ui/GridBackground";
 import Footer from "./Footer";
 import Header from "./Header";
+import BloomBackground from "../ui/BloomBackground";
 interface LayoutProps {
   children: ReactNode;
 }
@@ -11,6 +12,7 @@ const Layout = ({ children }: LayoutProps) => {
     <>
       <div className="fixed inset-0 bg-white dark:bg-gray-900">
         <GridBackground />
+        <BloomBackground />
       </div>
       <div className="fixed inset-0 flex flex-col">
         <div className="h-16 sm:h-16 lg:h-20" />

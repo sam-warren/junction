@@ -23,7 +23,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="fixed top-0 z-50 w-full border-b border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900">
+      <header className="fixed top-0 z-50 w-full border-b border-gray-200 bg-white/80 backdrop-blur-md dark:border-gray-800 dark:bg-gray-900/80">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between sm:h-16 lg:h-20">
             <Link
@@ -90,7 +90,7 @@ const Header = () => {
 
       {/* Slide-in Menu */}
       <div
-        className={`fixed bottom-0 left-0 right-0 top-0 z-40 flex justify-end transition-all duration-300 ease-in-out md:hidden ${
+        className={`fixed bottom-0 left-0 right-0 top-[4rem] z-40 flex justify-end transition-all duration-300 ease-in-out sm:top-[4rem] md:hidden lg:top-[5rem] ${
           isMenuOpen ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
       >
@@ -100,25 +100,10 @@ const Header = () => {
         />
 
         <div
-          className={`relative h-full w-72 transform overflow-y-auto bg-white transition-transform duration-300 ease-in-out dark:bg-gray-900 ${
+          className={`relative h-full w-72 transform overflow-y-auto bg-white/90 backdrop-blur-lg transition-transform duration-300 ease-in-out dark:bg-gray-900/90 ${
             isMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
-          <div className="flex h-16 items-center justify-between border-b border-gray-200 px-4 dark:border-gray-800">
-            <Link
-              to="/"
-              className="flex items-center space-x-2 transition-opacity hover:opacity-80"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <div className="h-8 w-8 text-gray-900 dark:text-white">
-                <Logo />
-              </div>
-              <span className="text-lg font-bold text-gray-900 dark:text-white">
-                JunctionTech
-              </span>
-            </Link>
-          </div>
-
           <div className="border-b border-gray-200 px-6 py-4 dark:border-gray-800">
             <div className="flex items-center justify-between">
               <span className="text-sm font-medium text-gray-600 dark:text-gray-300">

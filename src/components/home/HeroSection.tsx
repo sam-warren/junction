@@ -44,7 +44,7 @@ const HeroSection = () => {
             <span className="block animate-fade-up text-gray-900 opacity-0 dark:text-gray-100">
               Where Modern Systems
             </span>
-            <span className="block animate-fade-up-200 bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 bg-clip-text md:pb-4 text-5xl leading-normal text-transparent opacity-0 sm:mt-0 md:text-6xl lg:pb-4 lg:text-7xl dark:from-blue-400 dark:via-blue-500 dark:to-blue-600">
+            <span className="block animate-fade-up-200 bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 bg-clip-text text-5xl leading-normal text-transparent opacity-0 sm:mt-0 md:pb-4 md:text-6xl lg:pb-4 lg:text-7xl dark:from-blue-400 dark:via-blue-500 dark:to-blue-600">
               Converge
             </span>
           </h1>
@@ -84,7 +84,7 @@ const HeroSection = () => {
               <FrostedCard
                 key={index}
                 style={{ animationDelay: `${0.4 + index * 0.1}s` }}
-                className="group relative animate-fade-up overflow-hidden opacity-0 transition-all duration-500 hover:border-blue-200 hover:bg-blue-50/50 sm:p-5 md:p-6"
+                className="group relative animate-fade-up overflow-hidden opacity-0 transition-all duration-500 hover:border-blue-200 hover:bg-blue-50/50 sm:p-5 md:p-6 dark:hover:border-blue-900 dark:hover:bg-blue-900/20"
               >
                 <div className="absolute -right-10 -top-10 h-24 w-24 transform rounded-full bg-blue-50 transition-all duration-500 group-hover:scale-150 dark:bg-blue-900/20"></div>
                 <div className="relative flex h-full flex-col items-start">

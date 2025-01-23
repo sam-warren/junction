@@ -155,11 +155,11 @@ const ContactForm: React.FC = () => {
 
   const getInputClassName = (fieldName: string): string => {
     const baseClasses =
-      "relative w-full px-4 py-2 rounded-md border bg-white/100 dark:bg-gray-900/100 text-gray-600 dark:text-gray-400 placeholder-gray-400 dark:placeholder-gray-500 z-10";
+      "relative w-full px-4 py-2 rounded-md border bg-white/20 dark:bg-gray-900/20 backdrop-blur-md text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400";
     return `${baseClasses} ${
       errors[fieldName]
         ? "border-red-500 focus:border-red-500"
-        : "border-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-400"
+        : "border-gray-200 dark:border-gray-800 focus:border-blue-400 dark:focus:border-blue-400"
     }`;
   };
 
