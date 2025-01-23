@@ -155,7 +155,7 @@ const ContactForm: React.FC = () => {
 
   const getInputClassName = (fieldName: string): string => {
     const baseClasses =
-      "relative w-full px-4 py-2 rounded-md border bg-white/20 dark:bg-gray-900/20 backdrop-blur-md text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400";
+      "relative w-full px-4 py-2 rounded-md border bg-white/20 dark:bg-gray-900/20 backdrop-blur-[5px] text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400";
     return `${baseClasses} ${
       errors[fieldName]
         ? "border-red-500 focus:border-red-500"
