@@ -215,7 +215,7 @@ const AboutSection: React.FC = () => {
 
   return (
     <div className="relative">
-      <section className="relative mx-auto w-full max-w-7xl p-3 pt-6 sm:p-4 sm:px-6 lg:px-8 lg:pt-8">
+      <section className="relative mx-auto w-full max-w-7xl p-3 pt-6 sm:p-4 px-2 sm:px-6 lg:px-8 lg:pt-8">
         {/* Introduction and Proficiency Grid Row */}
         <div className="mb-8 flex flex-col lg:mb-12 lg:flex-row lg:gap-16 xl:gap-24">
           {/* Left Column - Text Content */}

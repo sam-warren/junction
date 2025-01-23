@@ -155,7 +155,7 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <div className="relative mx-auto w-full max-w-7xl p-4 pb-6 pt-6 sm:px-6 lg:px-8 lg:pt-8">
+    <div className="relative mx-auto w-full max-w-7xl p-4 pb-6 pt-6 px-2 sm:px-6 lg:px-8 lg:pt-8">
       {alert && (
         <Alert
           type={alert.type}
