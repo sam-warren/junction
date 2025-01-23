@@ -36,9 +36,8 @@ const services = [
 
 const HeroSection = () => {
   return (
-    <section className="relative flex min-h-screen flex-col pb-4 md:pb-32">
-      <div className="mx-auto w-full max-w-7xl px-4 pt-12 sm:px-6 md:pt-24 lg:px-8 lg:pt-40">
-        {/* Main hero content */}
+    <section className="relative flex flex-col">
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 pt-16 pb-8">
         <div className="relative mx-auto max-w-4xl text-center">
           <h1 className="px-2 text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
             <span className="block animate-fade-up text-gray-900 opacity-0 dark:text-gray-100">
@@ -82,7 +81,7 @@ const HeroSection = () => {
         </div>
 
         {/* Services cards with staggered animation */}
-        <div className="mt-12 sm:mt-16 md:mt-20 lg:mt-24">
+        <div className="mt-8">
           <div className="grid grid-cols-1 gap-4 sm:gap-5 md:gap-6 lg:grid-cols-4">
             {services.map((service, index) => (
               <div

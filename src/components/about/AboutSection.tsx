@@ -214,7 +214,7 @@ const AboutSection: React.FC = () => {
 
   return (
     <div className="relative">
-      <section className="relative mx-auto w-full max-w-7xl p-3 sm:p-4 sm:px-6 lg:px-8 lg:pt-40">
+      <section className="relative mx-auto w-full max-w-7xl p-3 sm:p-4 sm:px-6 lg:px-8 pt-6 lg:pt-8">
         {/* Introduction and Proficiency Grid Row */}
         <div className="mb-8 flex flex-col lg:mb-20 lg:flex-row lg:gap-16 xl:gap-24">
           {/* Left Column - Text Content */}
@@ -388,7 +388,7 @@ const AboutSection: React.FC = () => {
               </div>
             </CollapsibleSection>
           </div>
-          <div className="hidden pb-16 lg:block">
+          <div className="hidden lg:block">
             <h2 className="mb-4 text-3xl font-bold text-gray-900 dark:text-white">
               Experience Highlights
             </h2>

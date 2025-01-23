@@ -163,7 +163,7 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <div className="relative mx-auto w-full max-w-7xl p-4 sm:px-6 lg:px-8 lg:pt-40">
+    <div className="relative mx-auto w-full max-w-7xl p-4 pt-6 sm:px-6 lg:px-8 lg:pt-8">
       <div className="flex flex-col lg:flex-row lg:items-start lg:gap-10">
         {/* Text content with fade-up animation */}
         <div className="mb-4 animate-fade-up opacity-0 lg:mb-0 lg:flex-1 lg:self-auto">
