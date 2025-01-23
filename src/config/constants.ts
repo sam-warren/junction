@@ -9,7 +9,7 @@ export const SOCIAL_LINKS = [
   },
   {
     name: "LinkedIn",
-    href: "https://www.linkedin.com/in/samwarrendev/",
+    href: "https://www.linkedin.com/company/junctiontech",
     icon: linkedinIcon,
   },
 ] as const;
