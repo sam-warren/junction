@@ -390,7 +390,7 @@ const AboutSection: React.FC = () => {
             </CollapsibleSection>
           </div>
           <div className="mb-6 hidden lg:block">
-            <h2 className="animate-fade-up-600 opacity-0 mb-4 text-3xl font-bold text-gray-900 dark:text-white">
+            <h2 className="animate-fade-up-800 opacity-0 mb-4 text-3xl font-bold text-gray-900 dark:text-white">
               Experience Highlights
             </h2>
             <div className="space-y-6">
