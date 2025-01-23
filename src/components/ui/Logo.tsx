@@ -4,8 +4,14 @@ const Logo = () => {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
-    return () => setMounted(false);
+    const timer = setTimeout(() => {
+      setMounted(true);
+    }, 1200);
+
+    return () => {
+      clearTimeout(timer);
+      setMounted(false);
+    };
   }, []);
 
   return (
@@ -16,7 +22,7 @@ const Logo = () => {
     >
       <path
         id="middle-line"
-        className={`transition-colors duration-300 ${mounted ? "animate-draw delay-500" : ""}`}
+        className={`transition-colors duration-300 ${mounted ? "animate-draw delay-[1500ms]" : ""}`}
         d="M15,50 L95,50"
         style={{
           fill: "none",
@@ -30,7 +36,7 @@ const Logo = () => {
       />
       <path
         id="top-line"
-        className={`transition-colors duration-300 ${mounted ? "animate-draw delay-500" : ""}`}
+        className={`transition-colors duration-300 ${mounted ? "animate-draw delay-[1500ms]" : ""}`}
         d="M15,20 L55,20 L70,50"
         style={{
           fill: "none",
@@ -44,7 +50,7 @@ const Logo = () => {
       />
       <path
         id="bottom-line"
-        className={`transition-colors duration-300 ${mounted ? "animate-draw delay-500" : ""}`}
+        className={`transition-colors duration-300 ${mounted ? "animate-draw delay-[1500ms]" : ""}`}
         d="M15,80 L55,80 L70,50"
         style={{
           fill: "none",

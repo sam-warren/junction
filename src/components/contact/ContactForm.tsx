@@ -1,13 +1,7 @@
-import React, { useState, ChangeEvent, FormEvent } from "react";
-import {
-  Loader,
-  UserCircle,
-  Mail,
-  Pencil,
-  CheckCircle,
-  XCircle,
-} from "lucide-react";
-import FrostedCard from "../ui/FrostedCard";
+import Alert from "@/components/ui/Alert";
+import FrostedCard from "@/components/ui/FrostedCard";
+import { Loader, Mail, Pencil, UserCircle, XCircle } from "lucide-react";
+import React, { ChangeEvent, FormEvent, useState } from "react";
 
 interface FormData {
   name: string;
@@ -20,8 +14,8 @@ interface FormErrors {
   [key: string]: string;
 }
 
-interface SubmitStatus {
-  type: "" | "success" | "error";
+interface AlertState {
+  type: "success" | "error";
   message: string;
 }
 
@@ -42,10 +36,7 @@ const ContactForm: React.FC = () => {
   });
 
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-  const [submitStatus, setSubmitStatus] = useState<SubmitStatus>({
-    type: "",
-    message: "",
-  });
+  const [alert, setAlert] = useState<AlertState | null>(null);
   const [errors, setErrors] = useState<FormErrors>({});
 
   const validateField = (name: FormField, value: string): string => {
@@ -88,7 +79,7 @@ const ContactForm: React.FC = () => {
     e.preventDefault();
 
     if (formData.honeypot) {
-      setSubmitStatus({
+      setAlert({
         type: "error",
         message: "Form submission failed.",
       });
@@ -127,7 +118,7 @@ const ContactForm: React.FC = () => {
         throw new Error(data.error || "Failed to send message");
       }
 
-      setSubmitStatus({
+      setAlert({
         type: "success",
         message: "Message sent successfully! We'll get back to you soon.",
       });
@@ -141,7 +132,7 @@ const ContactForm: React.FC = () => {
       setErrors({});
     } catch (error) {
       console.error("Contact form error:", error);
-      setSubmitStatus({
+      setAlert({
         type: "error",
         message:
           error instanceof Error
@@ -165,6 +156,14 @@ const ContactForm: React.FC = () => {
 
   return (
     <div className="relative mx-auto w-full max-w-7xl p-4 pb-6 pt-6 sm:px-6 lg:px-8 lg:pt-8">
+      {alert && (
+        <Alert
+          type={alert.type}
+          message={alert.message}
+          onDismiss={() => setAlert(null)}
+        />
+      )}
+
       <div className="flex flex-col lg:flex-row lg:items-start lg:gap-10">
         {/* Text content with fade-up animation */}
         <div className="mb-4 animate-fade-up opacity-0 lg:mb-0 lg:flex-1 lg:self-auto">
@@ -175,8 +174,8 @@ const ContactForm: React.FC = () => {
             </span>
           </h2>
           <p className="pt-2 text-lg text-gray-600 dark:text-gray-400">
-            Your enterprise deserves solutions that bridge the gap between
-            established and emerging technologies. Let's make it happen.
+            Ready to start your next project? Share your vision and we'll help
+            bring it to life.
           </p>
         </div>
 
@@ -307,24 +306,6 @@ const ContactForm: React.FC = () => {
                   "Send Message"
                 )}
               </button>
-              {submitStatus.message && (
-                <div
-                  className={`rounded-md border p-4 ${
-                    submitStatus.type === "success"
-                      ? "border-green-200 bg-green-50 text-green-800 dark:border-green-900 dark:bg-green-900/30 dark:text-green-200"
-                      : "border-red-200 bg-red-50 text-red-800 dark:border-red-900 dark:bg-red-900/30 dark:text-red-200"
-                  }`}
-                >
-                  <div className="flex items-center">
-                    {submitStatus.type === "success" ? (
-                      <CheckCircle className="mr-2 h-5 w-5 text-green-600" />
-                    ) : (
-                      <XCircle className="mr-2 h-5 w-5 text-red-600" />
-                    )}
-                    <p>{submitStatus.message}</p>
-                  </div>
-                </div>
-              )}
             </div>
           </form>
         </FrostedCard>

@@ -3,6 +3,7 @@ import GridBackground from "../ui/GridBackground";
 import Footer from "./Footer";
 import Header from "./Header";
 import BloomBackground from "../ui/BloomBackground";
+
 interface LayoutProps {
   children: ReactNode;
 }
@@ -10,7 +11,7 @@ interface LayoutProps {
 const Layout = ({ children }: LayoutProps) => {
   return (
     <>
-      <div className="fixed inset-0 bg-white dark:bg-gray-900">
+      <div className="fixed inset-0 bg-white transition-colors duration-300 dark:bg-gray-900">
         <GridBackground />
         <BloomBackground />
       </div>

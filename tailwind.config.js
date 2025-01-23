@@ -86,6 +86,26 @@ export default {
             transform: "translateY(-6px)",
           },
         },
+        slideDown: {
+          '0%': { 
+            transform: 'translate(-50%, -100%)',
+            opacity: '0'
+          },
+          '100%': { 
+            transform: 'translate(-50%, 0)',
+            opacity: '1'
+          }
+        },
+        slideUp: {
+          '0%': { 
+            transform: 'translate(-50%, 0)',
+            opacity: '1'
+          },
+          '100%': { 
+            transform: 'translate(-50%, -100%)',
+            opacity: '0'
+          }
+        }
       },
       animation: {
         "background-float": "float 20s linear infinite",
@@ -104,6 +124,8 @@ export default {
         "fade-up-1000": "fade-in-up 0.4s ease-out forwards 0.5s",
         "fade-up-1200": "fade-in-up 0.4s ease-out forwards 0.6s",
         "fade-up-1400": "fade-in-up 0.4s ease-out forwards 0.7s",
+        "slide-down": "slideDown 0.3s ease-out forwards",
+        "slide-up": "slideUp 0.3s ease-out forwards"
       },
     },
   },
