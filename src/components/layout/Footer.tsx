@@ -27,7 +27,7 @@ const Footer = () => {
           </div>
           {/* Company Info - Centered */}
           <div className="absolute left-1/2 -translate-x-1/2 transform text-center text-sm text-gray-500 dark:text-gray-400">
-            JunctionTech — {currentYear}
+            JunctionTech Inc. — {currentYear}
           </div>
         </div>
       </div>

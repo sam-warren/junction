@@ -157,7 +157,7 @@ const Header = () => {
                 ))}
               </div>
               <div className="text-center text-sm text-gray-500 dark:text-gray-400">
-                JunctionTech — {currentYear}
+                JunctionTech Inc. — {currentYear}
               </div>
             </div>
           </div>
