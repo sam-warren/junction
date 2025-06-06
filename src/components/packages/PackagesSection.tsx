@@ -16,7 +16,6 @@ interface ServicePackage {
   priceDetail: string;
   icon: React.ReactNode;
   features: PackageFeature[];
-  highlighted?: boolean;
   buttonText: string;
   buttonAction: string;
 }
@@ -46,7 +45,6 @@ const PackagesSection: React.FC = () => {
       price: "$5,000 CAD",
       priceDetail: "4-week turnaround",
       icon: <Star className="h-8 w-8 text-yellow-500" />,
-      highlighted: true,
       features: [
         { name: "Everything in Basic, plus:", included: true },
         { name: "Up to 10 pages (vs 5)", included: true },
@@ -91,16 +89,16 @@ const PackagesSection: React.FC = () => {
       <section className="relative mx-auto w-full max-w-7xl p-3 px-2 pt-6 sm:p-4 sm:px-6 lg:px-8 lg:pt-8">
         {/* Header */}
         <div className="mb-8 text-center lg:mb-12">
-          <h2 className="mb-4 animate-fade-up text-3xl font-bold text-gray-900 lg:text-4xl dark:text-white">
+          <h2 className="mb-4 animate-fade-up text-3xl font-bold leading-normal text-gray-900 lg:text-4xl dark:text-white">
             Service{" "}
-            <span className="inline-block bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 bg-clip-text text-transparent dark:from-blue-400 dark:via-blue-500 dark:to-blue-600">
+            <span className="inline-block bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 bg-clip-text leading-normal text-transparent dark:from-blue-400 dark:via-blue-500 dark:to-blue-600">
               Packages
             </span>
           </h2>
           <p className="mx-auto max-w-3xl animate-fade-up-200 text-lg text-gray-600 opacity-0 dark:text-gray-300">
             Choose the perfect package for your web development needs. All
-            packages include modern, responsive design, professional
-            deployment, and a 4-week turnaround time to get your business online quickly.
+            packages include modern, responsive design, professional deployment,
+            and a 4-week turnaround time to get your business online quickly.
           </p>
         </div>
 
@@ -109,71 +107,141 @@ const PackagesSection: React.FC = () => {
           <CollapsibleSection title="Choose Your Package">
             <div className="mt-6 space-y-8">
               {packages.map((pkg, index) => (
-                <div 
-                  key={pkg.name}
-                  className="relative"
-                >
-                  {pkg.highlighted && (
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10 rounded-full bg-blue-500 px-3 py-1 text-xs font-medium text-white">
-                      Most Popular
-                    </div>
-                  )}
+                <div key={pkg.name}>
                   <FrostedCard
                     style={{
                       animationDelay: `${index * 0.1}s`,
                     }}
-                    className={`animate-fade-up opacity-0 ${
-                      pkg.highlighted
-                        ? "ring-2 ring-blue-500 dark:ring-blue-400"
-                        : ""
-                    }`}
+                    className="animate-fade-up opacity-0"
                   >
                     <div>
+                      <div className="mb-4 flex items-center justify-between">
+                        <div className="flex items-center">
+                          {pkg.icon}
+                          <h3 className="ml-3 text-2xl font-bold text-gray-900 dark:text-white">
+                            {pkg.name}
+                          </h3>
+                        </div>
+                        <div className="text-right">
+                          <div className="text-2xl font-bold text-gray-900 dark:text-white">
+                            {pkg.price}
+                          </div>
+                          <div className="text-sm text-gray-600 dark:text-gray-400">
+                            {pkg.priceDetail}
+                          </div>
+                        </div>
+                      </div>
 
-                    <div className="mb-4 flex items-center justify-between">
-                      <div className="flex items-center">
-                        {pkg.icon}
-                        <h3 className="ml-3 text-2xl font-bold text-gray-900 dark:text-white">
-                          {pkg.name}
-                        </h3>
+                      <p className="mb-6 text-gray-600 dark:text-gray-300">
+                        {pkg.subtitle}
+                      </p>
+
+                      <div className="mb-6 space-y-3">
+                        {pkg.features.map((feature) => (
+                          <div key={feature.name} className="flex items-center">
+                            {feature.name.startsWith("Everything in") ? (
+                              <>
+                                <div className="flex h-5 w-5 items-center justify-center">
+                                  <div className="h-2 w-2 rounded-full bg-blue-500"></div>
+                                </div>
+                                <span className="ml-3 font-medium text-blue-600 dark:text-blue-400">
+                                  {feature.name}
+                                </span>
+                              </>
+                            ) : (
+                              <>
+                                <Check
+                                  className={`h-5 w-5 ${
+                                    feature.included
+                                      ? "text-green-500"
+                                      : "text-gray-300 dark:text-gray-600"
+                                  }`}
+                                />
+                                <span
+                                  className={`ml-3 ${
+                                    feature.included
+                                      ? "text-gray-900 dark:text-white"
+                                      : "text-gray-400 dark:text-gray-500"
+                                  }`}
+                                >
+                                  {feature.name}
+                                </span>
+                              </>
+                            )}
+                          </div>
+                        ))}
                       </div>
-                      <div className="text-right">
-                        <div className="text-2xl font-bold text-gray-900 dark:text-white">
-                          {pkg.price}
-                        </div>
-                        <div className="text-sm text-gray-600 dark:text-gray-400">
-                          {pkg.priceDetail}
-                        </div>
-                      </div>
+
+                      <button
+                        onClick={() => handlePackageAction(pkg.buttonAction)}
+                        className="w-full rounded-lg bg-blue-600 px-6 py-3 font-medium text-white transition-colors hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600"
+                      >
+                        {pkg.buttonText}
+                      </button>
+                    </div>
+                  </FrostedCard>
+                </div>
+              ))}
+            </div>
+          </CollapsibleSection>
+        </div>
+
+        {/* Desktop Layout - Grid */}
+        <div className="hidden lg:block">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+            {packages.map((pkg, index) => (
+              <div key={pkg.name}>
+                <FrostedCard
+                  style={{
+                    animationDelay: `${0.3 + index * 0.1}s`,
+                  }}
+                  className="h-full animate-fade-up opacity-0"
+                >
+                  <div className="flex h-full flex-col">
+                    <div className="mb-4 flex items-center justify-center">
+                      {pkg.icon}
                     </div>
 
-                    <p className="mb-6 text-gray-600 dark:text-gray-300">
+                    <h3 className="mb-2 text-center text-2xl font-bold text-gray-900 dark:text-white">
+                      {pkg.name}
+                    </h3>
+
+                    <p className="mb-6 text-center text-gray-600 dark:text-gray-300">
                       {pkg.subtitle}
                     </p>
 
-                    <div className="mb-6 space-y-3">
+                    <div className="mb-6 text-center">
+                      <div className="text-3xl font-bold text-gray-900 dark:text-white">
+                        {pkg.price}
+                      </div>
+                      <div className="text-sm text-gray-600 dark:text-gray-400">
+                        {pkg.priceDetail}
+                      </div>
+                    </div>
+
+                    <div className="mb-6 flex-1 space-y-3">
                       {pkg.features.map((feature) => (
                         <div key={feature.name} className="flex items-center">
                           {feature.name.startsWith("Everything in") ? (
                             <>
-                              <div className="h-5 w-5 flex items-center justify-center">
+                              <div className="flex h-5 w-5 flex-shrink-0 items-center justify-center">
                                 <div className="h-2 w-2 rounded-full bg-blue-500"></div>
                               </div>
-                              <span className="ml-3 font-medium text-blue-600 dark:text-blue-400">
+                              <span className="ml-3 text-sm font-medium text-blue-600 dark:text-blue-400">
                                 {feature.name}
                               </span>
                             </>
                           ) : (
                             <>
                               <Check
-                                className={`h-5 w-5 ${
+                                className={`h-5 w-5 flex-shrink-0 ${
                                   feature.included
                                     ? "text-green-500"
                                     : "text-gray-300 dark:text-gray-600"
                                 }`}
                               />
                               <span
-                                className={`ml-3 ${
+                                className={`ml-3 text-sm ${
                                   feature.included
                                     ? "text-gray-900 dark:text-white"
                                     : "text-gray-400 dark:text-gray-500"
@@ -187,110 +255,9 @@ const PackagesSection: React.FC = () => {
                       ))}
                     </div>
 
-                    <button
-                      onClick={() => handlePackageAction(pkg.buttonAction)}
-                      className={`w-full rounded-lg px-6 py-3 font-medium transition-colors ${
-                        pkg.highlighted
-                          ? "bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600"
-                          : "bg-gray-100 text-gray-900 hover:bg-gray-200 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700"
-                      }`}
-                    >
-                      {pkg.buttonText}
-                    </button>
-                    </div>
-                  </FrostedCard>
-                </div>
-              ))}
-            </div>
-          </CollapsibleSection>
-        </div>
-
-        {/* Desktop Layout - Grid */}
-        <div className="hidden lg:block">
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-            {packages.map((pkg, index) => (
-              <div key={pkg.name} className="relative">
-                {pkg.highlighted && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10 rounded-full bg-blue-500 px-4 py-1 text-sm font-medium text-white">
-                    Most Popular
-                  </div>
-                )}
-                <FrostedCard
-                  style={{
-                    animationDelay: `${0.3 + index * 0.1}s`,
-                  }}
-                  className={`h-full animate-fade-up opacity-0 ${
-                    pkg.highlighted
-                      ? "scale-105 ring-2 ring-blue-500 dark:ring-blue-400"
-                      : ""
-                  }`}
-                >
-                  <div className="flex h-full flex-col">
-
-                  <div className="mb-4 flex items-center justify-center">
-                    {pkg.icon}
-                  </div>
-
-                  <h3 className="mb-2 text-center text-2xl font-bold text-gray-900 dark:text-white">
-                    {pkg.name}
-                  </h3>
-
-                  <p className="mb-6 text-center text-gray-600 dark:text-gray-300">
-                    {pkg.subtitle}
-                  </p>
-
-                  <div className="mb-6 text-center">
-                    <div className="text-3xl font-bold text-gray-900 dark:text-white">
-                      {pkg.price}
-                    </div>
-                    <div className="text-sm text-gray-600 dark:text-gray-400">
-                      {pkg.priceDetail}
-                    </div>
-                  </div>
-
-                  <div className="mb-6 flex-1 space-y-3">
-                    {pkg.features.map((feature) => (
-                      <div key={feature.name} className="flex items-center">
-                        {feature.name.startsWith("Everything in") ? (
-                          <>
-                            <div className="h-5 w-5 flex items-center justify-center flex-shrink-0">
-                              <div className="h-2 w-2 rounded-full bg-blue-500"></div>
-                            </div>
-                            <span className="ml-3 text-sm font-medium text-blue-600 dark:text-blue-400">
-                              {feature.name}
-                            </span>
-                          </>
-                        ) : (
-                          <>
-                            <Check
-                              className={`h-5 w-5 flex-shrink-0 ${
-                                feature.included
-                                  ? "text-green-500"
-                                  : "text-gray-300 dark:text-gray-600"
-                              }`}
-                            />
-                            <span
-                              className={`ml-3 text-sm ${
-                                feature.included
-                                  ? "text-gray-900 dark:text-white"
-                                  : "text-gray-400 dark:text-gray-500"
-                              }`}
-                            >
-                              {feature.name}
-                            </span>
-                          </>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-
-                  <button
+                                      <button
                     onClick={() => handlePackageAction(pkg.buttonAction)}
-                    className={`w-full rounded-lg px-6 py-3 font-medium transition-colors ${
-                      pkg.highlighted
-                        ? "bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600"
-                        : "bg-gray-100 text-gray-900 hover:bg-gray-200 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700"
-                    }`}
+                    className="w-full rounded-lg px-6 py-3 font-medium transition-colors bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600"
                   >
                     {pkg.buttonText}
                   </button>
