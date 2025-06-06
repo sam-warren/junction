@@ -1,7 +1,8 @@
 import AboutSection from "@/components/about/AboutSection";
 import ContactForm from "@/components/contact/ContactForm";
 import HeroSection from "@/components/home/HeroSection";
-import { Home, Info, LucideIcon, Mail } from "lucide-react";
+import PackagesSection from "@/components/packages/PackagesSection";
+import { Home, Info, LucideIcon, Mail, Package } from "lucide-react";
 import { ReactElement } from "react";
 
 interface RouteConfig {
@@ -23,6 +24,12 @@ export const ROUTES: RouteConfig[] = [
     label: "About",
     icon: Info,
     element: <AboutSection />,
+  },
+  {
+    path: "/packages",
+    label: "Packages",
+    icon: Package,
+    element: <PackagesSection />,
   },
   {
     path: "/contact",

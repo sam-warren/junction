@@ -15,6 +15,7 @@ import {
   MongoDBIcon,
   MUIIcon,
   MySQLIcon,
+  NextJSIcon,
   NodeIcon,
   OpenshiftIcon,
   PostgreSQLIcon,
@@ -22,13 +23,17 @@ import {
   ReactIcon,
   RedisIcon,
   ReduxIcon,
+  ShadcnIcon,
+  SupabaseIcon,
   TailwindIcon,
+  TanstackIcon,
   TypeScriptIcon,
+  VercelIcon,
   VueIcon,
 } from "@/assets";
 import CollapsibleSection from "../ui/CollapsibleSection";
-import TechnologyChip from "../ui/TechnologyChip";
 import FrostedCard from "../ui/FrostedCard";
+import TechnologyChip from "../ui/TechnologyChip";
 
 interface Technology {
   name: string;
@@ -55,20 +60,21 @@ const AboutSection: React.FC = () => {
       category: "Frontend",
       icon: <Code2 className="h-8 w-8 text-blue-500" />,
       items: [
+        { name: "Next.js", icon: NextJSIcon },
         { name: "React", icon: ReactIcon },
+        { name: "Shadcn", icon: ShadcnIcon },
+        { name: "Tanstack", icon: TanstackIcon },
         { name: "TypeScript", icon: TypeScriptIcon },
-        { name: "Tailwind CSS", icon: TailwindIcon },
-        { name: "Angular", icon: AngularIcon },
-        { name: "Vue.js", icon: VueIcon },
+        { name: "TailwindCSS", icon: TailwindIcon },
       ],
     },
     {
       category: "Backend",
       icon: <Server className="h-8 w-8 text-blue-500" />,
       items: [
+        { name: "Node.js", icon: NodeIcon },
         { name: "Microsoft .NET", icon: DotnetIcon },
         { name: "Django ORM", icon: DjangoIcon },
-        { name: "Node.js", icon: NodeIcon },
         { name: "GraphQL", icon: GraphQLIcon },
       ],
     },
@@ -76,6 +82,7 @@ const AboutSection: React.FC = () => {
       category: "Databases",
       icon: <Database className="h-8 w-8 text-blue-500" />,
       items: [
+        { name: "Supabase", icon: SupabaseIcon },
         { name: "PostgreSQL", icon: PostgreSQLIcon },
         { name: "MySQL", icon: MySQLIcon },
         { name: "Redis", icon: RedisIcon },
@@ -86,6 +93,7 @@ const AboutSection: React.FC = () => {
       category: "DevOps & Tools",
       icon: <GitBranch className="h-8 w-8 text-blue-500" />,
       items: [
+        { name: "Vercel", icon: VercelIcon },
         { name: "RedHat OpenShift", icon: OpenshiftIcon },
         { name: "Microsoft Dynamics", icon: DynamicsIcon },
         { name: "Microsoft Azure", icon: AzureIcon },
@@ -244,7 +252,7 @@ const AboutSection: React.FC = () => {
                 <p className="mt-0 text-base text-gray-600 sm:text-lg dark:text-gray-300">
                   Founder of JunctionTech and a Software Engineering graduate
                   from the University of Victoria, Sam is a Senior Full Stack
-                  Developer with six years of experience crafting resilient,
+                  Developer with 7 years of experience crafting resilient,
                   scalable enterprise applications.
                 </p>
                 <p className="text-base text-gray-600 sm:text-lg dark:text-gray-300">
