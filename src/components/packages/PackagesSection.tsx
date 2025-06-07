@@ -1,5 +1,6 @@
 import { Check, Package, Star, Zap } from "lucide-react";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 import FrostedCard from "../ui/FrostedCard";
 import CollapsibleSection from "../ui/CollapsibleSection";
@@ -21,6 +22,8 @@ interface ServicePackage {
 }
 
 const PackagesSection: React.FC = () => {
+  const navigate = useNavigate();
+  
   const packages: ServicePackage[] = [
     {
       name: "Basic",
@@ -79,8 +82,8 @@ const PackagesSection: React.FC = () => {
 
   const handlePackageAction = (action: string) => {
     if (action === "contact") {
-      // Navigate to contact page or open contact form
-      window.location.href = "/contact";
+      // Navigate to contact page using React Router
+      navigate("/contact");
     }
   };
 
