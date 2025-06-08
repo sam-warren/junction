@@ -1,8 +1,9 @@
 import { Check, Package, Star, Zap } from "lucide-react";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-import FrostedCard from "../ui/FrostedCard";
 import CollapsibleSection from "../ui/CollapsibleSection";
+import FrostedCard from "../ui/FrostedCard";
 
 interface PackageFeature {
   name: string;
@@ -21,6 +22,8 @@ interface ServicePackage {
 }
 
 const PackagesSection: React.FC = () => {
+  const navigate = useNavigate();
+
   const packages: ServicePackage[] = [
     {
       name: "Basic",
@@ -79,8 +82,8 @@ const PackagesSection: React.FC = () => {
 
   const handlePackageAction = (action: string) => {
     if (action === "contact") {
-      // Navigate to contact page or open contact form
-      window.location.href = "/contact";
+      // Navigate to contact page using React Router
+      navigate("/contact");
     }
   };
 
@@ -98,8 +101,46 @@ const PackagesSection: React.FC = () => {
           <p className="mx-auto max-w-3xl animate-fade-up-200 text-lg text-gray-600 opacity-0 dark:text-gray-300">
             Choose the perfect package for your web development needs. All
             packages include modern, responsive design, professional deployment,
-            and a 4-week turnaround time to get your business online quickly.
+            and quick turnaround time to get your business online quickly, no
+            matter the size.
           </p>
+        </div>
+
+        {/* Testimonial Section */}
+        <div className="mb-12">
+          <FrostedCard
+            style={{
+              animationDelay: "0.2s",
+            }}
+            className="animate-fade-up opacity-0"
+          >
+            <div className="text-center">
+              <div className="mb-6">
+                <img
+                  src="/Logan.jpg"
+                  alt="Logan Edgar"
+                  className="mx-auto h-16 w-16 rounded-full object-cover shadow-lg"
+                />
+              </div>
+              <blockquote className="mb-6 text-lg italic text-gray-700 dark:text-gray-300">
+                "Working with Sam at JunctionTech has been an absolute pleasure.
+                He completely transformed our online presence with a brand new
+                website that reflects the quality and professionalism of our
+                work. Sam's communication was clear and consistent throughout
+                the entire process, making it easy to stay on the same page from
+                concept to launch. The turnaround time was impressively quick,
+                and the end result exceeded our expectations. We're proud to
+                point clients to our site now, and that's all thanks to Sam's
+                hard work and expertise. Highly recommend."
+              </blockquote>
+              <div className="text-gray-900 dark:text-white">
+                <div className="font-semibold">Logan Edgar</div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">
+                  Clarke Engineering
+                </div>
+              </div>
+            </div>
+          </FrostedCard>
         </div>
 
         {/* Mobile Layout - Collapsible */}
@@ -255,12 +296,12 @@ const PackagesSection: React.FC = () => {
                       ))}
                     </div>
 
-                                      <button
-                    onClick={() => handlePackageAction(pkg.buttonAction)}
-                    className="w-full rounded-lg px-6 py-3 font-medium transition-colors bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600"
-                  >
-                    {pkg.buttonText}
-                  </button>
+                    <button
+                      onClick={() => handlePackageAction(pkg.buttonAction)}
+                      className="w-full rounded-lg bg-blue-600 px-6 py-3 font-medium text-white transition-colors hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600"
+                    >
+                      {pkg.buttonText}
+                    </button>
                   </div>
                 </FrostedCard>
               </div>
@@ -269,7 +310,7 @@ const PackagesSection: React.FC = () => {
         </div>
 
         {/* Additional Information */}
-        <div className="mt-12 text-center">
+        <div className="mb-12 mt-12 text-center">
           <FrostedCard className="animate-fade-up-800 opacity-0">
             <h3 className="mb-4 text-xl font-semibold text-gray-900 dark:text-white">
               What's Included in All Packages
