@@ -40,7 +40,7 @@ const Header = () => {
 
             <div className="flex items-center">
               <nav className="hidden items-center md:flex">
-                {ROUTES.map((route) => (
+                {ROUTES.filter(route => route.showInNav !== false).map((route) => (
                   <NavLink
                     key={route.path}
                     to={route.path}
@@ -114,7 +114,7 @@ const Header = () => {
           </div>
 
           <nav className="px-2 py-4">
-            {ROUTES.map((route) => {
+            {ROUTES.filter(route => route.showInNav !== false).map((route) => {
               const Icon = route.icon;
               return (
                 <NavLink
