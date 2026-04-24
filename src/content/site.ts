@@ -69,6 +69,11 @@ export const COPY = {
     eyebrow: "How we build",
     title: "Where design meets implementation.",
   },
+  approach: {
+    eyebrow: "Approach",
+    title: "How work moves.",
+    sub: "Research to production through four phases. Each reviewed, each demoable, each shipped.",
+  },
   stack: {
     eyebrow: "Stack",
   },

@@ -2,6 +2,7 @@
 import { Hero } from "./sections/Hero";
 import { Capabilities } from "./sections/Capabilities";
 import { Convergence } from "./sections/Convergence";
+import { Approach } from "./sections/Approach";
 import { Work } from "./sections/Work";
 import { StackMarquee } from "./sections/StackMarquee";
 import { About } from "./sections/About";
@@ -13,6 +14,7 @@ export default function HomePage() {
       <Hero />
       <Capabilities />
       <Convergence />
+      <Approach />
       <Work />
       <StackMarquee />
       <About />

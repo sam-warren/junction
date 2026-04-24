@@ -5,13 +5,13 @@ import { describe, it, expect } from "vitest";
 import HomePage from "./HomePage";
 
 describe("HomePage", () => {
-  it("renders all 7 section anchors", () => {
+  it("renders all 8 section anchors", () => {
     render(
       <MemoryRouter>
         <HomePage />
       </MemoryRouter>,
     );
-    ["hero", "capabilities", "how", "work", "stack", "about", "cta"].forEach((id) => {
+    ["hero", "capabilities", "how", "approach", "work", "stack", "about", "cta"].forEach((id) => {
       expect(document.getElementById(id)).not.toBeNull();
     });
   });
@@ -22,7 +22,9 @@ describe("HomePage", () => {
         <HomePage />
       </MemoryRouter>,
     );
-    // WordRotate cycles the noun after the prefix, so assert on the stable half.
-    expect(screen.getByText(/We Build/i)).toBeInTheDocument();
+    // WordRotate cycles the noun after the prefix, so assert on the stable
+    // half via the h1 role to avoid multi-match on bubbled textContent.
+    const heading = screen.getByRole("heading", { level: 1 });
+    expect(heading.textContent ?? "").toMatch(/We Build/i);
   });
 });

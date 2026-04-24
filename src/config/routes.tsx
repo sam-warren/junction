@@ -38,6 +38,7 @@ export const ROUTES: RouteConfig[] = [
 export const HOMEPAGE_SECTIONS = [
   { id: "capabilities", label: "Capabilities" },
   { id: "how", label: "How" },
+  { id: "approach", label: "Approach" },
   { id: "work", label: "Work" },
   { id: "about", label: "About" },
 ] as const;
