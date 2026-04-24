@@ -92,7 +92,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     slug: "cedh-io",
     client: "cedh.io",
     title: "Competitive EDH deck analysis",
-    year: "2024-Present",
+    year: "2026-Present",
     outcome:
       "Full-stack Magic: The Gathering analytics product. Proprietary aggregation of tournament APIs recommends cards for Competitive EDH decks.",
     tech: [
@@ -109,7 +109,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     kind: "product",
     metrics: [
       { label: "Active users", value: "1,500+" },
-      { label: "MRR", value: "$250 CAD" },
+      { label: "MRR", value: "$250" },
     ],
     link: "https://cedh.io",
   },
