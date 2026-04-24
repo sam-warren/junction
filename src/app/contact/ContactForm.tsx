@@ -94,7 +94,7 @@ export function ContactForm() {
         noValidate
         className="rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--surface-1)] p-2 shadow-[var(--shadow-md)] lg:p-2"
       >
-        <div className="space-y-4 p-6 lg:p-8">
+        <div className="space-y-4 p-4 sm:p-6 lg:p-8">
           <input
             type="text"
             name="honeypot"
