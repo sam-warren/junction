@@ -2,14 +2,13 @@
 import { Link } from "react-router-dom";
 import { BrandMark } from "@/components/ui/brand-mark";
 import { BRAND, SOCIAL_LINKS } from "@/content/site";
-import { HOMEPAGE_SECTIONS } from "@/config/routes";
 
 export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
     <footer className="border-t border-[var(--border)] py-12 lg:py-16">
-      <div className="mx-auto grid max-w-7xl gap-8 px-6 lg:grid-cols-3 lg:px-8">
+      <div className="mx-auto grid max-w-7xl gap-8 px-6 lg:grid-cols-2 lg:items-start lg:px-8">
         <div className="flex flex-col gap-3">
           <Link to="/" className="flex items-center gap-2 text-[var(--text-primary)]">
             <BrandMark variant="static" size="h-6 w-auto" />
@@ -19,27 +18,6 @@ export default function Footer() {
             {BRAND.full}
           </p>
         </div>
-
-        <nav className="flex flex-col gap-2 lg:items-center lg:justify-self-center">
-          <span className="text-[length:var(--text-mono-sm)] font-[family-name:var(--font-mono)] uppercase tracking-wider text-[var(--text-tertiary)]">
-            Pages
-          </span>
-          {HOMEPAGE_SECTIONS.map((s) => (
-            <a
-              key={s.id}
-              href={`/#${s.id}`}
-              className="text-[length:var(--text-body-sm)] text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
-            >
-              {s.label}
-            </a>
-          ))}
-          <Link
-            to="/contact"
-            className="text-[length:var(--text-body-sm)] text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
-          >
-            Contact
-          </Link>
-        </nav>
 
         <div className="flex flex-col gap-3 lg:items-end">
           <span className="text-[length:var(--text-mono-sm)] font-[family-name:var(--font-mono)] uppercase tracking-wider text-[var(--text-tertiary)]">

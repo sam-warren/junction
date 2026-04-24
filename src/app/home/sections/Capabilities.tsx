@@ -27,7 +27,7 @@ export function Capabilities() {
               <BlurFade key={cap.id} delay={0.15 + i * 0.08} inView>
                 <MagicCard
                   className={cn(
-                    "group relative h-full overflow-hidden rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--surface-1)] p-8 shadow-[var(--shadow-md)] transition-shadow duration-200 hover:shadow-[var(--shadow-lg)]",
+                    "group relative h-full cursor-default select-none overflow-hidden rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--surface-1)] p-8 shadow-[var(--shadow-md)] transition-shadow duration-200 hover:shadow-[var(--shadow-lg)]",
                     cap.feature && "lg:col-span-2",
                   )}
                   gradientColor="var(--brand-soft)"
