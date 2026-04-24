@@ -910,9 +910,10 @@ export const BRAND = {
   full: "Junction Technologies LTD.",
   short: "Junction",
   legalSuffix: "LTD.",
-  // PLACEHOLDER (DESIGN.md Risk #5) — finalize before Phase 14.
+  // Resolved 2026-04-23 (HANDOFF.md): domain stays junctiontech.ca,
+  // contact moves to brand-domain inbox.
   domain: "junctiontech.ca",
-  contactEmail: "samwarren4@gmail.com",
+  contactEmail: "sam@junctiontech.ca",
   founded: 2024,
   founder: {
     name: "Sam Warren",
