@@ -2,11 +2,15 @@
 import { Menu, X, ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { motion, AnimatePresence } from "motion/react";
+import {
+  motion,
+  AnimatePresence,
+  useScroll,
+  useTransform,
+} from "motion/react";
 import { BrandMark } from "@/components/ui/brand-mark";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
-import { useScrollProgress } from "@/hooks/use-scroll-progress";
 import { useSectionSpy } from "@/hooks/use-section-spy";
 import { HOMEPAGE_SECTIONS } from "@/config/routes";
 import { BRAND } from "@/content/site";
@@ -14,7 +18,13 @@ import { cn } from "@/lib/utils";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
-  const scrolled = useScrollProgress(80);
+  // Scroll-driven backdrop opacity. Ramps 0 -> 1 across the first 16px
+  // of scroll so the header is visually opaque before the hero's Lamp
+  // can slide under it. Uses a motion value (not a boolean + CSS
+  // transition) so there is no async 200ms window during which the Lamp
+  // bleeds through a transitioning header.
+  const { scrollY } = useScroll();
+  const bgOpacity = useTransform(scrollY, [0, 16], [0, 1]);
   const sectionIds = HOMEPAGE_SECTIONS.map((s) => s.id);
   const activeSection = useSectionSpy(sectionIds);
   const location = useLocation();
@@ -32,15 +42,13 @@ export default function Header() {
 
   return (
     <>
-      <header
-        className={cn(
-          "fixed top-0 z-50 w-full transition-[background-color,backdrop-filter,border-color] duration-200",
-          scrolled
-            ? "border-b border-[var(--border)] bg-[var(--canvas)]/80 backdrop-blur-xl"
-            : "border-b border-transparent bg-transparent",
-        )}
-      >
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:h-20 lg:px-8">
+      <header className="fixed top-0 z-50 w-full">
+        <motion.div
+          aria-hidden
+          style={{ opacity: bgOpacity }}
+          className="pointer-events-none absolute inset-0 border-b border-[var(--border)] bg-[var(--canvas)]/80 backdrop-blur-xl"
+        />
+        <div className="relative mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:h-20 lg:px-8">
           <Link
             to="/"
             className="flex items-center gap-2 text-[var(--text-primary)]"

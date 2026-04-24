@@ -973,7 +973,7 @@ export const COPY = {
   },
   convergence: {
     eyebrow: "How we connect systems",
-    title: "Where modern systems converge.",
+    title: "We Build Interfaces.",
   },
   stack: {
     eyebrow: "Stack",
@@ -2559,7 +2559,7 @@ export default function HomePage() {
 - [ ] **Step 1: `bun run dev` and visit `/#how`**
 
 Expected:
-- Section title "Where modern systems converge."
+- Section title "We Build Interfaces."
 - 3 left tech nodes (legacy: .NET, Dynamics, OpenShift)
 - Central BrandMark in a larger surface tile, monochrome
 - 3 right tech nodes (modern: React, Supabase, Vercel)

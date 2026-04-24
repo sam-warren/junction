@@ -54,7 +54,7 @@ The design takes inspiration from four references but is not a copy of any one o
 
 The brand promise — bridging legacy and modern systems — is reflected at three levels:
 1. **Wordmark**: the existing Junction logo (two paths converging on a horizontal line)
-2. **Section copy**: the Convergence section title is *"Where modern systems converge."*
+2. **Section copy**: the Convergence section title is *"We Build Interfaces."*
 3. **Signature visual**: the Convergence Diagram with `AnimatedBeam`s flowing through the brand mark
 
 ---
@@ -453,7 +453,7 @@ Suggested icon mapping:
 #### 6.1.3 Convergence Diagram (`#how`) — the signature visual moment
 
 - **Eyebrow**: `How we connect systems`
-- **H2**: *"Where modern systems converge."*
+- **H2**: *"We Build Interfaces."*
 - **Layout**: full-width section, centered diagram (`max-w-5xl`, ~480px tall on desktop)
 - **Diagram structure**:
   - **Left column** (3 stacked `TechNode` tiles, vertical): legacy stack — e.g., `.NET`, `OpenShift`, `MS Dynamics`
@@ -840,7 +840,7 @@ All occurrences of "JunctionTech", "JunctionTech Inc." across the codebase (curr
 | `src/components/about/AboutSection.tsx` | (deleted) | — | — |
 | `src/components/packages/PackagesSection.tsx` | (deleted) | — | — |
 | `src/config/constants.ts` | 7, 12 | URLs containing `junctiontech` | Keep slugs (SEO continuity); display text via `BRAND` |
-| `index.html` | 18, 33, 44 | `JunctionTech - Where Modern Systems Converge` | `Junction Technologies LTD.` |
+| `index.html` | 18, 33, 44 | `Junction: We Build Interfaces.` | `Junction Technologies LTD.` |
 | `README.md` | 1-9 | Various | Full rewrite for new brand + architecture |
 | `BLOG_SETUP.md` | (file deleted) | — | — |
 

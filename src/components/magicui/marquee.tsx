@@ -20,7 +20,10 @@ import {
 } from "motion/react";
 import { cn } from "@/lib/utils";
 
-interface MarqueeProps extends Omit<ComponentPropsWithoutRef<"div">, "children"> {
+interface MarqueeProps extends Omit<
+  ComponentPropsWithoutRef<"div">,
+  "children"
+> {
   children: ReactNode;
   className?: string;
   /** Scroll reverse direction (L-to-R for horizontal). */
@@ -122,10 +125,7 @@ export function Marquee({
       ref={rootRef}
       onMouseEnter={pauseOnHover ? () => speedTarget.set(0) : undefined}
       onMouseLeave={pauseOnHover ? () => speedTarget.set(1) : undefined}
-      className={cn(
-        "relative overflow-hidden p-2 [--gap:1rem]",
-        className,
-      )}
+      className={cn("relative overflow-hidden p-2 [--gap:1rem]", className)}
       {...props}
     >
       <motion.div
