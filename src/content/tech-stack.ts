@@ -27,7 +27,13 @@ import typescriptIcon from "@/assets/typescript.svg";
 import vercelIcon from "@/assets/vercel.svg";
 import vueIcon from "@/assets/vue.svg";
 
-export type TechCategory = "frontend" | "backend" | "database" | "devops" | "ai" | "legacy";
+export type TechCategory =
+  | "frontend"
+  | "backend"
+  | "database"
+  | "devops"
+  | "ai"
+  | "legacy";
 
 export interface Tech {
   name: string;
@@ -40,31 +46,159 @@ export interface Tech {
 }
 
 export const TECH_STACK: Tech[] = [
-  { name: "React", icon: reactIcon, category: "frontend", href: "https://react.dev/" },
-  { name: "Next.js", icon: nextjsIcon, category: "frontend", href: "https://nextjs.org/", darkLogo: true },
-  { name: "Vue.js", icon: vueIcon, category: "frontend", href: "https://vuejs.org/" },
-  { name: "Angular", icon: angularIcon, category: "legacy", href: "https://angular.io/" },
-  { name: "TypeScript", icon: typescriptIcon, category: "frontend", href: "https://www.typescriptlang.org/" },
-  { name: "Tailwind CSS", icon: tailwindIcon, category: "frontend", href: "https://tailwindcss.com/" },
-  { name: "shadcn/ui", icon: shadcnIcon, category: "frontend", href: "https://ui.shadcn.com/", darkLogo: true },
-  { name: "TanStack", icon: tanstackIcon, category: "frontend", href: "https://tanstack.com/" },
-  { name: "Redux", icon: reduxIcon, category: "frontend", href: "https://redux.js.org/" },
-  { name: "Material UI", icon: muiIcon, category: "frontend", href: "https://mui.com/" },
-  { name: "Node.js", icon: nodeIcon, category: "backend", href: "https://nodejs.org/" },
-  { name: ".NET", icon: dotnetIcon, category: "legacy", href: "https://dotnet.microsoft.com/" },
-  { name: "Python", icon: pythonIcon, category: "backend", href: "https://www.python.org/" },
-  { name: "GraphQL", icon: graphqlIcon, category: "backend", href: "https://graphql.org/" },
-  { name: "PostgreSQL", icon: postgresIcon, category: "database", href: "https://www.postgresql.org/" },
-  { name: "Supabase", icon: supabaseIcon, category: "database", href: "https://supabase.com/" },
-  { name: "MySQL", icon: mysqlIcon, category: "database", href: "https://www.mysql.com/" },
-  { name: "MongoDB", icon: mongoIcon, category: "database", href: "https://www.mongodb.com/" },
-  { name: "OpenShift", icon: openshiftIcon, category: "legacy", href: "https://www.openshift.com/" },
-  { name: "Microsoft Dynamics", icon: dynamicsIcon, category: "legacy", href: "https://dynamics.microsoft.com/" },
-  { name: "Azure", icon: azureIcon, category: "devops", href: "https://azure.microsoft.com/" },
-  { name: "Docker", icon: dockerIcon, category: "devops", href: "https://www.docker.com/" },
-  { name: "Kubernetes", icon: kubernetesIcon, category: "devops", href: "https://kubernetes.io/" },
-  { name: "Vercel", icon: vercelIcon, category: "devops", href: "https://vercel.com/", darkLogo: true },
-  { name: "Git", icon: gitIcon, category: "devops", href: "https://git-scm.com/" },
+  {
+    name: "React",
+    icon: reactIcon,
+    category: "frontend",
+    href: "https://react.dev/",
+  },
+  {
+    name: "Next.js",
+    icon: nextjsIcon,
+    category: "frontend",
+    href: "https://nextjs.org/",
+    darkLogo: true,
+  },
+  {
+    name: "Vue.js",
+    icon: vueIcon,
+    category: "frontend",
+    href: "https://vuejs.org/",
+  },
+  {
+    name: "Angular",
+    icon: angularIcon,
+    category: "legacy",
+    href: "https://angular.io/",
+  },
+  {
+    name: "TypeScript",
+    icon: typescriptIcon,
+    category: "frontend",
+    href: "https://www.typescriptlang.org/",
+  },
+  {
+    name: "Tailwind CSS",
+    icon: tailwindIcon,
+    category: "frontend",
+    href: "https://tailwindcss.com/",
+  },
+  {
+    name: "shadcn/ui",
+    icon: shadcnIcon,
+    category: "frontend",
+    href: "https://ui.shadcn.com/",
+    darkLogo: true,
+  },
+  {
+    name: "TanStack",
+    icon: tanstackIcon,
+    category: "frontend",
+    href: "https://tanstack.com/",
+  },
+  {
+    name: "Redux",
+    icon: reduxIcon,
+    category: "frontend",
+    href: "https://redux.js.org/",
+  },
+  {
+    name: "Material UI",
+    icon: muiIcon,
+    category: "frontend",
+    href: "https://mui.com/",
+  },
+  {
+    name: "Node.js",
+    icon: nodeIcon,
+    category: "backend",
+    href: "https://nodejs.org/",
+  },
+  {
+    name: ".NET",
+    icon: dotnetIcon,
+    category: "legacy",
+    href: "https://dotnet.microsoft.com/",
+  },
+  {
+    name: "Python",
+    icon: pythonIcon,
+    category: "backend",
+    href: "https://www.python.org/",
+  },
+  {
+    name: "GraphQL",
+    icon: graphqlIcon,
+    category: "backend",
+    href: "https://graphql.org/",
+  },
+  {
+    name: "PostgreSQL",
+    icon: postgresIcon,
+    category: "database",
+    href: "https://www.postgresql.org/",
+  },
+  {
+    name: "Supabase",
+    icon: supabaseIcon,
+    category: "database",
+    href: "https://supabase.com/",
+  },
+  {
+    name: "MySQL",
+    icon: mysqlIcon,
+    category: "database",
+    href: "https://www.mysql.com/",
+  },
+  {
+    name: "MongoDB",
+    icon: mongoIcon,
+    category: "database",
+    href: "https://www.mongodb.com/",
+  },
+  {
+    name: "OpenShift",
+    icon: openshiftIcon,
+    category: "legacy",
+    href: "https://www.openshift.com/",
+  },
+  {
+    name: "Microsoft Dynamics",
+    icon: dynamicsIcon,
+    category: "legacy",
+    href: "https://dynamics.microsoft.com/",
+  },
+  {
+    name: "Azure",
+    icon: azureIcon,
+    category: "devops",
+    href: "https://azure.microsoft.com/",
+  },
+  {
+    name: "Docker",
+    icon: dockerIcon,
+    category: "devops",
+    href: "https://www.docker.com/",
+  },
+  {
+    name: "Kubernetes",
+    icon: kubernetesIcon,
+    category: "devops",
+    href: "https://kubernetes.io/",
+  },
+  {
+    name: "Vercel",
+    icon: vercelIcon,
+    category: "devops",
+    href: "https://vercel.com/",
+    darkLogo: true,
+  },
+  {
+    name: "Git",
+    icon: gitIcon,
+    category: "devops",
+    href: "https://git-scm.com/",
+  },
 ];
 
 /** Helper: tech logos by category, used by Convergence + StackMarquee. */

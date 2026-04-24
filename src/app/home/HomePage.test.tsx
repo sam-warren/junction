@@ -11,7 +11,16 @@ describe("HomePage", () => {
         <HomePage />
       </MemoryRouter>,
     );
-    ["hero", "capabilities", "how", "approach", "work", "stack", "about", "cta"].forEach((id) => {
+    [
+      "hero",
+      "capabilities",
+      "how",
+      "approach",
+      "work",
+      "stack",
+      "about",
+      "cta",
+    ].forEach((id) => {
       expect(document.getElementById(id)).not.toBeNull();
     });
   });

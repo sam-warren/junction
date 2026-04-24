@@ -41,7 +41,10 @@ export default function Header() {
         )}
       >
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:h-20 lg:px-8">
-          <Link to="/" className="flex items-center gap-2 text-[var(--text-primary)]">
+          <Link
+            to="/"
+            className="flex items-center gap-2 text-[var(--text-primary)]"
+          >
             <BrandMark variant="static" size="h-5 w-auto sm:h-6" />
             <span className="text-lg font-semibold tracking-tight sm:text-xl">
               {BRAND.short}
@@ -82,7 +85,11 @@ export default function Header() {
 
           <div className="flex items-center gap-2">
             <Link to="/contact" className="hidden sm:block">
-              <Button size="sm" withBorderBeam iconRight={<ArrowRight className="h-4 w-4" />}>
+              <Button
+                size="sm"
+                withBorderBeam
+                iconRight={<ArrowRight className="h-4 w-4" />}
+              >
                 Start a project
               </Button>
             </Link>
@@ -113,7 +120,7 @@ export default function Header() {
               onClick={() => setOpen(false)}
             />
             <motion.aside
-              className="absolute right-0 top-0 h-full w-72 border-l border-[var(--border)] bg-[var(--surface-1)] p-6"
+              className="absolute top-0 right-0 h-full w-72 border-l border-[var(--border)] bg-[var(--surface-1)] p-6"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}

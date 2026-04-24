@@ -1,5 +1,13 @@
 // src/content/capabilities.ts
-import { Brain, Code2, LineChart, Network, PenTool, Server, type LucideIcon } from "lucide-react";
+import {
+  Brain,
+  Code2,
+  LineChart,
+  Network,
+  PenTool,
+  Server,
+  type LucideIcon,
+} from "lucide-react";
 
 export interface CapabilityCard {
   id: string;

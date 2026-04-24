@@ -26,7 +26,8 @@ const buttonStyles = cva(
 );
 
 export interface ButtonProps
-  extends ButtonHTMLAttributes<HTMLButtonElement>,
+  extends
+    ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonStyles> {
   withBorderBeam?: boolean;
   iconLeft?: ReactNode;
@@ -35,12 +36,25 @@ export interface ButtonProps
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
-    { className, variant, size, withBorderBeam, iconLeft, iconRight, children, ...props },
+    {
+      className,
+      variant,
+      size,
+      withBorderBeam,
+      iconLeft,
+      iconRight,
+      children,
+      ...props
+    },
     ref,
   ) => (
     <button
       ref={ref}
-      className={cn(buttonStyles({ variant, size }), "group overflow-hidden", className)}
+      className={cn(
+        buttonStyles({ variant, size }),
+        "group overflow-hidden",
+        className,
+      )}
       {...props}
     >
       {iconLeft}
