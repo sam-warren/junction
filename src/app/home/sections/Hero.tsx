@@ -92,7 +92,7 @@ export function Hero() {
       </motion.div>
 
       <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
-        <h1 className="text-[length:var(--text-display-xl)] leading-[0.95] font-semibold tracking-tight md:text-[length:var(--text-display-2xl)]">
+        <h1 className="text-[clamp(40px,8.5vw,80px)] leading-[0.95] font-semibold tracking-tight md:text-[clamp(50px,10.5vw,108px)]">
           <BlurFade delay={0} inView>
             <span className="block">{COPY.hero.headlinePrefix}</span>
           </BlurFade>
