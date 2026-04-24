@@ -192,49 +192,8 @@ export function Convergence() {
           </div>
         </BlurFade>
 
-        {/* Mobile: vertical stack, no beams */}
-        <BlurFade delay={0.2} inView className="block lg:hidden">
-          <div className="mt-12 flex flex-col items-center gap-6">
-            {LEGACY.map((tech) => (
-              <TechNode
-                key={tech.name}
-                name={tech.name}
-                icon={tech.icon}
-                darkLogo={tech.darkLogo}
-              />
-            ))}
-            <div className="grid h-24 w-24 place-items-center rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--surface-1)] shadow-[var(--shadow-lg)]">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 100 100"
-                className="h-12 w-12 text-[var(--color-brand-300)]"
-                aria-label="Junction"
-              >
-                {BRAND_PATHS.map((p, i) => (
-                  <path
-                    key={i}
-                    d={p.d}
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={10}
-                    strokeLinecap="round"
-                  />
-                ))}
-              </svg>
-            </div>
-            {MODERN.map((tech) => (
-              <TechNode
-                key={tech.name}
-                name={tech.name}
-                icon={tech.icon}
-                darkLogo={tech.darkLogo}
-              />
-            ))}
-          </div>
-        </BlurFade>
-
-        <BlurFade delay={0.35} inView>
-          <p className="mx-auto mt-12 max-w-3xl text-[length:var(--text-body-lg)] text-[var(--text-secondary)] lg:mt-16">
+        <BlurFade delay={0.25} inView>
+          <p className="mx-auto mt-8 max-w-3xl text-[length:var(--text-body-lg)] text-[var(--text-secondary)] lg:mt-16">
             {COPY.convergence.sub}
           </p>
         </BlurFade>

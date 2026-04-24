@@ -19,12 +19,10 @@ import postgresIcon from "@/assets/postgresql.svg";
 import pythonIcon from "@/assets/python.svg";
 import reactIcon from "@/assets/react.svg";
 import reduxIcon from "@/assets/redux.svg";
-import shadcnIcon from "@/assets/shadcn.svg";
 import supabaseIcon from "@/assets/supabase.svg";
 import tailwindIcon from "@/assets/tailwind.svg";
 import tanstackIcon from "@/assets/tanstack.svg";
 import typescriptIcon from "@/assets/typescript.svg";
-import vercelIcon from "@/assets/vercel.svg";
 import vueIcon from "@/assets/vue.svg";
 
 export type TechCategory =
@@ -82,13 +80,6 @@ export const TECH_STACK: Tech[] = [
     icon: tailwindIcon,
     category: "frontend",
     href: "https://tailwindcss.com/",
-  },
-  {
-    name: "shadcn/ui",
-    icon: shadcnIcon,
-    category: "frontend",
-    href: "https://ui.shadcn.com/",
-    darkLogo: true,
   },
   {
     name: "TanStack",
@@ -185,13 +176,6 @@ export const TECH_STACK: Tech[] = [
     icon: kubernetesIcon,
     category: "devops",
     href: "https://kubernetes.io/",
-  },
-  {
-    name: "Vercel",
-    icon: vercelIcon,
-    category: "devops",
-    href: "https://vercel.com/",
-    darkLogo: true,
   },
   {
     name: "Git",
