@@ -1,38 +1,72 @@
-import { SOCIAL_LINKS } from "@/config/constants";
+// src/components/layout/Footer.tsx
+import { Link } from "react-router-dom";
+import { BrandMark } from "@/components/ui/brand-mark";
+import { BRAND, SOCIAL_LINKS } from "@/content/site";
+import { HOMEPAGE_SECTIONS } from "@/config/routes";
 
-const Footer = () => {
-  const currentYear = new Date().getFullYear();
+export default function Footer() {
+  const year = new Date().getFullYear();
 
   return (
-    <footer className="fixed bottom-0 left-0 right-0 hidden border-t border-gray-200 bg-white/80 py-3 backdrop-blur-md md:block dark:border-gray-800 dark:bg-gray-900/80">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-4">
+    <footer className="border-t border-[var(--border)] py-12 lg:py-16">
+      <div className="mx-auto grid max-w-7xl gap-8 px-6 lg:grid-cols-3 lg:px-8">
+        <div className="flex flex-col gap-3">
+          <Link to="/" className="flex items-center gap-2 text-[var(--text-primary)]">
+            <BrandMark variant="static" size="h-6 w-auto" />
+            <span className="text-base font-semibold tracking-tight">{BRAND.short}</span>
+          </Link>
+          <p className="text-[length:var(--text-body-sm)] text-[var(--text-secondary)]">
+            {BRAND.full}
+          </p>
+        </div>
+
+        <nav className="flex flex-col gap-2 lg:items-center lg:justify-self-center">
+          <span className="text-[length:var(--text-mono-sm)] font-[family-name:var(--font-mono)] uppercase tracking-wider text-[var(--text-tertiary)]">
+            Pages
+          </span>
+          {HOMEPAGE_SECTIONS.map((s) => (
+            <a
+              key={s.id}
+              href={`/#${s.id}`}
+              className="text-[length:var(--text-body-sm)] text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
+            >
+              {s.label}
+            </a>
+          ))}
+          <Link
+            to="/contact"
+            className="text-[length:var(--text-body-sm)] text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
+          >
+            Contact
+          </Link>
+        </nav>
+
+        <div className="flex flex-col gap-3 lg:items-end">
+          <span className="text-[length:var(--text-mono-sm)] font-[family-name:var(--font-mono)] uppercase tracking-wider text-[var(--text-tertiary)]">
+            Elsewhere
+          </span>
+          <div className="flex items-center gap-3">
             {SOCIAL_LINKS.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center opacity-50 transition-opacity duration-300 hover:opacity-100"
                 aria-label={link.name}
+                className="grid h-10 w-10 place-items-center rounded-md text-[var(--text-secondary)] transition-colors hover:bg-[var(--surface-1)] hover:text-[var(--text-primary)]"
               >
-                <img
-                  src={link.icon}
-                  alt={link.name}
-                  className="h-6 w-6 filter dark:opacity-75 dark:invert"
-                />
+                <img src={link.icon} alt="" className="h-5 w-5 dark:invert" />
               </a>
             ))}
           </div>
-          {/* Company Info - Centered */}
-          <div className="absolute left-1/2 -translate-x-1/2 transform text-center text-sm text-gray-500 dark:text-gray-400">
-            JunctionTech Inc. — {currentYear}
-          </div>
         </div>
+      </div>
+
+      <div className="mx-auto mt-10 max-w-7xl border-t border-[var(--border)] px-6 pt-6 lg:px-8">
+        <p className="text-center text-[length:var(--text-mono-sm)] font-[family-name:var(--font-mono)] text-[var(--text-tertiary)]">
+          © {year} {BRAND.full}
+        </p>
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}
