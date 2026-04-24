@@ -1,50 +1,47 @@
-import React, { useEffect, useState } from "react";
-import { CheckCircle, XCircle } from "lucide-react";
+// src/components/ui/Alert.tsx
+import { CheckCircle2, XCircle, X } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
+import { cn } from "@/lib/utils";
 
 interface AlertProps {
-  message: string;
   type: "success" | "error";
-  onDismiss: () => void;
+  message: string;
+  onDismiss?: () => void;
 }
 
-const Alert: React.FC<AlertProps> = ({ message, type, onDismiss }) => {
-  const [show, setShow] = useState(false);
-
-  useEffect(() => {
-    requestAnimationFrame(() => {
-      setShow(true);
-    });
-
-    const timer = setTimeout(() => {
-      setShow(false);
-      setTimeout(onDismiss, 300);
-    }, 3000);
-
-    return () => clearTimeout(timer);
-  }, [onDismiss]);
+export default function Alert({ type, message, onDismiss }: AlertProps) {
+  const Icon = type === "success" ? CheckCircle2 : XCircle;
+  const tone =
+    type === "success"
+      ? "border-[var(--success)]/40 text-[var(--success)] bg-[color-mix(in_oklab,var(--success)_10%,transparent)]"
+      : "border-[var(--danger)]/40 text-[var(--danger)] bg-[color-mix(in_oklab,var(--danger)_10%,transparent)]";
 
   return (
-    <div className="fixed left-0 right-0 top-20 z-50 px-4 lg:top-24">
-      <div className="mx-auto max-w-xl">
-        <div
-          className={`transform rounded-lg shadow-lg transition-all duration-300 ease-out ${show ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0"} ${
-            type === "success"
-              ? "bg-green-50 text-green-800 dark:bg-green-900 dark:text-green-200"
-              : "bg-red-50 text-red-800 dark:bg-red-900 dark:text-red-200"
-          }`}
-        >
-          <div className="flex items-center gap-3 px-4 py-3">
-            {type === "success" ? (
-              <CheckCircle className="h-5 w-5 flex-shrink-0 text-green-500 dark:text-green-400" />
-            ) : (
-              <XCircle className="h-5 w-5 flex-shrink-0 text-red-500 dark:text-red-400" />
-            )}
-            <p className="text-sm font-medium">{message}</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <AnimatePresence>
+      <motion.div
+        role="status"
+        className={cn(
+          "fixed left-1/2 top-20 z-50 flex max-w-md -translate-x-1/2 items-center gap-3 rounded-[var(--radius-md)] border px-4 py-3 shadow-[var(--shadow-lg)]",
+          tone,
+        )}
+        initial={{ opacity: 0, y: -8 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -4 }}
+        transition={{ duration: 0.2 }}
+      >
+        <Icon className="h-5 w-5 shrink-0" />
+        <p className="text-[length:var(--text-body-sm)]">{message}</p>
+        {onDismiss && (
+          <button
+            type="button"
+            onClick={onDismiss}
+            aria-label="Dismiss"
+            className="ml-auto grid h-6 w-6 place-items-center rounded text-current opacity-70 transition-opacity hover:opacity-100"
+          >
+            <X className="h-4 w-4" />
+          </button>
+        )}
+      </motion.div>
+    </AnimatePresence>
   );
-};
-
-export default Alert;
+}
