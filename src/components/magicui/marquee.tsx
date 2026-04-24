@@ -112,9 +112,13 @@ export function Marquee({
     const dir = reverse ? 1 : -1;
     const dx = speed * (delta / 1000) * mult * dir;
     let next = offset.get() + dx;
-    // Wrap once the track has scrolled the width of one copy.
+    // Normalize offset to (-extent, 0]. This keeps the track's leftmost
+    // copy always sitting off-screen to the left so copies 2+ continuously
+    // cover the viewport regardless of direction. (An earlier version wrapped
+    // reverse-direction in [0, extent], which left empty space on the left
+    // of the viewport for most of each cycle.)
     if (next <= -extent) next += extent;
-    else if (next >= extent) next -= extent;
+    else if (next > 0) next -= extent;
     offset.set(next);
   });
 
