@@ -14,17 +14,17 @@ import { TechNode } from "@/components/ui/tech-node";
 import { TECH_STACK } from "@/content/tech-stack";
 import { COPY } from "@/content/site";
 
-// Rows pair legacy ↔ modern along the same layer:
-//   Row 1 — UI layer              Angular   → React
-//   Row 2 — Runtime / API         .NET      → Node.js
-//   Row 3 — Deployment platform   OpenShift → Vercel
+// Rows pair legacy with modern along the same layer:
+//   Row 1 - UI layer              Angular   -> React
+//   Row 2 - Runtime / API         .NET      -> Python
+//   Row 3 - Deployment platform   OpenShift -> Azure
 function pair(name: string) {
   const t = TECH_STACK.find((x) => x.name === name);
   if (!t) throw new Error(`tech-stack missing entry: ${name}`);
   return t;
 }
 const LEGACY = [pair("Angular"), pair(".NET"), pair("OpenShift")];
-const MODERN = [pair("React"), pair("Node.js"), pair("Vercel")];
+const MODERN = [pair("React"), pair("Python"), pair("Azure")];
 
 const BRAND_PATHS = [
   { d: "M15,50 L95,50", len: 120 },
