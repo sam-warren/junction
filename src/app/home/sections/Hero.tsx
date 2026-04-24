@@ -85,10 +85,12 @@ export function Hero() {
       </motion.div>
 
       <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
-        <h1 className="text-[length:var(--text-display-xl)] font-semibold leading-[0.95] tracking-tight md:text-[length:var(--text-display-2xl)]">
+        <h1 className="text-[length:var(--text-display-xl)] leading-[0.95] font-semibold tracking-tight md:text-[length:var(--text-display-2xl)]">
           <BlurFade delay={0} inView>
-            <span className="block whitespace-nowrap">
-              {COPY.hero.headlinePrefix}{" "}
+            <span className="block">{COPY.hero.headlinePrefix}</span>
+          </BlurFade>
+          <BlurFade delay={0.1} inView>
+            <span className="mt-2 block whitespace-nowrap md:mt-3">
               <WordRotate
                 words={[...COPY.hero.headlineWords]}
                 className="text-[var(--color-brand-300)]"
