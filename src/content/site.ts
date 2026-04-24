@@ -8,7 +8,7 @@ export const BRAND = {
   legalSuffix: "LTD.",
   domain: "junctiontech.ca",
   contactEmail: "sam@junctiontech.ca",
-  founded: 2024,
+  founded: 2025,
   founder: {
     name: "Sam Warren",
     title: "Founder & Principal Engineer",
@@ -59,7 +59,7 @@ export const COPY = {
       "Sam Warren is a senior full-stack engineer with seven years shipping software in Canada's public and energy sectors. UVic Software Engineering grad. Currently leading UX/UI and frontend for an energy analytics platform; prior work spans BC Justice, BC Health, BC Public Safety, and multiple Alberta government ministries across frontend, backend, and DevOps.",
     facts: [
       { label: "Based in", value: "Victoria, BC" },
-      { label: "Founded", value: "2024" },
+      { label: "Founded", value: "2025" },
       {
         label: "Practice",
         value: "Interface design + full-stack implementation",

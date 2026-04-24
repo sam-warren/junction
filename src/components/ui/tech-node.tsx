@@ -31,7 +31,7 @@ export const TechNode = forwardRef<HTMLDivElement, TechNodeProps>(
         className={cn(
           "h-9 w-9",
           darkLogo
-            ? "[filter:grayscale(1)_invert(0.72)] dark:[filter:grayscale(1)_invert(0.92)]"
+            ? "[filter:grayscale(1)_invert(0.88)] dark:[filter:grayscale(1)_invert(0.95)]"
             : "grayscale dark:invert",
         )}
         draggable={false}
