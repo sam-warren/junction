@@ -7,7 +7,7 @@ import {
   type ReactNode,
 } from "react";
 import { toast } from "sonner";
-import { ShinyButton } from "@/components/magicui/shiny-button";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 interface FormData {
@@ -179,9 +179,10 @@ export function ContactForm() {
           </Field>
 
           <div className="pt-2">
-            <ShinyButton
+            <Button
               type="submit"
               disabled={submitting}
+              withBorderBeam
               className="w-full"
             >
               {submitting ? (
@@ -191,7 +192,7 @@ export function ContactForm() {
               ) : (
                 "Send message"
               )}
-            </ShinyButton>
+            </Button>
           </div>
         </div>
       </form>

@@ -41,7 +41,9 @@ describe("ContactForm", () => {
       target: { value: "test@example.com" },
     });
     fireEvent.change(screen.getByLabelText(/message/i), {
-      target: { value: "This is a test message that is longer than ten chars." },
+      target: {
+        value: "This is a test message that is longer than ten chars.",
+      },
     });
     fireEvent.click(screen.getByRole("button", { name: /send/i }));
     await waitFor(() => {

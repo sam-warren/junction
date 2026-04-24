@@ -7,7 +7,6 @@ import { FlickeringGrid } from "@/components/magicui/flickering-grid";
 import { BlurFade } from "@/components/magicui/blur-fade";
 import { FlipWords } from "@/components/aceternity/flip-words";
 import { Lamp } from "@/components/aceternity/lamp";
-import { ShinyButton } from "@/components/magicui/shiny-button";
 import { Button } from "@/components/ui/button";
 import { COPY } from "@/content/site";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
@@ -116,13 +115,14 @@ export function Hero() {
         <BlurFade delay={0.3} inView>
           <div className="mx-auto mt-10 flex w-full max-w-xs flex-col items-stretch gap-3 sm:max-w-none sm:flex-row sm:items-center sm:justify-center">
             <Link to="/contact" className="block">
-              <ShinyButton
+              <Button
                 size="lg"
+                withBorderBeam
                 iconRight={<ArrowRight className="h-5 w-5" />}
                 className="w-full sm:w-auto"
               >
                 {COPY.hero.primaryCta}
-              </ShinyButton>
+              </Button>
             </Link>
             <a href="#work" className="block">
               <Button size="lg" variant="ghost" className="w-full sm:w-auto">

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Mail } from "lucide-react";
 import { BlurFade } from "@/components/magicui/blur-fade";
 import { Particles } from "@/components/magicui/particles";
-import { ShinyButton } from "@/components/magicui/shiny-button";
+import { Button } from "@/components/ui/button";
 import { COPY, BRAND } from "@/content/site";
 
 export function CTA() {
@@ -38,18 +38,20 @@ export function CTA() {
         <BlurFade delay={0.2} inView>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link to="/contact">
-              <ShinyButton
+              <Button
                 size="lg"
+                withBorderBeam
                 iconRight={<ArrowRight className="h-5 w-5" />}
               >
                 {COPY.cta.primary}
-              </ShinyButton>
+              </Button>
             </Link>
             <a
               href={`mailto:${BRAND.contactEmail}`}
               className="inline-flex items-center gap-2 text-[length:var(--text-body)] text-[var(--color-brand-300)] underline-offset-4 hover:text-[var(--color-brand-200)] hover:underline"
             >
-              <Mail className="h-4 w-4" /> {COPY.cta.secondaryLabel} {BRAND.contactEmail}
+              <Mail className="h-4 w-4" /> {COPY.cta.secondaryLabel}{" "}
+              {BRAND.contactEmail}
             </a>
           </div>
         </BlurFade>

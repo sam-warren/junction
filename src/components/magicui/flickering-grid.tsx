@@ -134,7 +134,13 @@ export function FlickeringGrid({
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     if (reduced) {
-      drawGrid(ctx, gridParams.cols, gridParams.rows, gridParams.squares, gridParams.dpr);
+      drawGrid(
+        ctx,
+        gridParams.cols,
+        gridParams.rows,
+        gridParams.squares,
+        gridParams.dpr,
+      );
       return;
     }
 
@@ -144,7 +150,13 @@ export function FlickeringGrid({
       const deltaTime = (time - lastTime) / 1000;
       lastTime = time;
       updateSquares(gridParams.squares, deltaTime);
-      drawGrid(ctx, gridParams.cols, gridParams.rows, gridParams.squares, gridParams.dpr);
+      drawGrid(
+        ctx,
+        gridParams.cols,
+        gridParams.rows,
+        gridParams.squares,
+        gridParams.dpr,
+      );
       animationId = requestAnimationFrame(animate);
     };
 
@@ -164,7 +176,16 @@ export function FlickeringGrid({
       resizeObserver.disconnect();
       intersectionObserver.disconnect();
     };
-  }, [setupCanvas, updateSquares, drawGrid, width, height, isInView, canvasSize.width, canvasSize.height]);
+  }, [
+    setupCanvas,
+    updateSquares,
+    drawGrid,
+    width,
+    height,
+    isInView,
+    canvasSize.width,
+    canvasSize.height,
+  ]);
 
   return (
     <div

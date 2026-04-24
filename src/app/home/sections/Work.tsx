@@ -106,7 +106,7 @@ function ProductCard({ study }: { study: CaseStudy }) {
                 {metric.prefix}
                 <NumberTicker
                   value={metric.value}
-                  className="text-[var(--text-primary)] tracking-tight"
+                  className="tracking-tight text-[var(--text-primary)]"
                 />
                 {metric.suffix}
               </span>
