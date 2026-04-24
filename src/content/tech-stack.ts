@@ -34,16 +34,19 @@ export interface Tech {
   icon: string;
   href?: string;
   category: TechCategory;
+  /** True for black-on-transparent SVGs that need gray treatment so they
+   *  stay visible in both light and dark themes. */
+  darkLogo?: boolean;
 }
 
 export const TECH_STACK: Tech[] = [
   { name: "React", icon: reactIcon, category: "frontend", href: "https://react.dev/" },
-  { name: "Next.js", icon: nextjsIcon, category: "frontend", href: "https://nextjs.org/" },
+  { name: "Next.js", icon: nextjsIcon, category: "frontend", href: "https://nextjs.org/", darkLogo: true },
   { name: "Vue.js", icon: vueIcon, category: "frontend", href: "https://vuejs.org/" },
   { name: "Angular", icon: angularIcon, category: "legacy", href: "https://angular.io/" },
   { name: "TypeScript", icon: typescriptIcon, category: "frontend", href: "https://www.typescriptlang.org/" },
   { name: "Tailwind CSS", icon: tailwindIcon, category: "frontend", href: "https://tailwindcss.com/" },
-  { name: "shadcn/ui", icon: shadcnIcon, category: "frontend", href: "https://ui.shadcn.com/" },
+  { name: "shadcn/ui", icon: shadcnIcon, category: "frontend", href: "https://ui.shadcn.com/", darkLogo: true },
   { name: "TanStack", icon: tanstackIcon, category: "frontend", href: "https://tanstack.com/" },
   { name: "Redux", icon: reduxIcon, category: "frontend", href: "https://redux.js.org/" },
   { name: "Material UI", icon: muiIcon, category: "frontend", href: "https://mui.com/" },
@@ -60,7 +63,7 @@ export const TECH_STACK: Tech[] = [
   { name: "Azure", icon: azureIcon, category: "devops", href: "https://azure.microsoft.com/" },
   { name: "Docker", icon: dockerIcon, category: "devops", href: "https://www.docker.com/" },
   { name: "Kubernetes", icon: kubernetesIcon, category: "devops", href: "https://kubernetes.io/" },
-  { name: "Vercel", icon: vercelIcon, category: "devops", href: "https://vercel.com/" },
+  { name: "Vercel", icon: vercelIcon, category: "devops", href: "https://vercel.com/", darkLogo: true },
   { name: "Git", icon: gitIcon, category: "devops", href: "https://git-scm.com/" },
 ];
 
