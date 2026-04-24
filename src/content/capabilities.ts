@@ -1,5 +1,5 @@
 // src/content/capabilities.ts
-import { Brain, Cloud, Code2, Network, RefreshCw, type LucideIcon } from "lucide-react";
+import { Brain, Code2, LineChart, Network, PenTool, type LucideIcon } from "lucide-react";
 
 export interface CapabilityCard {
   id: string;
@@ -12,39 +12,39 @@ export interface CapabilityCard {
 
 export const CAPABILITIES: CapabilityCard[] = [
   {
-    id: "system-integration",
-    title: "System Integration",
+    id: "interface-design",
+    title: "Interface Design",
     description:
-      "Connect legacy systems to modern stacks without rebuilding from scratch. Junction designs the integration layer that lets your existing tools talk to new ones — REST, GraphQL, message queues, identity bridges, custom protocols.",
-    icon: Network,
+      "UX research, design systems, and design-to-code pipelines. We build component libraries and polished production interfaces — with the underlying systems thinking that makes them actually work.",
+    icon: PenTool,
     feature: true,
   },
   {
-    id: "custom-software",
-    title: "Custom Software",
+    id: "full-stack-implementation",
+    title: "Full-Stack Implementation",
     description:
-      "Bespoke web and internal tools, from spec to ship. End-to-end ownership of design, implementation, and delivery.",
+      "TypeScript front to back. Frontend, backend, infrastructure, and the glue in between — spec to ship, owned end-to-end.",
     icon: Code2,
   },
   {
-    id: "modernization",
-    title: "Modernization",
+    id: "data-visualization",
+    title: "Data Visualization",
     description:
-      "Refactor and migrate aging codebases incrementally. Modernize the parts that matter without rewriting the parts that don't.",
-    icon: RefreshCw,
+      "Dashboards and exploration interfaces for complex datasets — built so non-technical stakeholders can actually use them.",
+    icon: LineChart,
   },
   {
-    id: "cloud-devops",
-    title: "Cloud & DevOps",
+    id: "system-integration",
+    title: "System Integration",
     description:
-      "Infrastructure, CI/CD, observability. We deploy on AWS, Azure, GCP, Vercel, and on-prem OpenShift.",
-    icon: Cloud,
+      "APIs, message queues, identity bridges, custom protocols. We connect what you have to what you're building.",
+    icon: Network,
   },
   {
     id: "ai-integration",
     title: "AI Integration",
     description:
-      "Embed LLMs into existing workflows. We build production AI features — agents, RAG, structured extraction — that integrate with your data and tools.",
+      "Embed LLMs into existing workflows — agents, RAG, structured extraction — that integrate with your data and tools.",
     icon: Brain,
   },
 ];
