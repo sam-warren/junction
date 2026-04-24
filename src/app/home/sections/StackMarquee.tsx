@@ -21,7 +21,7 @@ export function StackMarquee() {
       </div>
 
       <div className="relative mt-10 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-        <Marquee smoothStop className="[--duration:60s]">
+        <Marquee smoothStop speed={36}>
           {top.map((tech) => (
             <a
               key={tech.name}
@@ -44,7 +44,7 @@ export function StackMarquee() {
             </a>
           ))}
         </Marquee>
-        <Marquee smoothStop reverse className="mt-6 [--duration:55s]">
+        <Marquee smoothStop reverse speed={32} className="mt-6">
           {bottom.map((tech) => (
             <a
               key={tech.name}
