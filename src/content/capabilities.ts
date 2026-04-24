@@ -15,7 +15,7 @@ export const CAPABILITIES: CapabilityCard[] = [
     id: "interface-design",
     title: "Interface Design",
     description:
-      "UX research, design systems, and design-to-code pipelines. We build component libraries and polished production interfaces — with the underlying systems thinking that makes them actually work.",
+      "UX research, design systems, and design-to-code pipelines. We build component libraries and polished production interfaces with the underlying systems thinking that makes them actually work.",
     icon: PenTool,
     feature: true,
   },
@@ -23,14 +23,14 @@ export const CAPABILITIES: CapabilityCard[] = [
     id: "full-stack-implementation",
     title: "Full-Stack Implementation",
     description:
-      "TypeScript front to back. Frontend, backend, infrastructure, and the glue in between — spec to ship, owned end-to-end.",
+      "TypeScript front to back. Frontend, backend, infrastructure, and the glue in between: spec to ship, owned end-to-end.",
     icon: Code2,
   },
   {
     id: "data-visualization",
     title: "Data Visualization",
     description:
-      "Dashboards and exploration interfaces for complex datasets — built so non-technical stakeholders can actually use them.",
+      "Dashboards and exploration interfaces for complex datasets. Built so non-technical stakeholders can actually use them.",
     icon: LineChart,
   },
   {
@@ -44,7 +44,7 @@ export const CAPABILITIES: CapabilityCard[] = [
     id: "ai-integration",
     title: "AI Integration",
     description:
-      "Embed LLMs into existing workflows — agents, RAG, structured extraction — that integrate with your data and tools.",
+      "Embed LLMs into existing workflows. Agents, RAG, and structured extraction integrated with your data and tools.",
     icon: Brain,
   },
 ];

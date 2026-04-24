@@ -14,7 +14,6 @@ export function Hero() {
   const cueRef = useRef<HTMLAnchorElement | null>(null);
   const reduced = useReducedMotion();
 
-  // Motion values drive the parallax without triggering React re-renders.
   const mx = useMotionValue(0);
   const my = useMotionValue(0);
   const x = useSpring(mx, { stiffness: 120, damping: 20, mass: 0.3 });
@@ -62,20 +61,20 @@ export function Hero() {
     <section
       id="hero"
       ref={sectionRef}
-      className="relative grid min-h-[calc(100vh-4rem)] place-items-center overflow-hidden [contain:layout_paint] lg:min-h-[calc(100vh-5rem)]"
+      className="relative flex min-h-[calc(100vh-4rem)] flex-col items-center justify-center overflow-hidden [contain:layout_paint] lg:min-h-[calc(100vh-5rem)]"
     >
-      {/* Mask fades dots AT the center (where text sits) and reveals them
-          toward the edges — inverse of the plan's original so subtext stays
-          readable. */}
+      {/* Dot pattern fades out AT the text block (blank center) and reveals
+          toward the edges. Ellipse sized generously so the full text block
+          (headline + sub + CTAs) fits inside the blank core. */}
       <motion.div
         className="pointer-events-none absolute inset-0"
         style={{
           x,
           y,
           maskImage:
-            "radial-gradient(ellipse 55% 45% at 50% 50%, transparent 30%, black 85%)",
+            "radial-gradient(ellipse 70% 65% at 50% 50%, transparent 40%, black 90%)",
           WebkitMaskImage:
-            "radial-gradient(ellipse 55% 45% at 50% 50%, transparent 30%, black 85%)",
+            "radial-gradient(ellipse 70% 65% at 50% 50%, transparent 40%, black 90%)",
         }}
       >
         <DotPattern className="absolute inset-0 opacity-60" />

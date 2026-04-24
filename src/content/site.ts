@@ -12,7 +12,7 @@ export const BRAND = {
   founder: {
     name: "Sam Warren",
     title: "Founder & Principal Engineer",
-    location: "Calgary, AB",
+    location: "Victoria, BC",
   },
 } as const;
 
@@ -31,15 +31,15 @@ export const SOCIAL_LINKS = [
 
 export const COPY = {
   hero: {
-    eyebrow: "", // eyebrow intentionally omitted per design update
+    eyebrow: "",
     headline: "We Build Interfaces.",
-    sub: "An independent software consultancy. We design and build interfaces — from UX research through production code.",
+    sub: "An independent software consultancy. We design and build interfaces, from UX research through production code.",
     primaryCta: "Start a project",
     secondaryCta: "See our work",
   },
   cta: {
     headline: "Let's build something.",
-    sub: "Free 30-minute consult. No deck, no pitch — just a conversation about what you're building.",
+    sub: "A 30-minute consultation to discuss scope, timeline, and fit.",
     primary: "Start a project",
     secondaryLabel: "or email",
   },
@@ -47,12 +47,12 @@ export const COPY = {
     eyebrow: "About",
     title: "Junction",
     company:
-      "Junction Technologies LTD. is an independent software consultancy. We design and build interfaces — from UX research through production implementation — for governments, energy operators, and the engineering teams that ship alongside us.",
+      "Junction Technologies LTD. is an independent software consultancy specializing in interface design and full-stack implementation. We work with governments, energy operators, and engineering teams who need polished, reliable tooling.",
     founderBio:
       "Sam Warren is a senior full-stack engineer with seven years shipping software in Canada's public and energy sectors. UVic Software Engineering grad. Currently leading UX/UI and frontend for an energy analytics platform; prior work spans BC Justice, BC Health, BC Public Safety, and multiple Alberta government ministries across frontend, backend, and DevOps.",
     facts: [
-      { label: "Based in", value: "Calgary, AB" },
-      { label: "Founded", value: "2025" },
+      { label: "Based in", value: "Victoria, BC" },
+      { label: "Founded", value: "2024" },
       { label: "Practice", value: "Interface design + full-stack implementation" },
     ] as const,
   },
