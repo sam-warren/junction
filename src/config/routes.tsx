@@ -1,19 +1,15 @@
-import AboutSection from "@/components/about/AboutSection";
-import ContactForm from "@/components/contact/ContactForm";
-import HeroSection from "@/components/home/HeroSection";
-import PackagesSection from "@/components/packages/PackagesSection";
-import BlogList from "@/components/blog/BlogList";
-import BlogPost from "@/components/blog/BlogPost";
-import StylesPreview from "@/app/styles/StylesPreview";
-import { Home, Info, LucideIcon, Mail, Package, BookOpen } from "lucide-react";
-import { ReactElement } from "react";
+// src/config/routes.tsx
+import HomePage from "@/app/home/HomePage";
+import ContactPage from "@/app/contact/ContactPage";
+import { Home, Mail, type LucideIcon } from "lucide-react";
+import type { ReactElement } from "react";
 
-interface RouteConfig {
+export interface RouteConfig {
   path: string;
   label: string;
   icon: LucideIcon;
   element: ReactElement;
-  showInNav?: boolean;
+  showInNav: boolean;
 }
 
 export const ROUTES: RouteConfig[] = [
@@ -21,49 +17,22 @@ export const ROUTES: RouteConfig[] = [
     path: "/",
     label: "Home",
     icon: Home,
-    element: <HeroSection />,
-    showInNav: true,
-  },
-  {
-    path: "/about",
-    label: "About",
-    icon: Info,
-    element: <AboutSection />,
-    showInNav: true,
-  },
-  {
-    path: "/packages",
-    label: "Packages",
-    icon: Package,
-    element: <PackagesSection />,
-    showInNav: true,
-  },
-  {
-    path: "/blog",
-    label: "Blog",
-    icon: BookOpen,
-    element: <BlogList />,
-    showInNav: true,
-  },
-  {
-    path: "/blog/:slug",
-    label: "Blog",
-    icon: BookOpen,
-    element: <BlogPost />,
-    showInNav: false,
+    element: <HomePage />,
+    showInNav: false, // navigation uses anchor links to homepage sections
   },
   {
     path: "/contact",
     label: "Contact",
     icon: Mail,
-    element: <ContactForm />,
+    element: <ContactPage />,
     showInNav: true,
   },
-  {
-    path: "/__styles",
-    label: "__styles",
-    icon: Home,
-    element: <StylesPreview />,
-    showInNav: false,
-  },
 ];
+
+/** Section anchors used by the Header for scrollspy + nav. */
+export const HOMEPAGE_SECTIONS = [
+  { id: "capabilities", label: "Capabilities" },
+  { id: "how", label: "How" },
+  { id: "work", label: "Work" },
+  { id: "about", label: "About" },
+] as const;
