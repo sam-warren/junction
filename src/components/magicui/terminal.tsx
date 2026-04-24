@@ -105,7 +105,7 @@ export function Terminal({ className, children, ...props }: TerminalProps) {
           <div className="h-2 w-2 rounded-full bg-[#28c840]" />
         </div>
       </div>
-      <pre className="m-0 whitespace-pre-wrap break-words p-4 text-[var(--text-primary)]">
+      <pre className="m-0 p-4 break-words whitespace-pre-wrap text-[var(--text-primary)]">
         <code className="grid gap-y-1">{children}</code>
       </pre>
     </div>

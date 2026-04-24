@@ -1,6 +1,11 @@
 // src/app/contact/ContactForm.tsx
 import { Loader, Mail, Pencil, UserCircle, XCircle } from "lucide-react";
-import { useState, type ChangeEvent, type FormEvent, type ReactNode } from "react";
+import {
+  useState,
+  type ChangeEvent,
+  type FormEvent,
+  type ReactNode,
+} from "react";
 import { Button } from "@/components/ui/button";
 import Alert from "@/components/ui/Alert";
 import { cn } from "@/lib/utils";
@@ -23,7 +28,12 @@ interface AlertState {
 }
 
 export function ContactForm() {
-  const [data, setData] = useState<FormData>({ name: "", email: "", message: "", honeypot: "" });
+  const [data, setData] = useState<FormData>({
+    name: "",
+    email: "",
+    message: "",
+    honeypot: "",
+  });
   const [errors, setErrors] = useState<FormErrors>({});
   const [submitting, setSubmitting] = useState(false);
   const [alert, setAlert] = useState<AlertState | null>(null);
@@ -32,7 +42,8 @@ export function ContactForm() {
     if (field === "name" && !value.trim()) return "Name is required";
     if (field === "email") {
       if (!value) return "Email is required";
-      if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value)) return "Invalid email address";
+      if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value))
+        return "Invalid email address";
     }
     if (field === "message") {
       if (!value.trim()) return "Message is required";
@@ -70,12 +81,18 @@ export function ContactForm() {
       });
       const body: { success?: boolean; error?: string } = await res.json();
       if (!res.ok) throw new Error(body.error || "Failed to send message");
-      setAlert({ type: "success", message: "Message sent. We'll get back to you within one business day." });
+      setAlert({
+        type: "success",
+        message: "Message sent. We'll get back to you within one business day.",
+      });
       setData({ name: "", email: "", message: "", honeypot: "" });
     } catch (err) {
       setAlert({
         type: "error",
-        message: err instanceof Error ? err.message : "Failed to send message. Please try again later.",
+        message:
+          err instanceof Error
+            ? err.message
+            : "Failed to send message. Please try again later.",
       });
     } finally {
       setSubmitting(false);
@@ -87,7 +104,13 @@ export function ContactForm() {
 
   return (
     <>
-      {alert && <Alert type={alert.type} message={alert.message} onDismiss={() => setAlert(null)} />}
+      {alert && (
+        <Alert
+          type={alert.type}
+          message={alert.message}
+          onDismiss={() => setAlert(null)}
+        />
+      )}
 
       <form
         onSubmit={onSubmit}
@@ -105,7 +128,12 @@ export function ContactForm() {
             className="hidden"
           />
 
-          <Field label="Name" htmlFor="name" icon={<UserCircle className="h-5 w-5" />} error={errors.name}>
+          <Field
+            label="Name"
+            htmlFor="name"
+            icon={<UserCircle className="h-5 w-5" />}
+            error={errors.name}
+          >
             <input
               type="text"
               name="name"
@@ -113,11 +141,21 @@ export function ContactForm() {
               value={data.name}
               onChange={onChange}
               placeholder="Your name"
-              className={cn(inputBase, errors.name ? "border-[var(--danger)]" : "border-[var(--border)]")}
+              className={cn(
+                inputBase,
+                errors.name
+                  ? "border-[var(--danger)]"
+                  : "border-[var(--border)]",
+              )}
             />
           </Field>
 
-          <Field label="Email" htmlFor="email" icon={<Mail className="h-5 w-5" />} error={errors.email}>
+          <Field
+            label="Email"
+            htmlFor="email"
+            icon={<Mail className="h-5 w-5" />}
+            error={errors.email}
+          >
             <input
               type="email"
               name="email"
@@ -125,11 +163,21 @@ export function ContactForm() {
               value={data.email}
               onChange={onChange}
               placeholder="you@example.com"
-              className={cn(inputBase, errors.email ? "border-[var(--danger)]" : "border-[var(--border)]")}
+              className={cn(
+                inputBase,
+                errors.email
+                  ? "border-[var(--danger)]"
+                  : "border-[var(--border)]",
+              )}
             />
           </Field>
 
-          <Field label="Message" htmlFor="message" icon={<Pencil className="h-5 w-5" />} error={errors.message}>
+          <Field
+            label="Message"
+            htmlFor="message"
+            icon={<Pencil className="h-5 w-5" />}
+            error={errors.message}
+          >
             <textarea
               name="message"
               id="message"
@@ -140,13 +188,20 @@ export function ContactForm() {
               className={cn(
                 inputBase,
                 "h-40 resize-none",
-                errors.message ? "border-[var(--danger)]" : "border-[var(--border)]",
+                errors.message
+                  ? "border-[var(--danger)]"
+                  : "border-[var(--border)]",
               )}
             />
           </Field>
 
           <div className="pt-2">
-            <Button type="submit" disabled={submitting} withBorderBeam className="w-full">
+            <Button
+              type="submit"
+              disabled={submitting}
+              withBorderBeam
+              className="w-full"
+            >
               {submitting ? (
                 <span className="inline-flex items-center gap-2">
                   <Loader className="h-5 w-5 animate-spin" /> Sending…
