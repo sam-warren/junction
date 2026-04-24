@@ -4,6 +4,7 @@ import { Capabilities } from "./sections/Capabilities";
 import { Convergence } from "./sections/Convergence";
 import { Work } from "./sections/Work";
 import { StackMarquee } from "./sections/StackMarquee";
+import { About } from "./sections/About";
 
 export default function HomePage() {
   return (
@@ -13,7 +14,7 @@ export default function HomePage() {
       <Convergence />
       <Work />
       <StackMarquee />
-      <section id="about" className="min-h-[60vh]" />
+      <About />
       <section id="cta" className="min-h-[40vh]" />
     </>
   );
