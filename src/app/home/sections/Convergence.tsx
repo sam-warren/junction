@@ -53,24 +53,21 @@ export function Convergence() {
     offset: ["start end", "end start"],
   });
   // Staggered draw across the three strokes (middle, top, bottom).
-  const dash0 = useTransform(scrollYProgress, [0.15, 0.5, 0.75, 1], [
-    BRAND_PATHS[0].len,
-    0,
-    0,
-    BRAND_PATHS[0].len,
-  ]);
-  const dash1 = useTransform(scrollYProgress, [0.2, 0.55, 0.8, 1], [
-    BRAND_PATHS[1].len,
-    0,
-    0,
-    BRAND_PATHS[1].len,
-  ]);
-  const dash2 = useTransform(scrollYProgress, [0.25, 0.6, 0.85, 1], [
-    BRAND_PATHS[2].len,
-    0,
-    0,
-    BRAND_PATHS[2].len,
-  ]);
+  const dash0 = useTransform(
+    scrollYProgress,
+    [0.15, 0.5, 0.75, 1],
+    [BRAND_PATHS[0].len, 0, 0, BRAND_PATHS[0].len],
+  );
+  const dash1 = useTransform(
+    scrollYProgress,
+    [0.2, 0.55, 0.8, 1],
+    [BRAND_PATHS[1].len, 0, 0, BRAND_PATHS[1].len],
+  );
+  const dash2 = useTransform(
+    scrollYProgress,
+    [0.25, 0.6, 0.85, 1],
+    [BRAND_PATHS[2].len, 0, 0, BRAND_PATHS[2].len],
+  );
   const dashValues = [dash0, dash1, dash2];
 
   // Stable ref arrays so AnimatedBeam doesn't re-subscribe each render.
@@ -90,14 +87,14 @@ export function Convergence() {
             maxOpacity={0.06}
             duration={3}
             repeatDelay={1}
-            className="[mask-image:radial-gradient(500px_circle_at_center,white,transparent)] absolute inset-0"
+            className="absolute inset-0 [mask-image:radial-gradient(500px_circle_at_center,white,transparent)]"
           />
         )}
       </div>
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <BlurFade delay={0} inView>
-          <p className="font-[family-name:var(--font-mono)] text-[length:var(--text-mono-sm)] uppercase tracking-[0.18em] text-[var(--color-brand-300)]">
+          <p className="font-[family-name:var(--font-mono)] text-[length:var(--text-mono-sm)] tracking-[0.18em] text-[var(--color-brand-300)] uppercase">
             {COPY.convergence.eyebrow}
           </p>
         </BlurFade>
@@ -170,7 +167,8 @@ export function Convergence() {
             {/* Beams only mount while the section is in view; AnimatedBeam's
                 rAF loop dies when unmounted, so we don't burn frames when
                 the user isn't looking at them. */}
-            {inView && !reduced &&
+            {inView &&
+              !reduced &&
               [0, 1, 2].map((row) => (
                 <div key={row} className="contents">
                   <AnimatedBeam
@@ -198,7 +196,12 @@ export function Convergence() {
         <BlurFade delay={0.2} inView className="block lg:hidden">
           <div className="mt-12 flex flex-col items-center gap-6">
             {LEGACY.map((tech) => (
-              <TechNode key={tech.name} name={tech.name} icon={tech.icon} darkLogo={tech.darkLogo} />
+              <TechNode
+                key={tech.name}
+                name={tech.name}
+                icon={tech.icon}
+                darkLogo={tech.darkLogo}
+              />
             ))}
             <div className="grid h-24 w-24 place-items-center rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--surface-1)] shadow-[var(--shadow-lg)]">
               <svg
@@ -220,9 +223,20 @@ export function Convergence() {
               </svg>
             </div>
             {MODERN.map((tech) => (
-              <TechNode key={tech.name} name={tech.name} icon={tech.icon} darkLogo={tech.darkLogo} />
+              <TechNode
+                key={tech.name}
+                name={tech.name}
+                icon={tech.icon}
+                darkLogo={tech.darkLogo}
+              />
             ))}
           </div>
+        </BlurFade>
+
+        <BlurFade delay={0.35} inView>
+          <p className="mx-auto mt-12 max-w-3xl text-[length:var(--text-body-lg)] text-[var(--text-secondary)] lg:mt-16">
+            {COPY.convergence.sub}
+          </p>
         </BlurFade>
       </div>
     </section>

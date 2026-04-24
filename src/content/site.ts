@@ -33,7 +33,13 @@ export const COPY = {
   hero: {
     eyebrow: "",
     headlinePrefix: "We Build",
-    headlineWords: ["Interfaces", "Dashboards", "Platforms", "Products", "Tools"],
+    headlineWords: [
+      "Interfaces",
+      "Dashboards",
+      "Platforms",
+      "Products",
+      "Tools",
+    ],
     sub: "An independent software consultancy. We design and build interfaces, from UX research through production code.",
     primaryCta: "Start a project",
     secondaryCta: "See our work",
@@ -54,7 +60,10 @@ export const COPY = {
     facts: [
       { label: "Based in", value: "Victoria, BC" },
       { label: "Founded", value: "2024" },
-      { label: "Practice", value: "Interface design + full-stack implementation" },
+      {
+        label: "Practice",
+        value: "Interface design + full-stack implementation",
+      },
     ] as const,
   },
   work: {
@@ -68,6 +77,7 @@ export const COPY = {
   convergence: {
     eyebrow: "How we build",
     title: "Where design meets implementation.",
+    sub: "Our clients arrive with systems they cannot replace overnight. We migrate incrementally: UI, runtime, and platform each move at their own pace. Shared contracts bridge old and new, and the interfaces we ship hide the transition from end users.",
   },
   approach: {
     eyebrow: "Approach",

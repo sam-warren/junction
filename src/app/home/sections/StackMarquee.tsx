@@ -14,7 +14,7 @@ export function StackMarquee() {
     <section id="stack" className="relative overflow-hidden py-16 lg:py-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <BlurFade delay={0} inView>
-          <p className="text-center font-[family-name:var(--font-mono)] text-[length:var(--text-mono-sm)] uppercase tracking-[0.18em] text-[var(--color-brand-300)]">
+          <p className="text-center font-[family-name:var(--font-mono)] text-[length:var(--text-mono-sm)] tracking-[0.18em] text-[var(--color-brand-300)] uppercase">
             {COPY.stack.eyebrow}
           </p>
         </BlurFade>
@@ -37,7 +37,7 @@ export function StackMarquee() {
                 className={cn(
                   "h-10 w-10",
                   tech.darkLogo
-                    ? "[filter:grayscale(1)_invert(0.55)] dark:[filter:grayscale(1)_invert(0.9)]"
+                    ? "[filter:grayscale(1)_invert(0.72)] dark:[filter:grayscale(1)_invert(0.92)]"
                     : "grayscale dark:invert",
                 )}
               />
@@ -60,7 +60,7 @@ export function StackMarquee() {
                 className={cn(
                   "h-10 w-10",
                   tech.darkLogo
-                    ? "[filter:grayscale(1)_invert(0.55)] dark:[filter:grayscale(1)_invert(0.9)]"
+                    ? "[filter:grayscale(1)_invert(0.72)] dark:[filter:grayscale(1)_invert(0.92)]"
                     : "grayscale dark:invert",
                 )}
               />
