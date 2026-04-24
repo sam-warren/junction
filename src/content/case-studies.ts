@@ -22,10 +22,12 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     slug: "jupiter-power",
     client: "Jupiter Power",
-    title: "Application redesign and UX research",
+    title: "Operator platform redesign",
     year: "2026-Present",
     outcome:
-      "Application redesign, UX research, and implementation for an energy storage operator.",
+      "Redesigning the operator interface that bids grid-scale battery storage into US wholesale energy markets.",
+    description:
+      "UX research with traders and operations staff, design system extension, and frontend implementation across the product surface. Working directly with the engineering and trading teams to ship the next generation of the platform.",
     tech: ["Figma", "React", "Python", "Azure", "TypeScript"],
     kind: "client",
   },
@@ -34,8 +36,18 @@ export const CASE_STUDIES: CaseStudy[] = [
     client: "Vantix Systems / Gov. of Alberta",
     title: "Government energy portals",
     year: "2025-2026",
-    outcome: "Net-new government portals for energy management and data organization.",
-    tech: ["React", "Python", "Azure", "TypeScript", "TanStack", "shadcn", "Tailwind", "Recharts"],
+    outcome:
+      "Net-new government portals for energy management and data organization.",
+    tech: [
+      "React",
+      "Python",
+      "Azure",
+      "TypeScript",
+      "TanStack",
+      "shadcn",
+      "Tailwind",
+      "Recharts",
+    ],
     kind: "client",
   },
   {
@@ -45,7 +57,15 @@ export const CASE_STUDIES: CaseStudy[] = [
     year: "2024-2025",
     outcome:
       "Application management for a dozen public-facing apps including liquor licensing, disaster assistance, and victim services.",
-    tech: ["Angular", "TypeScript", ".NET", "Dynamics", "OpenShift", "Docker", "Kubernetes"],
+    tech: [
+      "Angular",
+      "TypeScript",
+      ".NET",
+      "Dynamics",
+      "OpenShift",
+      "Docker",
+      "Kubernetes",
+    ],
     kind: "client",
   },
   {
