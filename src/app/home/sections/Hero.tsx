@@ -125,7 +125,11 @@ export function Hero() {
               </Button>
             </Link>
             <a href="#work" className="block">
-              <Button size="lg" variant="ghost" className="w-full sm:w-auto">
+              <Button
+                size="lg"
+                variant="ghost"
+                className="w-full bg-white/5 backdrop-blur-md hover:bg-white/10 sm:w-auto"
+              >
                 {COPY.hero.secondaryCta}
               </Button>
             </a>
