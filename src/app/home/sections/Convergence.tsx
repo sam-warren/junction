@@ -120,6 +120,7 @@ export function Convergence() {
                   key={tech.name}
                   name={tech.name}
                   icon={tech.icon}
+                  darkLogo={tech.darkLogo}
                   ref={leftRefs.current[i]}
                 />
               ))}
@@ -160,6 +161,7 @@ export function Convergence() {
                   key={tech.name}
                   name={tech.name}
                   icon={tech.icon}
+                  darkLogo={tech.darkLogo}
                   ref={rightRefs.current[i]}
                 />
               ))}
@@ -196,7 +198,7 @@ export function Convergence() {
         <BlurFade delay={0.2} inView className="block lg:hidden">
           <div className="mt-12 flex flex-col items-center gap-6">
             {LEGACY.map((tech) => (
-              <TechNode key={tech.name} name={tech.name} icon={tech.icon} />
+              <TechNode key={tech.name} name={tech.name} icon={tech.icon} darkLogo={tech.darkLogo} />
             ))}
             <div className="grid h-24 w-24 place-items-center rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--surface-1)] shadow-[var(--shadow-lg)]">
               <svg
@@ -218,7 +220,7 @@ export function Convergence() {
               </svg>
             </div>
             {MODERN.map((tech) => (
-              <TechNode key={tech.name} name={tech.name} icon={tech.icon} />
+              <TechNode key={tech.name} name={tech.name} icon={tech.icon} darkLogo={tech.darkLogo} />
             ))}
           </div>
         </BlurFade>

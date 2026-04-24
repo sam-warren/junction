@@ -7,10 +7,14 @@ export interface TechNodeProps {
   icon: string;
   size?: number;
   className?: string;
+  /** True for black-on-transparent source SVGs that collapse to invisible
+   *  under the default grayscale+dark:invert combo. Substitutes a mid-gray
+   *  filter that stays legible in both themes. */
+  darkLogo?: boolean;
 }
 
 export const TechNode = forwardRef<HTMLDivElement, TechNodeProps>(
-  ({ name, icon, size = 80, className }, ref) => (
+  ({ name, icon, size = 80, className, darkLogo }, ref) => (
     <div
       ref={ref}
       className={cn(
@@ -24,7 +28,12 @@ export const TechNode = forwardRef<HTMLDivElement, TechNodeProps>(
       <img
         src={icon}
         alt=""
-        className="h-9 w-9 grayscale dark:invert"
+        className={cn(
+          "h-9 w-9",
+          darkLogo
+            ? "[filter:grayscale(1)_invert(0.55)] dark:[filter:grayscale(1)_invert(0.9)]"
+            : "grayscale dark:invert",
+        )}
         draggable={false}
       />
     </div>
