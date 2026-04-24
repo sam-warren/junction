@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Junction Technologies brand palette reference
-  Source of truth: src/globals.css (@theme block, --color-brand-* tokens)
+  Junction Technologies brand palette reference.
+  Source of truth: src/globals.css at theme block, brand color tokens.
 
   Upload this image to ChatGPT alongside the brand brief. It anchors exact
   hex reproduction in generated assets. Image models drift toward
