@@ -1,9 +1,9 @@
 // src/app/styles/StylesPreview.tsx
 // Temporary token-system preview. Delete this file before merging Phase 2.
-import { DotPattern } from "@/components/ui/dot-pattern";
-import { BlurFade } from "@/components/ui/blur-fade";
-import { MagicCard } from "@/components/ui/magic-card";
-import { BorderBeam } from "@/components/ui/border-beam";
+import { DotPattern } from "@/components/magicui/dot-pattern";
+import { BlurFade } from "@/components/magicui/blur-fade";
+import { MagicCard } from "@/components/magicui/magic-card";
+import { BorderBeam } from "@/components/magicui/border-beam";
 
 export default function StylesPreview() {
   return (

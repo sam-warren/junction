@@ -168,11 +168,10 @@ svg.lucide { stroke-width: 1.5 !important; }
   --color-card: var(--card);
   --color-foreground: var(--foreground);
   --color-background: var(--background);
-  --radius-sm: calc(var(--radius) * 0.6);
-  --radius-md: calc(var(--radius) * 0.8);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.4);
-  --radius-2xl: calc(var(--radius) * 1.8);
+  /* Radii --radius-xs/sm/md/lg/xl/2xl are authored in our @theme block above
+     (concentric 4/8/12/16/24/32 per DESIGN.md §4.2). We keep 3xl/4xl here as
+     additive shadcn extensions; the others are deliberately omitted so our
+     explicit values are the source of truth. */
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
   --animate-marquee: marquee var(--duration) infinite linear;
@@ -211,7 +210,7 @@ svg.lucide { stroke-width: 1.5 !important; }
   --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
+  /* --border authored above in :root,.dark; oklch version would override it. */
   --input: oklch(0.922 0 0);
   --ring: oklch(0.708 0 0);
   --chart-1: oklch(0.87 0 0);
@@ -246,7 +245,7 @@ svg.lucide { stroke-width: 1.5 !important; }
   --accent: oklch(0.269 0 0);
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
+  /* --border authored above in :root,.dark; oklch version would override it. */
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.556 0 0);
   --chart-1: oklch(0.87 0 0);
