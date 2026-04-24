@@ -3,6 +3,7 @@ import { Hero } from "./sections/Hero";
 import { Capabilities } from "./sections/Capabilities";
 import { Convergence } from "./sections/Convergence";
 import { Work } from "./sections/Work";
+import { StackMarquee } from "./sections/StackMarquee";
 
 export default function HomePage() {
   return (
@@ -11,7 +12,7 @@ export default function HomePage() {
       <Capabilities />
       <Convergence />
       <Work />
-      <section id="stack" className="min-h-[40vh]" />
+      <StackMarquee />
       <section id="about" className="min-h-[60vh]" />
       <section id="cta" className="min-h-[40vh]" />
     </>
