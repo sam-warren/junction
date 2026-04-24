@@ -1,14 +1,15 @@
 // src/config/routes.tsx
-import HomePage from "@/app/home/HomePage";
-import ContactPage from "@/app/contact/ContactPage";
+import { lazy, type LazyExoticComponent, type ComponentType } from "react";
 import { Home, Mail, type LucideIcon } from "lucide-react";
-import type { ReactElement } from "react";
+
+const HomePage = lazy(() => import("@/app/home/HomePage"));
+const ContactPage = lazy(() => import("@/app/contact/ContactPage"));
 
 export interface RouteConfig {
   path: string;
   label: string;
   icon: LucideIcon;
-  element: ReactElement;
+  component: LazyExoticComponent<ComponentType>;
   showInNav: boolean;
 }
 
@@ -17,14 +18,14 @@ export const ROUTES: RouteConfig[] = [
     path: "/",
     label: "Home",
     icon: Home,
-    element: <HomePage />,
-    showInNav: false, // navigation uses anchor links to homepage sections
+    component: HomePage,
+    showInNav: false,
   },
   {
     path: "/contact",
     label: "Contact",
     icon: Mail,
-    element: <ContactPage />,
+    component: ContactPage,
     showInNav: true,
   },
 ];

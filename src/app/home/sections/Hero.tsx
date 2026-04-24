@@ -1,43 +1,58 @@
 // src/app/home/sections/Hero.tsx
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
+import { motion, useMotionValue, useSpring } from "motion/react";
 import { DotPattern } from "@/components/magicui/dot-pattern";
 import { BlurFade } from "@/components/magicui/blur-fade";
 import { Button } from "@/components/ui/button";
 import { COPY } from "@/content/site";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
-import { cn } from "@/lib/utils";
 
 export function Hero() {
-  const ref = useRef<HTMLElement | null>(null);
-  const [parallax, setParallax] = useState({ x: 0, y: 0 });
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const cueRef = useRef<HTMLAnchorElement | null>(null);
   const reduced = useReducedMotion();
-  const [scrolled, setScrolled] = useState(false);
+
+  // Motion values drive the parallax without triggering React re-renders.
+  const mx = useMotionValue(0);
+  const my = useMotionValue(0);
+  const x = useSpring(mx, { stiffness: 120, damping: 20, mass: 0.3 });
+  const y = useSpring(my, { stiffness: 120, damping: 20, mass: 0.3 });
 
   useEffect(() => {
     if (reduced) return;
-    if (typeof window === "undefined") return;
-    if (window.innerWidth < 1024) return;
-
-    const node = ref.current;
+    if (typeof window === "undefined" || window.innerWidth < 1024) return;
+    const node = sectionRef.current;
     if (!node) return;
+
+    let rafId = 0;
+    let nextX = 0;
+    let nextY = 0;
 
     function onMove(e: MouseEvent) {
       const rect = node!.getBoundingClientRect();
-      const cx = rect.left + rect.width / 2;
-      const cy = rect.top + rect.height / 2;
-      const dx = (e.clientX - cx) / rect.width;
-      const dy = (e.clientY - cy) / rect.height;
-      setParallax({ x: dx * 4, y: dy * 4 });
+      nextX = ((e.clientX - rect.left - rect.width / 2) / rect.width) * 4;
+      nextY = ((e.clientY - rect.top - rect.height / 2) / rect.height) * 4;
+      if (rafId) return;
+      rafId = requestAnimationFrame(() => {
+        mx.set(nextX);
+        my.set(nextY);
+        rafId = 0;
+      });
     }
-    node.addEventListener("mousemove", onMove);
-    return () => node.removeEventListener("mousemove", onMove);
-  }, [reduced]);
+    node.addEventListener("mousemove", onMove, { passive: true });
+    return () => {
+      node.removeEventListener("mousemove", onMove);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
+  }, [reduced, mx, my]);
 
   useEffect(() => {
     function onScroll() {
-      setScrolled(window.scrollY > 100);
+      const el = cueRef.current;
+      if (!el) return;
+      el.style.opacity = window.scrollY > 100 ? "0" : "1";
     }
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -46,42 +61,40 @@ export function Hero() {
   return (
     <section
       id="hero"
-      ref={ref}
-      className="relative grid min-h-[calc(100vh-4rem)] place-items-center overflow-hidden lg:min-h-[calc(100vh-5rem)]"
+      ref={sectionRef}
+      className="relative grid min-h-[calc(100vh-4rem)] place-items-center overflow-hidden [contain:layout_paint] lg:min-h-[calc(100vh-5rem)]"
     >
-      <div
+      {/* Mask fades dots AT the center (where text sits) and reveals them
+          toward the edges — inverse of the plan's original so subtext stays
+          readable. */}
+      <motion.div
         className="pointer-events-none absolute inset-0"
         style={{
-          transform: `translate3d(${parallax.x}px, ${parallax.y}px, 0)`,
+          x,
+          y,
           maskImage:
-            "radial-gradient(ellipse 60% 50% at 50% 50%, black 0%, transparent 80%)",
+            "radial-gradient(ellipse 55% 45% at 50% 50%, transparent 30%, black 85%)",
           WebkitMaskImage:
-            "radial-gradient(ellipse 60% 50% at 50% 50%, black 0%, transparent 80%)",
+            "radial-gradient(ellipse 55% 45% at 50% 50%, transparent 30%, black 85%)",
         }}
       >
-        <DotPattern className="absolute inset-0" />
-      </div>
+        <DotPattern className="absolute inset-0 opacity-60" />
+      </motion.div>
 
       <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
-        <BlurFade delay={0} inView>
-          <p className="font-[family-name:var(--font-mono)] text-[length:var(--text-mono-sm)] uppercase tracking-[0.18em] text-[var(--color-brand-300)]">
-            {COPY.hero.eyebrow}
-          </p>
-        </BlurFade>
-
-        <h1 className="mt-6 text-[length:var(--text-display-xl)] font-semibold leading-[0.95] tracking-tight md:text-[length:var(--text-display-2xl)]">
-          <BlurFade delay={0.1} inView>
+        <h1 className="text-[length:var(--text-display-xl)] font-semibold leading-[0.95] tracking-tight md:text-[length:var(--text-display-2xl)]">
+          <BlurFade delay={0} inView>
             <span className="block">{COPY.hero.headline}</span>
           </BlurFade>
         </h1>
 
-        <BlurFade delay={0.3} inView>
-          <p className="mx-auto mt-6 max-w-2xl text-[length:var(--text-body-lg)] text-[var(--text-secondary)]">
+        <BlurFade delay={0.2} inView>
+          <p className="mx-auto mt-6 max-w-2xl text-[length:var(--text-body-lg)] text-[var(--text-primary)]/85">
             {COPY.hero.sub}
           </p>
         </BlurFade>
 
-        <BlurFade delay={0.4} inView>
+        <BlurFade delay={0.3} inView>
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Link to="/contact">
               <Button
@@ -101,14 +114,13 @@ export function Hero() {
         </BlurFade>
       </div>
 
-      <BlurFade delay={0.6} inView>
+      <BlurFade delay={0.5} inView>
         <a
+          ref={cueRef}
           href="#capabilities"
           aria-label="Scroll to capabilities"
-          className={cn(
-            "absolute bottom-8 left-1/2 -translate-x-1/2 text-[var(--text-tertiary)] transition-opacity duration-300 hover:text-[var(--text-secondary)]",
-            scrolled ? "opacity-0" : "opacity-100",
-          )}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-[var(--text-tertiary)] transition-opacity duration-300 hover:text-[var(--text-secondary)]"
+          style={{ opacity: 1 }}
         >
           <ChevronDown className="h-6 w-6 animate-bounce" />
         </a>
