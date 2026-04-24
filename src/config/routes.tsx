@@ -1,18 +1,21 @@
-import AboutSection from "@/components/about/AboutSection";
-import ContactForm from "@/components/contact/ContactForm";
-import HeroSection from "@/components/home/HeroSection";
-import PackagesSection from "@/components/packages/PackagesSection";
-import BlogList from "@/components/blog/BlogList";
-import BlogPost from "@/components/blog/BlogPost";
-import { Home, Info, LucideIcon, Mail, Package, BookOpen } from "lucide-react";
-import { ReactElement } from "react";
+// src/config/routes.tsx
+import { lazy, type ComponentType } from "react";
+import { Home, Mail, type LucideIcon } from "lucide-react";
+import HomePage from "@/app/home/HomePage";
 
-interface RouteConfig {
+// HomePage is eager-imported because it's the primary route. Lazy-loading it
+// would force a Suspense fallback on every first visit and cause an
+// about-to-footer layout shift when the real content replaces the fallback.
+// ContactPage is secondary; lazy-loading it saves the ContactPage chunk
+// from being in the initial bundle without hurting the `/` experience.
+const ContactPage = lazy(() => import("@/app/contact/ContactPage"));
+
+export interface RouteConfig {
   path: string;
   label: string;
   icon: LucideIcon;
-  element: ReactElement;
-  showInNav?: boolean;
+  component: ComponentType;
+  showInNav: boolean;
 }
 
 export const ROUTES: RouteConfig[] = [
@@ -20,42 +23,22 @@ export const ROUTES: RouteConfig[] = [
     path: "/",
     label: "Home",
     icon: Home,
-    element: <HeroSection />,
-    showInNav: true,
-  },
-  {
-    path: "/about",
-    label: "About",
-    icon: Info,
-    element: <AboutSection />,
-    showInNav: true,
-  },
-  {
-    path: "/packages",
-    label: "Packages",
-    icon: Package,
-    element: <PackagesSection />,
-    showInNav: true,
-  },
-  {
-    path: "/blog",
-    label: "Blog",
-    icon: BookOpen,
-    element: <BlogList />,
-    showInNav: true,
-  },
-  {
-    path: "/blog/:slug",
-    label: "Blog",
-    icon: BookOpen,
-    element: <BlogPost />,
+    component: HomePage,
     showInNav: false,
   },
   {
     path: "/contact",
     label: "Contact",
     icon: Mail,
-    element: <ContactForm />,
+    component: ContactPage,
     showInNav: true,
   },
 ];
+
+export const HOMEPAGE_SECTIONS = [
+  { id: "capabilities", label: "Capabilities" },
+  { id: "how", label: "How" },
+  { id: "approach", label: "Approach" },
+  { id: "work", label: "Work" },
+  { id: "about", label: "About" },
+] as const;

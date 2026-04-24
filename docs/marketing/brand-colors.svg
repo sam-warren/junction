@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Junction Technologies brand palette reference.
+  Source of truth: src/globals.css at theme block, brand color tokens.
+
+  Upload this image to ChatGPT alongside the brand brief. It anchors exact
+  hex reproduction in generated assets. Image models drift toward
+  "approximately blue" when hex codes are only supplied as text.
+-->
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 1200 460"
+     width="1200" height="460"
+     role="img"
+     aria-label="Junction brand palette">
+  <title>Junction Technologies brand palette</title>
+
+  <!-- Canvas matches the site's dark theme -->
+  <rect width="1200" height="460" fill="#0A0A0A"/>
+
+  <!-- Title row -->
+  <text x="80" y="60"
+        fill="#F5F5F7"
+        font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif"
+        font-size="24"
+        font-weight="600">Junction Technologies</text>
+  <text x="80" y="85"
+        fill="#94A4E2"
+        font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace"
+        font-size="13"
+        style="letter-spacing: 0.15em;">BRAND PALETTE - EXACT HEX VALUES</text>
+
+  <!-- brand-300 -->
+  <g transform="translate(80,120)">
+    <rect width="160" height="200" rx="16" fill="#94A4E2"/>
+    <text x="0" y="230" fill="#F5F5F7"
+          font-family="ui-monospace, Menlo, Monaco, Consolas, monospace"
+          font-size="13" font-weight="700">BRAND-300</text>
+    <text x="0" y="252" fill="#A1A1AA"
+          font-family="ui-monospace, Menlo, Monaco, Consolas, monospace"
+          font-size="13">#94A4E2</text>
+    <text x="0" y="275" fill="#71717A"
+          font-family="ui-monospace, Menlo, Monaco, Consolas, monospace"
+          font-size="11">Light accent</text>
+  </g>
+
+  <!-- brand-400 -->
+  <g transform="translate(256,120)">
+    <rect width="160" height="200" rx="16" fill="#6B7ED4"/>
+    <text x="0" y="230" fill="#F5F5F7"
+          font-family="ui-monospace, Menlo, Monaco, Consolas, monospace"
+          font-size="13" font-weight="700">BRAND-400</text>
+    <text x="0" y="252" fill="#A1A1AA"
+          font-family="ui-monospace, Menlo, Monaco, Consolas, monospace"
+          font-size="13">#6B7ED4</text>
+    <text x="0" y="275" fill="#71717A"
+          font-family="ui-monospace, Menlo, Monaco, Consolas, monospace"
+          font-size="11">Focus rings</text>
+  </g>
+
+  <!-- brand-500 (primary action) -->
+  <g transform="translate(432,120)">
+    <rect width="160" height="200" rx="16" fill="#4A60C7"/>
+    <text x="0" y="230" fill="#F5F5F7"
+          font-family="ui-monospace, Menlo, Monaco, Consolas, monospace"
+          font-size="13" font-weight="700">BRAND-500</text>
+    <text x="0" y="252" fill="#A1A1AA"
+          font-family="ui-monospace, Menlo, Monaco, Consolas, monospace"
+          font-size="13">#4A60C7</text>
+    <text x="0" y="275" fill="#71717A"
+          font-family="ui-monospace, Menlo, Monaco, Consolas, monospace"
+          font-size="11">Primary . Lamp</text>
+  </g>
+
+  <!-- brand-600 -->
+  <g transform="translate(608,120)">
+    <rect width="160" height="200" rx="16" fill="#3650B6"/>
+    <text x="0" y="230" fill="#F5F5F7"
+          font-family="ui-monospace, Menlo, Monaco, Consolas, monospace"
+          font-size="13" font-weight="700">BRAND-600</text>
+    <text x="0" y="252" fill="#A1A1AA"
+          font-family="ui-monospace, Menlo, Monaco, Consolas, monospace"
+          font-size="13">#3650B6</text>
+    <text x="0" y="275" fill="#71717A"
+          font-family="ui-monospace, Menlo, Monaco, Consolas, monospace"
+          font-size="11">Hover state</text>
+  </g>
+
+  <!-- brand-700 (anchor) -->
+  <g transform="translate(784,120)">
+    <rect width="160" height="200" rx="16" fill="#2642A9"/>
+    <text x="0" y="230" fill="#F5F5F7"
+          font-family="ui-monospace, Menlo, Monaco, Consolas, monospace"
+          font-size="13" font-weight="700">BRAND-700</text>
+    <text x="0" y="252" fill="#A1A1AA"
+          font-family="ui-monospace, Menlo, Monaco, Consolas, monospace"
+          font-size="13">#2642A9</text>
+    <text x="0" y="275" fill="#71717A"
+          font-family="ui-monospace, Menlo, Monaco, Consolas, monospace"
+          font-size="11">Brand anchor</text>
+  </g>
+
+  <!-- brand-900 -->
+  <g transform="translate(960,120)">
+    <rect width="160" height="200" rx="16" fill="#1A2D75"/>
+    <text x="0" y="230" fill="#F5F5F7"
+          font-family="ui-monospace, Menlo, Monaco, Consolas, monospace"
+          font-size="13" font-weight="700">BRAND-900</text>
+    <text x="0" y="252" fill="#A1A1AA"
+          font-family="ui-monospace, Menlo, Monaco, Consolas, monospace"
+          font-size="13">#1A2D75</text>
+    <text x="0" y="275" fill="#71717A"
+          font-family="ui-monospace, Menlo, Monaco, Consolas, monospace"
+          font-size="11">Deep accent</text>
+  </g>
+
+  <!-- Footer: canvas + text color notes -->
+  <g transform="translate(80,380)">
+    <text x="0" y="0" fill="#A1A1AA"
+          font-family="ui-monospace, Menlo, Monaco, Consolas, monospace"
+          font-size="12" font-weight="700">CANVAS + TEXT</text>
+    <text x="0" y="22" fill="#71717A"
+          font-family="ui-monospace, Menlo, Monaco, Consolas, monospace"
+          font-size="11">Canvas dark: #0A0A0A   .   Canvas light: #FAFAF9   .   Text on dark: #F5F5F7   .   Text on light: #0A0A0A</text>
+    <text x="0" y="44" fill="#71717A"
+          font-family="ui-monospace, Menlo, Monaco, Consolas, monospace"
+          font-size="11">Default theme: dark. Most marketing assets land on the #0A0A0A canvas.</text>
+  </g>
+</svg>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Junction Technologies brandmark
+  Source of truth: src/components/ui/brand-mark.tsx (PATHS constant)
+
+  Composition: three strokes drawn inside a 100x100 viewBox.
+    stroke 1: M15,50 L95,50        - horizontal spine, 80px long
+    stroke 2: M15,20 L55,20 L70,50 - top bracket merging into spine midpoint
+    stroke 3: M15,80 L55,80 L70,50 - bottom bracket merging into spine midpoint
+
+  The silhouette is the mark. Background is transparent intentionally so the
+  color variant and canvas context can be set per asset.
+-->
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 100 100"
+     width="400" height="400"
+     role="img"
+     aria-label="Junction Technologies brandmark">
+  <title>Junction Technologies brandmark</title>
+  <desc>Two bracket paths merging into a horizontal spine, forming a literal junction.</desc>
+  <g fill="none" stroke="#94A4E2" stroke-width="10" stroke-linecap="round">
+    <path d="M15,50 L95,50" />
+    <path d="M15,20 L55,20 L70,50" />
+    <path d="M15,80 L55,80 L70,50" />
+  </g>
+</svg>

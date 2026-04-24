@@ -1,170 +1,153 @@
-import { SOCIAL_LINKS } from "@/config/constants";
-import { ROUTES } from "@/config/routes";
-import { Menu, X } from "lucide-react";
+// src/components/layout/Header.tsx
+import { Menu, X, ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
-import Logo from "../ui/Logo";
-import ThemeToggle from "../ui/ThemeToggle";
+import { Link, NavLink, useLocation } from "react-router-dom";
+import { motion, AnimatePresence } from "motion/react";
+import { BrandMark } from "@/components/ui/brand-mark";
+import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { useScrollProgress } from "@/hooks/use-scroll-progress";
+import { useSectionSpy } from "@/hooks/use-section-spy";
+import { HOMEPAGE_SECTIONS } from "@/config/routes";
+import { BRAND } from "@/content/site";
+import { cn } from "@/lib/utils";
 
-const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const currentYear = new Date().getFullYear();
+export default function Header() {
+  const [open, setOpen] = useState(false);
+  const scrolled = useScrollProgress(80);
+  const sectionIds = HOMEPAGE_SECTIONS.map((s) => s.id);
+  const activeSection = useSectionSpy(sectionIds);
+  const location = useLocation();
+  const isHome = location.pathname === "/";
 
   useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
+    document.body.style.overflow = open ? "hidden" : "";
     return () => {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = "";
     };
-  }, [isMenuOpen]);
+  }, [open]);
+
+  // Close mobile menu on route change.
+  useEffect(() => setOpen(false), [location.pathname]);
 
   return (
     <>
-      <header className="fixed top-0 z-55 w-full border-b border-gray-200 bg-white/80 backdrop-blur-md dark:border-gray-800 dark:bg-gray-900/80">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 items-center justify-between sm:h-16 lg:h-20">
-            <Link
-              to="/"
-              className="flex items-center space-x-3 transition-opacity"
-            >
-              <div className="text-gray-900 dark:text-white">
-                <Logo />
-              </div>
-              <span className="whitespace-nowrap text-xl font-bold text-gray-900 sm:text-2xl md:text-3xl dark:text-white">
-                JunctionTech
-              </span>
-            </Link>
+      <header
+        className={cn(
+          "fixed top-0 z-50 w-full transition-[background-color,backdrop-filter,border-color] duration-200",
+          scrolled
+            ? "border-b border-[var(--border)] bg-[var(--canvas)]/80 backdrop-blur-xl"
+            : "border-b border-transparent bg-transparent",
+        )}
+      >
+        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:h-20 lg:px-8">
+          <Link
+            to="/"
+            className="flex items-center gap-2 text-[var(--text-primary)]"
+          >
+            <BrandMark variant="static" size="h-5 w-auto sm:h-6" />
+            <span className="text-lg font-semibold tracking-tight sm:text-xl">
+              {BRAND.short}
+            </span>
+          </Link>
 
-            <div className="flex items-center">
-              <nav className="hidden items-center md:flex">
-                {ROUTES.filter(route => route.showInNav !== false).map((route) => (
-                  <NavLink
-                    key={route.path}
-                    to={route.path}
-                    className={({ isActive }) =>
-                      `text-md px-4 py-2 font-medium text-gray-600 hover:text-gray-900 lg:px-6 dark:text-gray-300 dark:hover:text-white ${
-                        isActive ? "text-primary-600 dark:text-primary-400" : ""
-                      } `
-                    }
-                  >
-                    {route.label}
-                  </NavLink>
-                ))}
-                <div className="ml-4 lg:ml-6">
-                  <ThemeToggle />
-                </div>
-              </nav>
-              <div className="flex items-center gap-4 md:hidden">
-                <button
-                  onClick={() => setIsMenuOpen(!isMenuOpen)}
-                  className="relative h-6 w-6 p-1.5 text-gray-500 hover:text-gray-700 sm:p-2 dark:text-gray-400 dark:hover:text-gray-200"
-                  aria-label="Toggle menu"
+          <nav className="hidden items-center gap-1 md:flex">
+            {isHome &&
+              HOMEPAGE_SECTIONS.map((s) => (
+                <a
+                  key={s.id}
+                  href={`#${s.id}`}
+                  className={cn(
+                    "relative px-3 py-2 text-[length:var(--text-body-sm)] font-medium transition-colors duration-200",
+                    activeSection === s.id
+                      ? "text-[var(--text-primary)]"
+                      : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]",
+                  )}
                 >
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <Menu
-                      size={24}
-                      className={`transition-all duration-300 ${
-                        isMenuOpen
-                          ? "rotate-45 scale-0 opacity-0"
-                          : "rotate-0 scale-100 opacity-100"
-                      }`}
+                  {s.label}
+                  {activeSection === s.id && (
+                    <motion.span
+                      layoutId="header-active-underline"
+                      className="absolute inset-x-3 -bottom-px h-0.5 rounded-full bg-[var(--color-brand-400)]"
                     />
-                    <X
-                      size={24}
-                      className={`absolute transition-all duration-300 ${
-                        isMenuOpen
-                          ? "rotate-0 scale-100 opacity-100"
-                          : "-rotate-45 scale-0 opacity-0"
-                      }`}
-                    />
-                  </div>
-                </button>
-              </div>
-            </div>
+                  )}
+                </a>
+              ))}
+            {!isHome && (
+              <NavLink
+                to="/"
+                className="px-3 py-2 text-[length:var(--text-body-sm)] font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+              >
+                Home
+              </NavLink>
+            )}
+          </nav>
+
+          <div className="flex items-center gap-2">
+            <Link to="/contact" className="hidden sm:block">
+              <Button
+                size="sm"
+                withBorderBeam
+                iconRight={<ArrowRight className="h-4 w-4" />}
+              >
+                Start a project
+              </Button>
+            </Link>
+            <ThemeToggle />
+            <button
+              type="button"
+              aria-label="Toggle menu"
+              className="grid h-10 w-10 place-items-center rounded-md text-[var(--text-secondary)] hover:text-[var(--text-primary)] active:scale-[0.96] md:hidden"
+              onClick={() => setOpen((o) => !o)}
+            >
+              {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
           </div>
         </div>
       </header>
 
-      {/* Slide-in Menu */}
-      <div
-        className={`fixed bottom-0 left-0 right-0 top-[4rem] z-40 flex justify-end transition-all duration-300 ease-in-out sm:top-[4rem] md:hidden lg:top-[5rem] ${
-          isMenuOpen ? "opacity-100" : "pointer-events-none opacity-0"
-        }`}
-      >
-        <div
-          className="absolute inset-0 bg-black/50"
-          onClick={() => setIsMenuOpen(false)}
-        />
-
-        <div
-          className={`relative h-full w-72 transform overflow-y-auto bg-white/90 backdrop-blur-lg transition-transform duration-300 ease-in-out dark:bg-gray-900/90 ${
-            isMenuOpen ? "translate-x-0" : "translate-x-full"
-          }`}
-        >
-          <div className="border-b border-gray-200 px-6 py-4 dark:border-gray-800">
-            <div className="flex items-center justify-between">
-              <span className="text-sm font-medium text-gray-600 dark:text-gray-300">
-                Theme
-              </span>
-              <ThemeToggle />
-            </div>
-          </div>
-
-          <nav className="px-2 py-4">
-            {ROUTES.filter(route => route.showInNav !== false).map((route) => {
-              const Icon = route.icon;
-              return (
-                <NavLink
-                  key={route.path}
-                  to={route.path}
-                  className={({ isActive }) =>
-                    `flex items-center rounded-md px-4 py-3 text-base font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-white ${
-                      isActive
-                        ? "bg-gray-100 text-gray-900 dark:bg-gray-800 dark:text-white"
-                        : ""
-                    } `
-                  }
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <Icon size={20} className="mr-3" />
-                  {route.label}
-                </NavLink>
-              );
-            })}
-          </nav>
-
-          <div className="border-t border-gray-200 p-4 dark:border-gray-800">
-            <div className="flex flex-col space-y-4">
-              <div className="flex justify-center space-x-4">
-                {SOCIAL_LINKS.map((link) => (
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            className="fixed inset-0 z-40 md:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            <div
+              className="absolute inset-0 bg-black/40"
+              onClick={() => setOpen(false)}
+            />
+            <motion.aside
+              className="absolute top-0 right-0 h-full w-72 border-l border-[var(--border)] bg-[var(--surface-1)] p-6"
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", duration: 0.3, bounce: 0 }}
+            >
+              <nav className="mt-12 flex flex-col gap-2">
+                {(isHome ? HOMEPAGE_SECTIONS : []).map((s) => (
                   <a
-                    key={link.name}
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center opacity-50 transition-opacity duration-300 hover:opacity-100"
-                    aria-label={link.name}
+                    key={s.id}
+                    href={`#${s.id}`}
+                    className="rounded-md px-3 py-3 text-[length:var(--text-body)] font-medium text-[var(--text-primary)] hover:bg-[var(--surface-2)]"
+                    onClick={() => setOpen(false)}
                   >
-                    <img
-                      src={link.icon}
-                      alt={link.name}
-                      className="h-6 w-6 filter dark:opacity-75 dark:invert"
-                    />
+                    {s.label}
                   </a>
                 ))}
-              </div>
-              <div className="text-center text-sm text-gray-500 dark:text-gray-400">
-                JunctionTech Inc. — {currentYear}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+                <Link
+                  to="/contact"
+                  className="rounded-md px-3 py-3 text-[length:var(--text-body)] font-medium text-[var(--text-primary)] hover:bg-[var(--surface-2)]"
+                >
+                  Contact
+                </Link>
+              </nav>
+            </motion.aside>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
-};
-
-export default Header;
+}

@@ -6,56 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Connecting legacy infrastructure with cutting-edge technology. We build the bridges that power your digital transformation."
+      content="Independent software consultancy. We design and build interfaces, end-to-end."
     />
 
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://junctiontech.ca/" />
-    <meta
-      property="og:title"
-      content="JunctionTech - Where Modern Systems Converge"
-    />
+    <meta property="og:title" content="Junction" />
     <meta
       property="og:description"
-      content="Connecting legacy infrastructure with cutting-edge technology. We build the bridges that power your digital transformation."
+      content="Independent software consultancy. We design and build interfaces, end-to-end."
     />
-    <meta
-      property="og:image"
-      content="https://junctiontech.ca/og-image-text.png"
-    />
+    <meta property="og:image" content="https://junctiontech.ca/og-image.png" />
 
-    <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://junctiontech.ca/" />
-    <meta
-      property="twitter:title"
-      content="JunctionTech - Where Modern Systems Converge"
-    />
+    <meta property="twitter:title" content="Junction" />
     <meta
       property="twitter:description"
-      content="Connecting legacy infrastructure with cutting-edge technology. We build the bridges that power your digital transformation."
+      content="Independent software consultancy. We design and build interfaces, end-to-end."
     />
     <meta
       property="twitter:image"
-      content="https://junctiontech.dev/og-image-text.png"
+      content="https://junctiontech.ca/og-image.png"
     />
 
-    <title>JunctionTech</title>
+    <title>Junction</title>
+
+    <script>
+      // Theme persistence + system fallback. Default is dark.
+      (function () {
+        var stored = localStorage.theme;
+        var prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+        var useLight = stored === "light" || (!stored && prefersLight);
+        document.documentElement.classList.toggle("light", useLight);
+        document.documentElement.classList.toggle("dark", !useLight);
+      })();
+    </script>
   </head>
-  <body>
+  <body class="dark">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
-<script>
-  if (
-    localStorage.theme === "dark" ||
-    (!("theme" in localStorage) &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches)
-  ) {
-    document.documentElement.classList.add("dark");
-  } else {
-    document.documentElement.classList.remove("dark");
-  }
-</script>

@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
@@ -10,11 +11,13 @@ function App() {
       <Analytics />
       <SpeedInsights />
       <Layout>
-        <Routes>
-          {ROUTES.map((route) => (
-            <Route key={route.path} path={route.path} element={route.element} />
-          ))}
-        </Routes>
+        <Suspense fallback={<div className="min-h-[60vh]" aria-hidden />}>
+          <Routes>
+            {ROUTES.map(({ path, component: Component }) => (
+              <Route key={path} path={path} element={<Component />} />
+            ))}
+          </Routes>
+        </Suspense>
       </Layout>
     </Router>
   );
