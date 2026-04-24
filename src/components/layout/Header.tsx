@@ -41,8 +41,8 @@ export default function Header() {
         )}
       >
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:h-20 lg:px-8">
-          <Link to="/" className="flex items-center gap-2.5 text-[var(--text-primary)]">
-            <BrandMark variant="static" />
+          <Link to="/" className="flex items-center gap-2 text-[var(--text-primary)]">
+            <BrandMark variant="static" size="h-5 w-auto sm:h-6" />
             <span className="text-lg font-semibold tracking-tight sm:text-xl">
               {BRAND.short}
             </span>
