@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 import { motion, useMotionValue, useSpring } from "motion/react";
 import { DotPattern } from "@/components/magicui/dot-pattern";
 import { BlurFade } from "@/components/magicui/blur-fade";
+import { FlipWords } from "@/components/aceternity/flip-words";
 import { Lamp } from "@/components/aceternity/lamp";
-import { WordRotate } from "@/components/magicui/word-rotate";
 import { Button } from "@/components/ui/button";
 import { COPY } from "@/content/site";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
@@ -90,12 +90,11 @@ export function Hero() {
             <span className="block">{COPY.hero.headlinePrefix}</span>
           </BlurFade>
           <BlurFade delay={0.1} inView>
-            <span className="mt-2 block whitespace-nowrap md:mt-3">
-              <WordRotate
+            <span className="mt-2 block md:mt-3">
+              <FlipWords
                 words={[...COPY.hero.headlineWords]}
                 className="text-[var(--color-brand-300)]"
               />
-              <span aria-hidden>.</span>
             </span>
           </BlurFade>
         </h1>

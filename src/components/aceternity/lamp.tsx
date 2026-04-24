@@ -20,9 +20,10 @@ export function Lamp({
   return (
     <div
       className={cn(
-        // Constrain lamp to the top 55vh so the bright region sits well
-        // above the vertically centered hero text block.
-        "pointer-events-none absolute inset-x-0 top-0 isolate z-0 flex h-[55vh] items-center justify-center overflow-hidden",
+        // Constrain lamp to a 55vh band starting 10vh from the top of the
+        // hero so the bright region pools above the headline instead of
+        // sitting at the top edge.
+        "pointer-events-none absolute inset-x-0 top-[10vh] isolate z-0 flex h-[55vh] items-center justify-center overflow-hidden",
         className,
       )}
       aria-hidden
