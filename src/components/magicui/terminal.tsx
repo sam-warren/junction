@@ -21,7 +21,10 @@ export function AnimatedSpan({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.3, delay: delay / 1000 }}
-      className={cn("grid text-sm font-[family-name:var(--font-mono)]", className)}
+      className={cn(
+        "grid font-[family-name:var(--font-mono)] text-sm",
+        className,
+      )}
       {...props}
     >
       {children}
@@ -29,7 +32,10 @@ export function AnimatedSpan({
   );
 }
 
-interface TypingAnimationProps extends Omit<HTMLMotionProps<"div">, "children"> {
+interface TypingAnimationProps extends Omit<
+  HTMLMotionProps<"div">,
+  "children"
+> {
   children: string;
   delay?: number;
   duration?: number;
@@ -67,7 +73,7 @@ export function TypingAnimation({
 
   return (
     <motion.div
-      className={cn("text-sm font-[family-name:var(--font-mono)]", className)}
+      className={cn("font-[family-name:var(--font-mono)] text-sm", className)}
       {...props}
     >
       {displayed}
@@ -84,7 +90,7 @@ export function Terminal({ className, children, ...props }: TerminalProps) {
   return (
     <div
       className={cn(
-        "z-0 h-full min-h-[420px] w-full max-w-2xl rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--surface-1)] shadow-[var(--shadow-lg)]",
+        "z-0 w-full max-w-2xl rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--surface-1)] shadow-[var(--shadow-lg)]",
         className,
       )}
       {...props}
