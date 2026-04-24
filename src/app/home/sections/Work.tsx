@@ -7,17 +7,17 @@ import { CASE_STUDIES, type CaseStudy } from "@/content/case-studies";
 import { COPY } from "@/content/site";
 import { cn } from "@/lib/utils";
 
-function WorkCard({ study, feature }: { study: CaseStudy; feature?: boolean }) {
+function ClientCard({ study, feature }: { study: CaseStudy; feature?: boolean }) {
   return (
     <article
       className={cn(
-        "group relative flex flex-col gap-4 overflow-hidden rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--surface-1)] p-8 shadow-[var(--shadow-md)] transition-shadow duration-200 hover:shadow-[var(--shadow-lg)]",
+        "group relative flex h-full flex-col gap-4 overflow-hidden rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--surface-1)] p-8 shadow-[var(--shadow-md)] transition-shadow duration-200 hover:shadow-[var(--shadow-lg)]",
         feature && "lg:col-span-2",
       )}
     >
-      <div className="flex items-baseline justify-between font-[family-name:var(--font-mono)] text-[length:var(--text-mono-sm)]">
+      <div className="flex items-baseline justify-between gap-4 font-[family-name:var(--font-mono)] text-[length:var(--text-mono-sm)]">
         <span className="text-[var(--color-brand-300)]">{study.client}</span>
-        <span className="text-[var(--text-tertiary)]">{study.year}</span>
+        <span className="shrink-0 text-[var(--text-tertiary)]">{study.year}</span>
       </div>
       <h3 className="text-[length:var(--text-display-md)] font-semibold leading-tight tracking-tight">
         {study.title}
@@ -26,7 +26,7 @@ function WorkCard({ study, feature }: { study: CaseStudy; feature?: boolean }) {
         {study.outcome}
       </p>
       <div className="mt-auto flex flex-wrap gap-2 pt-4">
-        {study.tech.slice(0, 5).map((t) => (
+        {study.tech.slice(0, 6).map((t) => (
           <TechChip key={t} label={t} />
         ))}
       </div>
@@ -44,18 +44,66 @@ function WorkCard({ study, feature }: { study: CaseStudy; feature?: boolean }) {
   );
 }
 
-function EmptyCard() {
+function ProductCard({ study }: { study: CaseStudy }) {
   return (
-    <article className="grid place-items-center rounded-[var(--radius-lg)] border border-dashed border-[var(--border)] bg-[var(--surface-1)] p-8 text-center text-[var(--text-tertiary)]">
-      More case studies coming soon.
+    <article className="group relative col-span-full flex flex-col gap-6 overflow-hidden rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--surface-1)] p-8 shadow-[var(--shadow-md)] transition-shadow duration-200 hover:shadow-[var(--shadow-lg)] lg:flex-row lg:items-start lg:gap-12">
+      <div className="flex-1">
+        <div className="flex flex-wrap items-baseline justify-between gap-2 font-[family-name:var(--font-mono)] text-[length:var(--text-mono-sm)]">
+          <span className="inline-flex items-center gap-2">
+            <span className="rounded-[var(--radius-xs)] bg-[var(--brand-soft)] px-2 py-0.5 text-[var(--color-brand-300)]">
+              Product
+            </span>
+            <span className="text-[var(--text-primary)]">{study.client}</span>
+          </span>
+          <span className="text-[var(--text-tertiary)]">{study.year}</span>
+        </div>
+        <h3 className="mt-4 text-[length:var(--text-display-md)] font-semibold leading-tight tracking-tight">
+          {study.title}
+        </h3>
+        <p className="mt-4 max-w-2xl text-[length:var(--text-body)] text-[var(--text-secondary)]">
+          {study.outcome}
+        </p>
+        <div className="mt-6 flex flex-wrap gap-2">
+          {study.tech.slice(0, 9).map((t) => (
+            <TechChip key={t} label={t} />
+          ))}
+        </div>
+        {study.link && (
+          <a
+            href={study.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 inline-flex items-center gap-1 text-[length:var(--text-body-sm)] text-[var(--color-brand-300)] hover:text-[var(--color-brand-200)]"
+          >
+            Visit cedh.io
+            <ArrowUpRight className="h-4 w-4" />
+          </a>
+        )}
+      </div>
+      {study.metrics && study.metrics.length > 0 && (
+        <div className="flex shrink-0 gap-8 lg:flex-col lg:gap-6 lg:border-l lg:border-[var(--border)] lg:pl-12">
+          {study.metrics.map((metric) => (
+            <div key={metric.label} className="flex flex-col gap-1">
+              <span className="font-[family-name:var(--font-mono)] text-[length:var(--text-mono-sm)] uppercase tracking-[0.12em] text-[var(--text-tertiary)]">
+                {metric.label}
+              </span>
+              <span className="text-[length:var(--text-display-md)] font-semibold tracking-tight text-[var(--text-primary)]">
+                {metric.value}
+              </span>
+            </div>
+          ))}
+        </div>
+      )}
+      <BorderBeam className="opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
     </article>
   );
 }
 
 export function Work() {
   const studies = CASE_STUDIES;
-  const showEmpty = studies.length < 3;
-  const [feature, ...rest] = studies;
+  const products = studies.filter((s) => s.kind === "product");
+  const clients = studies.filter((s) => s.kind !== "product");
+  const [feature, ...rest] = clients;
 
   return (
     <section id="work" className="relative py-24 lg:py-32">
@@ -74,15 +122,24 @@ export function Work() {
         <div className="mt-12 grid gap-4 lg:grid-cols-3">
           {feature && (
             <BlurFade delay={0.15} inView className="lg:col-span-2">
-              <WorkCard study={feature} feature />
+              <ClientCard study={feature} feature />
             </BlurFade>
           )}
           {rest.map((study, i) => (
-            <BlurFade key={study.slug} delay={0.15 + (i + 1) * 0.1} inView>
-              <WorkCard study={study} />
+            <BlurFade key={study.slug} delay={0.15 + (i + 1) * 0.08} inView>
+              <ClientCard study={study} />
             </BlurFade>
           ))}
-          {showEmpty && <EmptyCard />}
+          {products.map((study, i) => (
+            <BlurFade
+              key={study.slug}
+              delay={0.15 + (rest.length + i + 1) * 0.08}
+              inView
+              className="lg:col-span-3"
+            >
+              <ProductCard study={study} />
+            </BlurFade>
+          ))}
         </div>
       </div>
     </section>
