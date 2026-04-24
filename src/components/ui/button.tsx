@@ -10,7 +10,7 @@ const buttonStyles = cva(
     variants: {
       variant: {
         primary:
-          "bg-[var(--color-brand-700)] text-white hover:bg-[var(--color-brand-600)] hover:shadow-[var(--brand-glow)] active:bg-[var(--color-brand-800)]",
+          "bg-[var(--color-brand-500)] text-white hover:bg-[var(--color-brand-600)] hover:shadow-[var(--brand-glow)] active:bg-[var(--color-brand-700)]",
         ghost:
           "border border-[var(--border)] bg-transparent text-[var(--text-primary)] hover:bg-[var(--surface-1)] hover:border-[var(--border-strong)]",
         link: "text-[var(--color-brand-300)] underline-offset-4 hover:text-[var(--color-brand-200)] hover:underline",

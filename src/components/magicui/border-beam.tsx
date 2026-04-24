@@ -55,7 +55,7 @@ export const BorderBeam = ({
   delay = 0,
   duration = 8,
   colorFrom = "#94A4E2",  // brand-300
-  colorTo   = "#2642A9",  // brand-700
+  colorTo   = "#4A60C7",  // brand-500
   transition,
   style,
   reverse = false,
