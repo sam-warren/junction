@@ -295,3 +295,21 @@ svg.lucide { stroke-width: 1.5 !important; }
 .marquee-smooth-root:hover .marquee-smooth-track {
   --marquee-speed: 0.01;
 }
+
+/* ------------------------------------------------------------------------- */
+/* View Transitions API: theme reveal                                        */
+/* Disable the browser's default crossfade between old and new root views so */
+/* the ThemeToggle's clip-path circular reveal paints cleanly on top of the  */
+/* previous theme instead of blending underneath a fade.                     */
+/* ------------------------------------------------------------------------- */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-old(root) {
+  z-index: 1;
+}
+::view-transition-new(root) {
+  z-index: 2;
+}
