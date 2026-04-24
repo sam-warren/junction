@@ -127,8 +127,6 @@ html, body {
 h1, h2, h3, h4 { text-wrap: balance; }
 p, li { text-wrap: pretty; }
 
-img { outline: 1px solid rgba(255, 255, 255, 0.1); outline-offset: -1px; }
-.light img { outline-color: rgba(0, 0, 0, 0.1); }
 
 /* Lucide icons: use stroke-width 1.5 site-wide for elegance. */
 svg.lucide { stroke-width: 1.5 !important; }
