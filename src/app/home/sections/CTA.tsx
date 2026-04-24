@@ -2,7 +2,8 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Mail } from "lucide-react";
 import { BlurFade } from "@/components/magicui/blur-fade";
-import { Button } from "@/components/ui/button";
+import { Particles } from "@/components/magicui/particles";
+import { ShinyButton } from "@/components/magicui/shiny-button";
 import { COPY, BRAND } from "@/content/site";
 
 export function CTA() {
@@ -15,6 +16,14 @@ export function CTA() {
           "radial-gradient(ellipse 50% 40% at 50% 50%, var(--brand-soft), transparent 70%)",
       }}
     >
+      <Particles
+        className="absolute inset-0"
+        quantity={80}
+        staticity={60}
+        ease={50}
+        size={0.5}
+        color="#94A4E2"
+      />
       <div className="relative mx-auto max-w-3xl px-6 text-center lg:px-8">
         <BlurFade delay={0} inView>
           <h2 className="text-[length:var(--text-display-lg)] font-semibold tracking-tight md:text-[length:var(--text-display-xl)]">
@@ -29,13 +38,12 @@ export function CTA() {
         <BlurFade delay={0.2} inView>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link to="/contact">
-              <Button
+              <ShinyButton
                 size="lg"
-                withBorderBeam
                 iconRight={<ArrowRight className="h-5 w-5" />}
               >
                 {COPY.cta.primary}
-              </Button>
+              </ShinyButton>
             </Link>
             <a
               href={`mailto:${BRAND.contactEmail}`}

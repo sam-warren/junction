@@ -3,10 +3,11 @@ import { useEffect, useRef } from "react";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion, useMotionValue, useSpring } from "motion/react";
-import { DotPattern } from "@/components/magicui/dot-pattern";
+import { FlickeringGrid } from "@/components/magicui/flickering-grid";
 import { BlurFade } from "@/components/magicui/blur-fade";
 import { FlipWords } from "@/components/aceternity/flip-words";
 import { Lamp } from "@/components/aceternity/lamp";
+import { ShinyButton } from "@/components/magicui/shiny-button";
 import { Button } from "@/components/ui/button";
 import { COPY } from "@/content/site";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
@@ -81,7 +82,14 @@ export function Hero() {
             "radial-gradient(ellipse 70% 65% at 50% 50%, transparent 40%, black 90%)",
         }}
       >
-        <DotPattern className="absolute inset-0 opacity-60" />
+        <FlickeringGrid
+          className="absolute inset-0"
+          color="rgb(148, 164, 226)"
+          squareSize={4}
+          gridGap={6}
+          flickerChance={0.25}
+          maxOpacity={0.35}
+        />
       </motion.div>
 
       <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
@@ -108,14 +116,13 @@ export function Hero() {
         <BlurFade delay={0.3} inView>
           <div className="mx-auto mt-10 flex w-full max-w-xs flex-col items-stretch gap-3 sm:max-w-none sm:flex-row sm:items-center sm:justify-center">
             <Link to="/contact" className="block">
-              <Button
+              <ShinyButton
                 size="lg"
-                withBorderBeam
                 iconRight={<ArrowRight className="h-5 w-5" />}
                 className="w-full sm:w-auto"
               >
                 {COPY.hero.primaryCta}
-              </Button>
+              </ShinyButton>
             </Link>
             <a href="#work" className="block">
               <Button size="lg" variant="ghost" className="w-full sm:w-auto">

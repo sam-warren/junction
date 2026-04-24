@@ -6,8 +6,8 @@ import {
   type FormEvent,
   type ReactNode,
 } from "react";
-import { Button } from "@/components/ui/button";
-import Alert from "@/components/ui/Alert";
+import { toast } from "sonner";
+import { ShinyButton } from "@/components/magicui/shiny-button";
 import { cn } from "@/lib/utils";
 
 interface FormData {
@@ -22,11 +22,6 @@ interface FormErrors {
   email?: string;
   message?: string;
 }
-interface AlertState {
-  type: "success" | "error";
-  message: string;
-}
-
 export function ContactForm() {
   const [data, setData] = useState<FormData>({
     name: "",
@@ -36,7 +31,6 @@ export function ContactForm() {
   });
   const [errors, setErrors] = useState<FormErrors>({});
   const [submitting, setSubmitting] = useState(false);
-  const [alert, setAlert] = useState<AlertState | null>(null);
 
   function validate(field: FormField, value: string): string | undefined {
     if (field === "name" && !value.trim()) return "Name is required";
@@ -61,7 +55,7 @@ export function ContactForm() {
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (data.honeypot) {
-      setAlert({ type: "error", message: "Form submission failed." });
+      toast.error("Form submission failed.");
       return;
     }
     const next: FormErrors = {
@@ -81,19 +75,16 @@ export function ContactForm() {
       });
       const body: { success?: boolean; error?: string } = await res.json();
       if (!res.ok) throw new Error(body.error || "Failed to send message");
-      setAlert({
-        type: "success",
-        message: "Message sent. We'll get back to you within one business day.",
-      });
+      toast.success(
+        "Message sent. We'll get back to you within one business day.",
+      );
       setData({ name: "", email: "", message: "", honeypot: "" });
     } catch (err) {
-      setAlert({
-        type: "error",
-        message:
-          err instanceof Error
-            ? err.message
-            : "Failed to send message. Please try again later.",
-      });
+      toast.error(
+        err instanceof Error
+          ? err.message
+          : "Failed to send message. Please try again later.",
+      );
     } finally {
       setSubmitting(false);
     }
@@ -104,14 +95,6 @@ export function ContactForm() {
 
   return (
     <>
-      {alert && (
-        <Alert
-          type={alert.type}
-          message={alert.message}
-          onDismiss={() => setAlert(null)}
-        />
-      )}
-
       <form
         onSubmit={onSubmit}
         noValidate
@@ -196,10 +179,9 @@ export function ContactForm() {
           </Field>
 
           <div className="pt-2">
-            <Button
+            <ShinyButton
               type="submit"
               disabled={submitting}
-              withBorderBeam
               className="w-full"
             >
               {submitting ? (
@@ -209,7 +191,7 @@ export function ContactForm() {
               ) : (
                 "Send message"
               )}
-            </Button>
+            </ShinyButton>
           </div>
         </div>
       </form>

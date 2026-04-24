@@ -1,7 +1,9 @@
 // src/content/case-studies.ts
 export interface CaseStudyMetric {
   label: string;
-  value: string;
+  value: number;
+  prefix?: string;
+  suffix?: string;
 }
 
 export interface CaseStudy {
@@ -108,8 +110,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     ],
     kind: "product",
     metrics: [
-      { label: "Active users", value: "1,500+" },
-      { label: "MRR", value: "$250" },
+      { label: "Active users", value: 1500, suffix: "+" },
+      { label: "MRR", value: 250, prefix: "$" },
     ],
     link: "https://cedh.io",
   },

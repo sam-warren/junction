@@ -2,14 +2,9 @@
 import { Menu, X, ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import {
-  motion,
-  AnimatePresence,
-  useScroll,
-  useTransform,
-} from "motion/react";
+import { motion, AnimatePresence, useScroll, useTransform } from "motion/react";
 import { BrandMark } from "@/components/ui/brand-mark";
-import { Button } from "@/components/ui/button";
+import { ShinyButton } from "@/components/magicui/shiny-button";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { useSectionSpy } from "@/hooks/use-section-spy";
 import { HOMEPAGE_SECTIONS } from "@/config/routes";
@@ -93,13 +88,12 @@ export default function Header() {
 
           <div className="flex items-center gap-2">
             <Link to="/contact" className="hidden sm:block">
-              <Button
+              <ShinyButton
                 size="sm"
-                withBorderBeam
                 iconRight={<ArrowRight className="h-4 w-4" />}
               >
                 Start a project
-              </Button>
+              </ShinyButton>
             </Link>
             <ThemeToggle />
             <button

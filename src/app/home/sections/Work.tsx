@@ -2,6 +2,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { BlurFade } from "@/components/magicui/blur-fade";
 import { BorderBeam } from "@/components/magicui/border-beam";
+import { NumberTicker } from "@/components/magicui/number-ticker";
 import { TechChip } from "@/components/ui/tech-chip";
 import { CASE_STUDIES, type CaseStudy } from "@/content/case-studies";
 import { COPY } from "@/content/site";
@@ -101,8 +102,13 @@ function ProductCard({ study }: { study: CaseStudy }) {
               <span className="font-[family-name:var(--font-mono)] text-[length:var(--text-mono-sm)] tracking-[0.12em] text-[var(--text-tertiary)] uppercase">
                 {metric.label}
               </span>
-              <span className="text-[length:var(--text-display-md)] font-semibold tracking-tight text-[var(--text-primary)] tabular-nums">
-                {metric.value}
+              <span className="inline-flex items-baseline text-[length:var(--text-display-md)] font-semibold tracking-tight text-[var(--text-primary)] tabular-nums">
+                {metric.prefix}
+                <NumberTicker
+                  value={metric.value}
+                  className="text-[var(--text-primary)] tracking-tight"
+                />
+                {metric.suffix}
               </span>
             </div>
           ))}
