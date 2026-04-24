@@ -1,5 +1,5 @@
 // src/content/capabilities.ts
-import { Brain, Code2, LineChart, Network, PenTool, type LucideIcon } from "lucide-react";
+import { Brain, Code2, LineChart, Network, PenTool, Server, type LucideIcon } from "lucide-react";
 
 export interface CapabilityCard {
   id: string;
@@ -15,7 +15,7 @@ export const CAPABILITIES: CapabilityCard[] = [
     id: "interface-design",
     title: "Interface Design",
     description:
-      "UX research, design systems, and design-to-code pipelines. We build component libraries and polished production interfaces with the underlying systems thinking that makes them actually work.",
+      "UX research, design systems, and design-to-code pipelines. We build component libraries and polished production interfaces with the underlying systems thinking that makes them work.",
     icon: PenTool,
     feature: true,
   },
@@ -23,21 +23,21 @@ export const CAPABILITIES: CapabilityCard[] = [
     id: "full-stack-implementation",
     title: "Full-Stack Implementation",
     description:
-      "TypeScript front to back. Frontend, backend, infrastructure, and the glue in between: spec to ship, owned end-to-end.",
+      "TypeScript front to back. Frontend, backend, infrastructure, and the glue in between. Spec to ship, owned end to end.",
     icon: Code2,
   },
   {
     id: "data-visualization",
     title: "Data Visualization",
     description:
-      "Dashboards and exploration interfaces for complex datasets. Built so non-technical stakeholders can actually use them.",
+      "Dashboards and exploration interfaces for complex datasets. Built so non-technical stakeholders can use them.",
     icon: LineChart,
   },
   {
     id: "system-integration",
     title: "System Integration",
     description:
-      "APIs, message queues, identity bridges, custom protocols. We connect what you have to what you're building.",
+      "APIs, message queues, identity bridges, and custom protocols. We connect what you have to what you are building.",
     icon: Network,
   },
   {
@@ -46,5 +46,12 @@ export const CAPABILITIES: CapabilityCard[] = [
     description:
       "Embed LLMs into existing workflows. Agents, RAG, and structured extraction integrated with your data and tools.",
     icon: Brain,
+  },
+  {
+    id: "platform-devops",
+    title: "Platform & DevOps",
+    description:
+      "Container orchestration, CI/CD, and cloud infrastructure. OpenShift, Kubernetes, Azure, and Vercel. The plumbing that keeps shipped software running.",
+    icon: Server,
   },
 ];
