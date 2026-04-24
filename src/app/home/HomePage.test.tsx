@@ -16,12 +16,13 @@ describe("HomePage", () => {
     });
   });
 
-  it("renders the hero headline copy", () => {
+  it("renders the hero headline prefix", () => {
     render(
       <MemoryRouter>
         <HomePage />
       </MemoryRouter>,
     );
-    expect(screen.getByText(/Modernize without rewriting/i)).toBeInTheDocument();
+    // WordRotate cycles the noun after the prefix, so assert on the stable half.
+    expect(screen.getByText(/We Build/i)).toBeInTheDocument();
   });
 });

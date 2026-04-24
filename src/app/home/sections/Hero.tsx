@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import { motion, useMotionValue, useSpring } from "motion/react";
 import { DotPattern } from "@/components/magicui/dot-pattern";
 import { BlurFade } from "@/components/magicui/blur-fade";
+import { Lamp } from "@/components/aceternity/lamp";
+import { WordRotate } from "@/components/magicui/word-rotate";
 import { Button } from "@/components/ui/button";
 import { COPY } from "@/content/site";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
@@ -63,11 +65,13 @@ export function Hero() {
       ref={sectionRef}
       className="relative flex min-h-[calc(100vh-4rem)] flex-col items-center justify-center overflow-hidden [contain:layout_paint] lg:min-h-[calc(100vh-5rem)]"
     >
+      <Lamp />
+
       {/* Dot pattern fades out AT the text block (blank center) and reveals
           toward the edges. Ellipse sized generously so the full text block
           (headline + sub + CTAs) fits inside the blank core. */}
       <motion.div
-        className="pointer-events-none absolute inset-0"
+        className="pointer-events-none absolute inset-0 z-[1]"
         style={{
           x,
           y,
@@ -83,7 +87,14 @@ export function Hero() {
       <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
         <h1 className="text-[length:var(--text-display-xl)] font-semibold leading-[0.95] tracking-tight md:text-[length:var(--text-display-2xl)]">
           <BlurFade delay={0} inView>
-            <span className="block">{COPY.hero.headline}</span>
+            <span className="block whitespace-nowrap">
+              {COPY.hero.headlinePrefix}{" "}
+              <WordRotate
+                words={[...COPY.hero.headlineWords]}
+                className="text-[var(--color-brand-300)]"
+              />
+              <span aria-hidden>.</span>
+            </span>
           </BlurFade>
         </h1>
 

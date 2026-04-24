@@ -32,7 +32,8 @@ export const SOCIAL_LINKS = [
 export const COPY = {
   hero: {
     eyebrow: "",
-    headline: "We Build Interfaces.",
+    headlinePrefix: "We Build",
+    headlineWords: ["Interfaces", "Dashboards", "Platforms", "Products", "Tools"],
     sub: "An independent software consultancy. We design and build interfaces, from UX research through production code.",
     primaryCta: "Start a project",
     secondaryCta: "See our work",
