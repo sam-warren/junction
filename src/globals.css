@@ -273,3 +273,24 @@ svg.lucide { stroke-width: 1.5 !important; }
     @apply font-sans;
   }
 }
+
+/* ------------------------------------------------------------------------- */
+/* Marquee smooth-stop                                                       */
+/* Declared via @property so --marquee-speed can transition; untyped CSS     */
+/* custom properties can't interpolate. On hover the speed ramps to near-    */
+/* zero over 700ms, decelerating the marquee instead of snapping it.         */
+/* ------------------------------------------------------------------------- */
+@property --marquee-speed {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 1;
+}
+
+.marquee-smooth-track {
+  animation-duration: calc(var(--duration) / var(--marquee-speed));
+  transition: --marquee-speed 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.marquee-smooth-root:hover .marquee-smooth-track {
+  --marquee-speed: 0.01;
+}
