@@ -4,6 +4,7 @@ import HeroSection from "@/components/home/HeroSection";
 import PackagesSection from "@/components/packages/PackagesSection";
 import BlogList from "@/components/blog/BlogList";
 import BlogPost from "@/components/blog/BlogPost";
+import StylesPreview from "@/app/styles/StylesPreview";
 import { Home, Info, LucideIcon, Mail, Package, BookOpen } from "lucide-react";
 import { ReactElement } from "react";
 
@@ -57,5 +58,12 @@ export const ROUTES: RouteConfig[] = [
     icon: Mail,
     element: <ContactForm />,
     showInNav: true,
+  },
+  {
+    path: "/__styles",
+    label: "__styles",
+    icon: Home,
+    element: <StylesPreview />,
+    showInNav: false,
   },
 ];
