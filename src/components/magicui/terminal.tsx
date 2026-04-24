@@ -22,7 +22,7 @@ export function AnimatedSpan({
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.3, delay: delay / 1000 }}
       className={cn(
-        "grid font-[family-name:var(--font-mono)] text-sm",
+        "grid font-[family-name:var(--font-mono)] text-[11px] sm:text-sm",
         className,
       )}
       {...props}
@@ -73,7 +73,7 @@ export function TypingAnimation({
 
   return (
     <motion.div
-      className={cn("font-[family-name:var(--font-mono)] text-sm", className)}
+      className={cn("font-[family-name:var(--font-mono)] text-[11px] sm:text-sm", className)}
       {...props}
     >
       {displayed}
@@ -90,7 +90,7 @@ export function Terminal({ className, children, ...props }: TerminalProps) {
   return (
     <div
       className={cn(
-        "z-0 w-full max-w-2xl rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--surface-1)] shadow-[var(--shadow-lg)]",
+        "z-0 w-full min-w-0 max-w-2xl overflow-hidden rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--surface-1)] shadow-[var(--shadow-lg)]",
         className,
       )}
       {...props}
@@ -102,7 +102,7 @@ export function Terminal({ className, children, ...props }: TerminalProps) {
           <div className="h-2 w-2 rounded-full bg-[#28c840]" />
         </div>
       </div>
-      <pre className="m-0 p-4 text-[var(--text-primary)]">
+      <pre className="m-0 overflow-x-auto p-4 text-[var(--text-primary)]">
         <code className="grid gap-y-1">{children}</code>
       </pre>
     </div>

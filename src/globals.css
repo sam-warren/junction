@@ -27,11 +27,14 @@
   --color-brand-900: #1A2D75;
   --color-brand-950: #131F50;
 
-  /* Type scale */
-  --text-display-2xl: 96px;
-  --text-display-xl: 72px;
-  --text-display-lg: 56px;
-  --text-display-md: 40px;
+  /* Type scale.
+     Display sizes clamp fluidly so mobile viewports stop overflowing; the
+     ceilings hit before the lg breakpoint (1024px) so the desktop reading
+     experience is unchanged. */
+  --text-display-2xl: clamp(44px, 10vw, 96px);
+  --text-display-xl: clamp(36px, 8vw, 72px);
+  --text-display-lg: clamp(28px, 6vw, 56px);
+  --text-display-md: clamp(26px, 4.5vw, 40px);
   --text-body-lg: 18px;
   --text-body: 16px;
   --text-body-sm: 14px;

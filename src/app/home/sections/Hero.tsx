@@ -65,7 +65,7 @@ export function Hero() {
       ref={sectionRef}
       className="relative flex min-h-[calc(100vh-4rem)] flex-col items-center justify-center overflow-hidden [contain:layout_paint] lg:min-h-[calc(100vh-5rem)]"
     >
-      <Lamp />
+      <Lamp className="hidden md:flex" />
 
       {/* Dot pattern fades out AT the text block (blank center) and reveals
           toward the edges. Ellipse sized generously so the full text block
@@ -106,18 +106,23 @@ export function Hero() {
         </BlurFade>
 
         <BlurFade delay={0.3} inView>
-          <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Link to="/contact">
+          <div className="mx-auto mt-10 flex w-full max-w-xs flex-col items-stretch gap-3 sm:max-w-none sm:flex-row sm:items-center sm:justify-center">
+            <Link to="/contact" className="block">
               <Button
                 size="lg"
                 withBorderBeam
                 iconRight={<ArrowRight className="h-5 w-5" />}
+                className="w-full sm:w-auto"
               >
                 {COPY.hero.primaryCta}
               </Button>
             </Link>
-            <a href="#work">
-              <Button size="lg" variant="ghost">
+            <a href="#work" className="block">
+              <Button
+                size="lg"
+                variant="ghost"
+                className="w-full sm:w-auto"
+              >
                 {COPY.hero.secondaryCta}
               </Button>
             </a>
@@ -125,7 +130,7 @@ export function Hero() {
         </BlurFade>
       </div>
 
-      <BlurFade delay={0.5} inView>
+      <BlurFade delay={0.5} inView className="hidden sm:block">
         <a
           ref={cueRef}
           href="#capabilities"

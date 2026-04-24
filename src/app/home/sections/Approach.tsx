@@ -29,7 +29,7 @@ export function Approach() {
           </BlurFade>
         </div>
 
-        <BlurFade delay={0.2} inView>
+        <BlurFade delay={0.2} inView className="min-w-0">
           <Terminal>
             <TypingAnimation delay={0} duration={40}>
               {"$ junction build"}
