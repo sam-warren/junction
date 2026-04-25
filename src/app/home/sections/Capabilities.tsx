@@ -27,7 +27,12 @@ export function Capabilities() {
               <BlurFade key={cap.id} delay={0.15 + i * 0.08} inView>
                 <MagicCard
                   className={cn(
-                    "group relative h-full cursor-default select-none overflow-hidden rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--surface-1)] p-8 shadow-[var(--shadow-md)] transition-shadow duration-200 hover:shadow-[var(--shadow-lg)]",
+                    // Border-color is intentionally not overridden here.
+                    // MagicCard already paints a `var(--color-border)` stop
+                    // into its border-box radial gradient — adding a CSS
+                    // border-color on top would alpha-stack two copies of
+                    // `--border` and read ~2x as bright as every other card.
+                    "group relative h-full cursor-default select-none overflow-hidden rounded-[var(--radius-lg)] p-8 shadow-[var(--shadow-md)] transition-shadow duration-200 hover:shadow-[var(--shadow-lg)]",
                     cap.feature && "lg:col-span-2",
                   )}
                   gradientColor="var(--brand-soft)"
