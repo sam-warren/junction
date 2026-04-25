@@ -683,7 +683,7 @@ export const BRAND = {
   short: "Junction",
   legalSuffix: "LTD.",
   domain: "junction-technologies.com",
-  contactEmail: "sam@junctiontech.ca",
+  contactEmail: "sam@junction-technologies.com",
   founded: 2024,
   founder: {
     name: "Sam Warren",
@@ -1174,7 +1174,7 @@ The implementation plan at `docs/superpowers/plans/2026-04-23-junction-redesign-
 | 2 | **AnimatedBeam mobile performance** | 6 beams + AnimatedGridPattern can be heavy on low-end mobile. Phase 7 includes a mobile branch that drops to 3 beams (one per pair) and pauses the grid pattern animation below 768px. |
 | 3 | **Case study cover images** | All `CaseStudy.cover` start as `null`. Cards render without images by default; the design must look complete with no images. If images are supplied later, add to `public/case-studies/`. |
 | 4 | **OG image regeneration** | Current `og-image.png` is JunctionTech-branded. Phase 14 generates a new one matching the new visual system (Junction wordmark + tagline on near-black with brand-700 accent). The deep blue can stay as a backdrop in the new OG to preserve brand carryover. |
-| 5 | ~~**Domain & email**~~ **RESOLVED 2026-04-23** | Domain: `junction-technologies.com` (kept). Contact email: `sam@junctiontech.ca` (replaces `samwarren4@gmail.com`). Both live in `src/content/site.ts` `BRAND`. |
+| 5 | ~~**Domain & email**~~ **RESOLVED 2026-04-23** | Domain: `junction-technologies.com` (kept). Contact email: `sam@junction-technologies.com` (replaces `samwarren4@gmail.com`). Both live in `src/content/site.ts` `BRAND`. |
 | 6 | ~~**GridBackground floating-logo**~~ **RESOLVED 2026-04-23** | Decision: **delete** (no easter-egg variant). The convergence section's central BrandMark `variant="loop"` already provides any continuity-of-motion the deleted background offered. |
 | 7 | **Hero copy** *(needs user decision during spec review or Phase 5)* | All hero/CTA copy in spec is marked as placeholders with 2-3 alternatives. Sign off on copy during user review of DESIGN.md or in Phase 5. |
 | 8 | **LinkedIn slug** | `linkedin.com/company/junctiontech` — keep slug for SEO continuity, just update display name in LinkedIn admin. No code change needed. |
