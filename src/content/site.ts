@@ -7,7 +7,7 @@ export const BRAND = {
   short: "Junction",
   legalSuffix: "LTD.",
   domain: "junction-technologies.com",
-  contactEmail: "sam@junction-technologies.com",
+  contactEmail: "sam@junctiontech.ca",
   founded: 2025,
   founder: {
     name: "Sam Warren",

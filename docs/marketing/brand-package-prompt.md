@@ -170,7 +170,7 @@ Export each as SVG + PNG:
 
 - **Dimensions**: 600x150
 - **Prompt**:
-  > Email-signature-sized banner 600x150. Dark `#0A0A0A` left two-thirds, light `#FAFAF9` right one-third, separated by a diagonal blend. Left: brandmark in `#94A4E2` + "JUNCTION TECHNOLOGIES" in Geist Mono 13px tracking-wider. Right: three mono-font lines in `#52525B`: "Sam Warren / Founder & Principal Engineer / sam@junction-technologies.com". No photos. No CTAs.
+  > Email-signature-sized banner 600x150. Dark `#0A0A0A` left two-thirds, light `#FAFAF9` right one-third, separated by a diagonal blend. Left: brandmark in `#94A4E2` + "JUNCTION TECHNOLOGIES" in Geist Mono 13px tracking-wider. Right: three mono-font lines in `#52525B`: "Sam Warren / Founder & Principal Engineer / sam@junctiontech.ca". No photos. No CTAs.
 
 ### 4.10 Business card (front + back)
 
@@ -178,7 +178,7 @@ Export each as SVG + PNG:
 - **Front prompt**:
   > Dark `#0A0A0A` business card front. Centered horizontal three-stroke brandmark in `#94A4E2`, stroke width 10px at 100px reference. Below the mark in Geist semibold white 24px: "Junction Technologies". Below that in Geist Mono 10px `#71717A` tracking-wider uppercase: "SOFTWARE CONSULTANCY".
 - **Back prompt**:
-  > Light `#FAFAF9` business card back. Top-left Geist Mono 9px tracking-wider `#4A60C7` uppercase: "FOUNDER & PRINCIPAL ENGINEER". Below in Geist 20px semibold black: "Sam Warren". Below in Geist 12px `#52525B`: "sam@junction-technologies.com / +1 (XXX) XXX-XXXX". Bottom-right: brandmark in `#2642A9` at 40% opacity.
+  > Light `#FAFAF9` business card back. Top-left Geist Mono 9px tracking-wider `#4A60C7` uppercase: "FOUNDER & PRINCIPAL ENGINEER". Below in Geist 20px semibold black: "Sam Warren". Below in Geist 12px `#52525B`: "sam@junctiontech.ca / +1 (XXX) XXX-XXXX". Bottom-right: brandmark in `#2642A9` at 40% opacity.
 
 ### 4.11 Slide deck title slide template
 
@@ -212,7 +212,7 @@ Use these verbatim for meta tags, link previews, and CTA buttons. They already l
 | Hero primary | Start a project |
 | Hero secondary | See our work |
 | CTA section primary | Start a project |
-| CTA section secondary | or email sam@junction-technologies.com |
+| CTA section secondary | or email sam@junctiontech.ca |
 | Contact form submit | Send message |
 | Selected Work link | View case study |
 | Product card link | Visit cedh.io |

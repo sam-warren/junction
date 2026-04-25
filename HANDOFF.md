@@ -14,7 +14,7 @@
 | Decision | Resolved value | Where it lives |
 |---|---|---|
 | Domain | `junction-technologies.com` | `src/content/site.ts` → `BRAND.domain` (Phase 2) |
-| Contact email | `sam@junction-technologies.com` *(replaces the old `samwarren4@gmail.com`)* | `src/content/site.ts` → `BRAND.contactEmail` (Phase 2) |
+| Contact email | `sam@junctiontech.ca` *(replaces the old `samwarren4@gmail.com`)* | `src/content/site.ts` → `BRAND.contactEmail` (Phase 2) |
 | `GridBackground` floating-logo | **Delete.** No easter-egg variant. The Convergence section's central `BrandMark variant="loop"` provides any continuity-of-motion needed. | Phase 2 demolition |
 | Brand accent | `#2642A9` (sampled from `og-image.png`) anchored as `--brand-700` in a 50→950 scale | `DESIGN.md` §4.1 |
 | Architecture | Single long-scroll `/` + dedicated `/contact`, dark-first, Geist + Magic UI | `DESIGN.md` §5, §6 |
@@ -70,7 +70,7 @@ bun install
 cat > .env <<'EOF'
 RESEND_API_KEY=…
 RESEND_FROM_EMAIL=…
-CONTACT_EMAIL=sam@junction-technologies.com
+CONTACT_EMAIL=sam@junctiontech.ca
 EOF
 
 # 6. Smoke-test the existing (pre-redesign) site
@@ -105,7 +105,7 @@ Open Claude Code in the repo on the new machine and paste this verbatim:
 >
 > Resolved decisions (already baked into spec/plan; do not re-prompt me):
 > - Domain: `junction-technologies.com`
-> - Contact email: `sam@junction-technologies.com`
+> - Contact email: `sam@junctiontech.ca`
 > - `GridBackground` floating-logo: delete (no easter egg)
 >
 > Soft-deferred decisions (defaults are fine; flag if you want my input):

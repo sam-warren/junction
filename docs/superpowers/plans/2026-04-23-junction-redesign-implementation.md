@@ -913,7 +913,7 @@ export const BRAND = {
   // Resolved 2026-04-23 (HANDOFF.md): domain stays junction-technologies.com,
   // contact moves to brand-domain inbox.
   domain: "junction-technologies.com",
-  contactEmail: "sam@junction-technologies.com",
+  contactEmail: "sam@junctiontech.ca",
   founded: 2024,
   founder: {
     name: "Sam Warren",
