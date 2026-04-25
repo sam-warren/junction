@@ -910,9 +910,9 @@ export const BRAND = {
   full: "Junction Technologies LTD.",
   short: "Junction",
   legalSuffix: "LTD.",
-  // Resolved 2026-04-23 (HANDOFF.md): domain stays junctiontech.ca,
+  // Resolved 2026-04-23 (HANDOFF.md): domain stays junction-technologies.com,
   // contact moves to brand-domain inbox.
-  domain: "junctiontech.ca",
+  domain: "junction-technologies.com",
   contactEmail: "sam@junctiontech.ca",
   founded: 2024,
   founder: {
@@ -1013,23 +1013,23 @@ export { SOCIAL_LINKS, BRAND } from "@/content/site";
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://junctiontech.ca/" />
+    <meta property="og:url" content="https://junction-technologies.com/" />
     <meta property="og:title" content="Junction Technologies LTD." />
     <meta
       property="og:description"
       content="Independent software consultancy bridging legacy systems with modern technology."
     />
-    <meta property="og:image" content="https://junctiontech.ca/og-image.png" />
+    <meta property="og:image" content="https://junction-technologies.com/og-image.png" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://junctiontech.ca/" />
+    <meta property="twitter:url" content="https://junction-technologies.com/" />
     <meta property="twitter:title" content="Junction Technologies LTD." />
     <meta
       property="twitter:description"
       content="Independent software consultancy bridging legacy systems with modern technology."
     />
-    <meta property="twitter:image" content="https://junctiontech.ca/og-image.png" />
+    <meta property="twitter:image" content="https://junction-technologies.com/og-image.png" />
 
     <title>Junction Technologies LTD.</title>
   </head>

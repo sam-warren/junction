@@ -1,12 +1,6 @@
 // src/app/home/sections/Convergence.tsx
 import { createRef, useRef } from "react";
-import {
-  motion,
-  useInView,
-  useReducedMotion,
-  useScroll,
-  useTransform,
-} from "motion/react";
+import { useInView, useReducedMotion } from "motion/react";
 import { BlurFade } from "@/components/magicui/blur-fade";
 import { AnimatedBeam } from "@/components/magicui/animated-beam";
 import { AnimatedGridPattern } from "@/components/magicui/animated-grid-pattern";
@@ -14,22 +8,23 @@ import { TechNode } from "@/components/ui/tech-node";
 import { TECH_STACK } from "@/content/tech-stack";
 import { COPY } from "@/content/site";
 
-// Rows pair legacy with modern along the same layer:
-//   Row 1 - UI layer              Angular   -> React
-//   Row 2 - Runtime / API         .NET      -> Python
-//   Row 3 - Deployment platform   OpenShift -> Azure
+// Left column: design / planning tools that converge on the build.
+// Right column: implementation tools that ship the work.
+//   Row 1 - Discovery / specs     Notion -> React
+//   Row 2 - Planning / tracking   Linear -> Supabase
+//   Row 3 - Visual design         Figma  -> Vercel
 function pair(name: string) {
   const t = TECH_STACK.find((x) => x.name === name);
   if (!t) throw new Error(`tech-stack missing entry: ${name}`);
   return t;
 }
-const LEGACY = [pair("Angular"), pair(".NET"), pair("OpenShift")];
-const MODERN = [pair("React"), pair("Python"), pair("Azure")];
+const DESIGN = [pair("Notion"), pair("Linear"), pair("Figma")];
+const BUILD = [pair("React"), pair("Supabase"), pair("Vercel")];
 
 const BRAND_PATHS = [
-  { d: "M15,50 L95,50", len: 120 },
-  { d: "M15,20 L55,20 L70,50", len: 100 },
-  { d: "M15,80 L55,80 L70,50", len: 100 },
+  "M15,50 L95,50",
+  "M15,20 L55,20 L70,50",
+  "M15,80 L55,80 L70,50",
 ];
 
 export function Convergence() {
@@ -44,31 +39,6 @@ export function Convergence() {
     amount: 0.2,
     margin: "0px 0px -10% 0px",
   });
-
-  // Scroll-driven BrandMark draw. Maps the section's viewport progress
-  // to each path's stroke-dashoffset so the logo assembles as the user
-  // enters the section and disassembles as they leave.
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  });
-  // Staggered draw across the three strokes (middle, top, bottom).
-  const dash0 = useTransform(
-    scrollYProgress,
-    [0.15, 0.5, 0.75, 1],
-    [BRAND_PATHS[0].len, 0, 0, BRAND_PATHS[0].len],
-  );
-  const dash1 = useTransform(
-    scrollYProgress,
-    [0.2, 0.55, 0.8, 1],
-    [BRAND_PATHS[1].len, 0, 0, BRAND_PATHS[1].len],
-  );
-  const dash2 = useTransform(
-    scrollYProgress,
-    [0.25, 0.6, 0.85, 1],
-    [BRAND_PATHS[2].len, 0, 0, BRAND_PATHS[2].len],
-  );
-  const dashValues = [dash0, dash1, dash2];
 
   // Stable ref arrays so AnimatedBeam doesn't re-subscribe each render.
   const leftRefs = useRef([0, 1, 2].map(() => createRef<HTMLDivElement>()));
@@ -112,12 +82,13 @@ export function Convergence() {
           >
             {/* Columns + center sit above beam SVG */}
             <div className="relative z-10 flex flex-col items-center gap-12">
-              {LEGACY.map((tech, i) => (
+              {DESIGN.map((tech, i) => (
                 <TechNode
                   key={tech.name}
                   name={tech.name}
                   icon={tech.icon}
                   darkLogo={tech.darkLogo}
+                  softLogo={tech.softLogo}
                   ref={leftRefs.current[i]}
                 />
               ))}
@@ -134,18 +105,14 @@ export function Convergence() {
                   className="h-16 w-16 text-[var(--color-brand-300)]"
                   aria-label="Junction"
                 >
-                  {BRAND_PATHS.map((p, i) => (
-                    <motion.path
+                  {BRAND_PATHS.map((d, i) => (
+                    <path
                       key={i}
-                      d={p.d}
+                      d={d}
                       fill="none"
                       stroke="currentColor"
                       strokeWidth={10}
                       strokeLinecap="round"
-                      strokeDasharray={p.len}
-                      style={{
-                        strokeDashoffset: reduced ? 0 : dashValues[i],
-                      }}
                     />
                   ))}
                 </svg>
@@ -153,12 +120,13 @@ export function Convergence() {
             </div>
 
             <div className="relative z-10 flex flex-col items-center gap-12">
-              {MODERN.map((tech, i) => (
+              {BUILD.map((tech, i) => (
                 <TechNode
                   key={tech.name}
                   name={tech.name}
                   icon={tech.icon}
                   darkLogo={tech.darkLogo}
+                  softLogo={tech.softLogo}
                   ref={rightRefs.current[i]}
                 />
               ))}

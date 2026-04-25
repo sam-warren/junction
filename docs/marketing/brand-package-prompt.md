@@ -2,7 +2,7 @@
 
 This document is the authoritative brand brief to hand to ChatGPT Image 2.0 (via Codex or directly) when generating marketing assets for Junction Technologies LTD. Feed it as the system / persistent context, then ask for each asset by name.
 
-The facts below are extracted from the shipped product site (`redesign/v2` on GitHub) so every asset ties back to something a prospective client can see at https://junctiontech.ca.
+The facts below are extracted from the shipped product site (`redesign/v2` on GitHub) so every asset ties back to something a prospective client can see at https://junction-technologies.com.
 
 ---
 
@@ -12,7 +12,7 @@ The facts below are extracted from the shipped product site (`redesign/v2` on Gi
 |---|---|
 | Legal name | Junction Technologies LTD. |
 | Short name | Junction |
-| Domain | junctiontech.ca |
+| Domain | junction-technologies.com |
 | Founder | Sam Warren, Founder & Principal Engineer |
 | Founded | 2024 |
 | Location | Victoria, BC |
@@ -130,7 +130,7 @@ Intended for A/B testing LinkedIn shares.
 
 - **Dimensions**: 1128x191
 - **Prompt**:
-  > Wide horizontal banner 1128x191. Dark `#0A0A0A` background. Three convergence beams flowing left-to-right: each beam starts as a small `#94A4E2` tech-node square on the left, traces a curved path rightward, passes through a central Junction brandmark (three-stroke merge, `#4A60C7` stroke), and ends at a second tech-node square on the right. Beams animated-gradient style but rendered as a still frame with motion-blur artifacts along the path. Subtle dot matrix in the background. Bottom-right corner: small mono-font text in `#71717A`: "junctiontech.ca". No marketing copy. No stock photography.
+  > Wide horizontal banner 1128x191. Dark `#0A0A0A` background. Three convergence beams flowing left-to-right: each beam starts as a small `#94A4E2` tech-node square on the left, traces a curved path rightward, passes through a central Junction brandmark (three-stroke merge, `#4A60C7` stroke), and ends at a second tech-node square on the right. Beams animated-gradient style but rendered as a still frame with motion-blur artifacts along the path. Subtle dot matrix in the background. Bottom-right corner: small mono-font text in `#71717A`: "junction-technologies.com". No marketing copy. No stock photography.
 
 ### 4.4 LinkedIn personal banner (Sam Warren)
 
@@ -148,7 +148,7 @@ Intended for A/B testing LinkedIn shares.
 
 - **Dimensions**: 1080x1080
 - **Prompt**:
-  > Square 1080x1080. Dark `#0A0A0A` background. Top-left mono eyebrow in `#94A4E2`: "WE BUILD". Below it, giant 120px Geist semibold white "Interfaces." (or rotate with Dashboards, Platforms, Products, Tools). Below, 18px gray `#A1A1AA`: "An independent software consultancy. From UX research through production code." Bottom: three-stroke brandmark + "junctiontech.ca" in mono. Subtle lamp halo from above.
+  > Square 1080x1080. Dark `#0A0A0A` background. Top-left mono eyebrow in `#94A4E2`: "WE BUILD". Below it, giant 120px Geist semibold white "Interfaces." (or rotate with Dashboards, Platforms, Products, Tools). Below, 18px gray `#A1A1AA`: "An independent software consultancy. From UX research through production code." Bottom: three-stroke brandmark + "junction-technologies.com" in mono. Subtle lamp halo from above.
 
 ### 4.7 Favicon set
 
@@ -184,7 +184,7 @@ Export each as SVG + PNG:
 
 - **Dimensions**: 1920x1080 (16:9)
 - **Prompt**:
-  > Dark `#0A0A0A` deck title slide. Top-left quadrant: brandmark + "JUNCTION TECHNOLOGIES" wordmark in Geist Mono. Center-left: 72px Geist semibold white headline slot (placeholder "Proposal title goes here."). Below: 20px gray subtitle slot. Right third: soft `#4A60C7` lamp gradient + dot matrix. Bottom mono 13px `#71717A`: "junctiontech.ca · YYYY".
+  > Dark `#0A0A0A` deck title slide. Top-left quadrant: brandmark + "JUNCTION TECHNOLOGIES" wordmark in Geist Mono. Center-left: 72px Geist semibold white headline slot (placeholder "Proposal title goes here."). Below: 20px gray subtitle slot. Right third: soft `#4A60C7` lamp gradient + dot matrix. Bottom mono 13px `#71717A`: "junction-technologies.com · YYYY".
 
 ---
 
@@ -199,7 +199,7 @@ Use these verbatim for meta tags, link previews, and CTA buttons. They already l
 <meta name="description" content="Independent software consultancy. Interface design and full-stack implementation for governments, energy operators, and engineering teams. Victoria, BC.">
 <meta property="og:title" content="Junction Technologies">
 <meta property="og:description" content="We design and build interfaces, from UX research through production code.">
-<meta property="og:image" content="https://junctiontech.ca/og-image.png">
+<meta property="og:image" content="https://junction-technologies.com/og-image.png">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@junctiontech">

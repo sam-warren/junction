@@ -35,3 +35,6 @@ export { default as TypeScriptIcon } from "./typescript.svg";
 export { default as VercelIcon } from "./vercel.svg";
 export { default as ViteIcon } from "./vite.svg";
 export { default as VueIcon } from "./vue.svg";
+export { default as NotionIcon } from "./notion.svg";
+export { default as FigmaIcon } from "./figma.svg";
+export { default as LinearIcon } from "./linear.svg";

@@ -6,7 +6,7 @@ export const BRAND = {
   full: "Junction Technologies LTD.",
   short: "Junction",
   legalSuffix: "LTD.",
-  domain: "junctiontech.ca",
+  domain: "junction-technologies.com",
   contactEmail: "sam@junctiontech.ca",
   founded: 2025,
   founder: {
@@ -54,9 +54,9 @@ export const COPY = {
     eyebrow: "About",
     title: "Junction",
     company:
-      "Junction Technologies LTD. is an independent software consultancy specializing in interface design and full-stack implementation. We work with governments, energy operators, and engineering teams who need polished, reliable tooling.",
+      "Junction Technologies LTD. is an independent software consultancy specializing in interface design and full-stack implementation. We work with public and private sector entities who need polished, reliable tooling.",
     founderBio:
-      "Sam Warren is a senior full-stack engineer with seven years shipping software in Canada's public and energy sectors. UVic Software Engineering grad. Currently leading UX/UI and frontend for an energy analytics platform; prior work spans BC Justice, BC Health, BC Public Safety, and multiple Alberta government ministries across frontend, backend, and DevOps.",
+      "Sam Warren is a senior full-stack engineer with seven years shipping software across the public and private sectors in North America. A University of Victoria Software Engineering graduate, he currently leads UX/UI and frontend for a Texas-based energy analytics platform; prior work spans BC Justice, BC Health, BC Public Safety, and multiple Alberta government ministries across frontend, backend, and DevOps.",
     facts: [
       { label: "Based in", value: "Victoria, BC" },
       { label: "Founded", value: "2025" },
@@ -77,7 +77,7 @@ export const COPY = {
   convergence: {
     eyebrow: "How we build",
     title: "Where design meets implementation.",
-    sub: "Our clients arrive with systems they cannot replace overnight. We migrate incrementally: UI, runtime, and platform each move at their own pace. Shared contracts bridge old and new, and the interfaces we ship hide the transition from end users.",
+    sub: "Discovery to deployment as one continuous flow. Research informs the design. The design informs the build. The same hands ship every layer. No handoff loss between phases.",
   },
   approach: {
     eyebrow: "Approach",

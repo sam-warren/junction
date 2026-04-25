@@ -145,19 +145,28 @@ export function Work() {
               <ClientCard study={feature} feature />
             </BlurFade>
           )}
-          {rest.map((study, i) => (
-            <BlurFade key={study.slug} delay={0.15 + (i + 1) * 0.08} inView>
-              <ClientCard study={study} />
+          {rest[0] && (
+            <BlurFade delay={0.23} inView>
+              <ClientCard study={rest[0]} />
             </BlurFade>
-          ))}
+          )}
           {products.map((study, i) => (
             <BlurFade
               key={study.slug}
-              delay={0.15 + (rest.length + i + 1) * 0.08}
+              delay={0.31 + i * 0.08}
               inView
               className="lg:col-span-3"
             >
               <ProductCard study={study} />
+            </BlurFade>
+          ))}
+          {rest.slice(1).map((study, i) => (
+            <BlurFade
+              key={study.slug}
+              delay={0.39 + i * 0.08}
+              inView
+            >
+              <ClientCard study={study} />
             </BlurFade>
           ))}
         </div>

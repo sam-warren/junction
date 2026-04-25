@@ -1,7 +1,7 @@
 // src/app/home/sections/StackMarquee.tsx
 import { BlurFade } from "@/components/magicui/blur-fade";
 import { Marquee } from "@/components/magicui/marquee";
-import { TECH_STACK } from "@/content/tech-stack";
+import { TECH_STACK, techFilterClass } from "@/content/tech-stack";
 import { COPY } from "@/content/site";
 import { cn } from "@/lib/utils";
 
@@ -34,12 +34,7 @@ export function StackMarquee() {
               <img
                 src={tech.icon}
                 alt=""
-                className={cn(
-                  "h-10 w-10",
-                  tech.darkLogo
-                    ? "[filter:grayscale(1)_invert(0.88)] dark:[filter:grayscale(1)_invert(0.95)]"
-                    : "grayscale dark:invert",
-                )}
+                className={cn("h-10 w-10", techFilterClass(tech))}
               />
             </a>
           ))}
@@ -57,12 +52,7 @@ export function StackMarquee() {
               <img
                 src={tech.icon}
                 alt=""
-                className={cn(
-                  "h-10 w-10",
-                  tech.darkLogo
-                    ? "[filter:grayscale(1)_invert(0.88)] dark:[filter:grayscale(1)_invert(0.95)]"
-                    : "grayscale dark:invert",
-                )}
+                className={cn("h-10 w-10", techFilterClass(tech))}
               />
             </a>
           ))}

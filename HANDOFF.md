@@ -13,7 +13,7 @@
 
 | Decision | Resolved value | Where it lives |
 |---|---|---|
-| Domain | `junctiontech.ca` | `src/content/site.ts` → `BRAND.domain` (Phase 2) |
+| Domain | `junction-technologies.com` | `src/content/site.ts` → `BRAND.domain` (Phase 2) |
 | Contact email | `sam@junctiontech.ca` *(replaces the old `samwarren4@gmail.com`)* | `src/content/site.ts` → `BRAND.contactEmail` (Phase 2) |
 | `GridBackground` floating-logo | **Delete.** No easter-egg variant. The Convergence section's central `BrandMark variant="loop"` provides any continuity-of-motion needed. | Phase 2 demolition |
 | Brand accent | `#2642A9` (sampled from `og-image.png`) anchored as `--brand-700` in a 50→950 scale | `DESIGN.md` §4.1 |
@@ -104,7 +104,7 @@ Open Claude Code in the repo on the new machine and paste this verbatim:
 > Linear board: https://linear.app/junction-technologies/project/junction-b0ec29dfcc32 — milestone `Redesign v2`, issues `JUN-173` → `JUN-187` (one per phase, all Todo).
 >
 > Resolved decisions (already baked into spec/plan; do not re-prompt me):
-> - Domain: `junctiontech.ca`
+> - Domain: `junction-technologies.com`
 > - Contact email: `sam@junctiontech.ca`
 > - `GridBackground` floating-logo: delete (no easter egg)
 >

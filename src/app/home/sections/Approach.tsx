@@ -1,5 +1,8 @@
 // src/app/home/sections/Approach.tsx
+import { useRef } from "react";
+import { useInView, useReducedMotion } from "motion/react";
 import { BlurFade } from "@/components/magicui/blur-fade";
+import { AnimatedGridPattern } from "@/components/magicui/animated-grid-pattern";
 import {
   Terminal,
   AnimatedSpan,
@@ -8,9 +11,39 @@ import {
 import { COPY } from "@/content/site";
 
 export function Approach() {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const reduced = useReducedMotion();
+  // Gate the pattern's continuous square fades to viewport visibility.
+  // The amount/margin lets the grid spin up just before the section
+  // enters and stop after it's clearly past.
+  const inView = useInView(sectionRef, {
+    amount: 0.15,
+    margin: "0px 0px -10% 0px",
+  });
+
   return (
-    <section id="approach" className="relative py-24 lg:py-32">
-      <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2 lg:items-center lg:px-8">
+    <section
+      id="approach"
+      ref={sectionRef}
+      className="relative overflow-hidden py-24 [contain:layout_paint] lg:py-32"
+    >
+      {/* Left-anchored radial mask: densest grid sits behind the headline
+          on the left column and fades out before reaching the terminal on
+          the right. Distinct from Convergence's centered-radial mask so
+          the two sections don't read as duplicate atmosphere. */}
+      <div className="pointer-events-none absolute inset-0 opacity-60">
+        {inView && !reduced && (
+          <AnimatedGridPattern
+            numSquares={28}
+            maxOpacity={0.08}
+            duration={4}
+            repeatDelay={1.5}
+            className="absolute inset-0 [mask-image:radial-gradient(800px_circle_at_15%_50%,white,transparent_65%)]"
+          />
+        )}
+      </div>
+
+      <div className="relative mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2 lg:items-center lg:px-8">
         <div>
           <BlurFade delay={0} inView>
             <p className="font-[family-name:var(--font-mono)] text-[length:var(--text-mono-sm)] tracking-[0.18em] text-[var(--color-brand-300)] uppercase">

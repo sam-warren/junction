@@ -6,7 +6,6 @@ import { motion, useMotionValue, useSpring } from "motion/react";
 import { FlickeringGrid } from "@/components/magicui/flickering-grid";
 import { BlurFade } from "@/components/magicui/blur-fade";
 import { FlipWords } from "@/components/aceternity/flip-words";
-import { Lamp } from "@/components/aceternity/lamp";
 import { Button } from "@/components/ui/button";
 import { COPY } from "@/content/site";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
@@ -65,8 +64,6 @@ export function Hero() {
       ref={sectionRef}
       className="relative flex min-h-[calc(100vh-4rem)] flex-col items-center justify-center overflow-hidden [contain:layout_paint] lg:min-h-[calc(100vh-5rem)]"
     >
-      <Lamp className="hidden md:flex" />
-
       {/* Dot pattern fades out AT the text block (blank center) and reveals
           toward the edges. Ellipse sized generously so the full text block
           (headline + sub + CTAs) fits inside the blank core. */}

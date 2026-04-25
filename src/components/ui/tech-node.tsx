@@ -1,20 +1,23 @@
 // src/components/ui/tech-node.tsx
 import { forwardRef } from "react";
 import { cn } from "@/lib/utils";
+import { techFilterClass } from "@/content/tech-stack";
 
 export interface TechNodeProps {
   name: string;
   icon: string;
   size?: number;
   className?: string;
-  /** True for black-on-transparent source SVGs that collapse to invisible
-   *  under the default grayscale+dark:invert combo. Substitutes a mid-gray
-   *  filter that stays legible in both themes. */
+  /** Aggressive filter for fully-black logos that should pop white in dark
+   *  mode. See `techFilterClass` for the curve. */
   darkLogo?: boolean;
+  /** Muted filter for high-contrast monochrome logos (white- or
+   *  black-dominant) that should blend with the colored logos as mid-gray. */
+  softLogo?: boolean;
 }
 
 export const TechNode = forwardRef<HTMLDivElement, TechNodeProps>(
-  ({ name, icon, size = 80, className, darkLogo }, ref) => (
+  ({ name, icon, size = 80, className, darkLogo, softLogo }, ref) => (
     <div
       ref={ref}
       className={cn(
@@ -28,12 +31,7 @@ export const TechNode = forwardRef<HTMLDivElement, TechNodeProps>(
       <img
         src={icon}
         alt=""
-        className={cn(
-          "h-9 w-9",
-          darkLogo
-            ? "[filter:grayscale(1)_invert(0.88)] dark:[filter:grayscale(1)_invert(0.95)]"
-            : "grayscale dark:invert",
-        )}
+        className={cn("h-9 w-9", techFilterClass({ darkLogo, softLogo }))}
         draggable={false}
       />
     </div>
