@@ -46,7 +46,7 @@ export const COPY = {
   },
   cta: {
     headline: "Let's build something.",
-    sub: "A 30-minute consultation to discuss scope, timeline, and fit.",
+    sub: "A free 30-minute consultation to discuss scope, timeline, and fit.",
     primary: "Start a project",
     secondaryLabel: "or email",
   },

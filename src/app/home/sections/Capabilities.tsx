@@ -10,7 +10,7 @@ export function Capabilities() {
     <section id="capabilities" className="relative py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <BlurFade delay={0} inView>
-          <p className="font-[family-name:var(--font-mono)] text-[length:var(--text-mono-sm)] uppercase tracking-[0.18em] text-[var(--color-brand-300)]">
+          <p className="font-[family-name:var(--font-mono)] text-[length:var(--text-mono-sm)] tracking-[0.18em] text-[var(--color-brand-300)] uppercase">
             {COPY.capabilities.eyebrow}
           </p>
         </BlurFade>
@@ -32,11 +32,18 @@ export function Capabilities() {
                     // into its border-box radial gradient — adding a CSS
                     // border-color on top would alpha-stack two copies of
                     // `--border` and read ~2x as bright as every other card.
-                    "group relative h-full cursor-default select-none overflow-hidden rounded-[var(--radius-lg)] p-8 shadow-[var(--shadow-md)] transition-shadow duration-200 hover:shadow-[var(--shadow-lg)]",
+                    "group relative h-full cursor-default overflow-hidden rounded-[var(--radius-lg)] p-8 shadow-[var(--shadow-md)] transition-shadow duration-200 select-none hover:shadow-[var(--shadow-lg)]",
                     cap.feature && "lg:col-span-2",
                   )}
+                  // Silver shimmer: cool near-white highlight → mid-slate falloff.
+                  // Reads as polished metal on the dark card, holds enough
+                  // contrast on the light card without competing with the
+                  // brand-blue inner glow.
+                  gradientFrom="#E2E8F0"
+                  gradientTo="#64748B"
                   gradientColor="var(--brand-soft)"
                   gradientOpacity={1}
+                  proximityRadius={220}
                 >
                   <div className="relative z-10 flex h-full flex-col">
                     <Icon

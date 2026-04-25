@@ -1,6 +1,6 @@
 // src/app/home/sections/Hero.tsx
 import { useEffect, useRef } from "react";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion, useMotionValue, useSpring } from "motion/react";
 import { FlickeringGrid } from "@/components/magicui/flickering-grid";
@@ -12,7 +12,6 @@ import { useReducedMotion } from "@/hooks/use-reduced-motion";
 
 export function Hero() {
   const sectionRef = useRef<HTMLElement | null>(null);
-  const cueRef = useRef<HTMLAnchorElement | null>(null);
   const reduced = useReducedMotion();
 
   const mx = useMotionValue(0);
@@ -47,16 +46,6 @@ export function Hero() {
       if (rafId) cancelAnimationFrame(rafId);
     };
   }, [reduced, mx, my]);
-
-  useEffect(() => {
-    function onScroll() {
-      const el = cueRef.current;
-      if (!el) return;
-      el.style.opacity = window.scrollY > 100 ? "0" : "1";
-    }
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   return (
     <section
@@ -133,18 +122,6 @@ export function Hero() {
           </div>
         </BlurFade>
       </div>
-
-      <BlurFade delay={0.5} inView className="hidden sm:block">
-        <a
-          ref={cueRef}
-          href="#capabilities"
-          aria-label="Scroll to capabilities"
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-[var(--text-tertiary)] transition-opacity duration-300 hover:text-[var(--text-secondary)]"
-          style={{ opacity: 1 }}
-        >
-          <ChevronDown className="h-6 w-6 animate-bounce" />
-        </a>
-      </BlurFade>
     </section>
   );
 }

@@ -117,6 +117,24 @@ export default function Header() {
         <div className="relative mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:h-20 lg:px-8">
           <Link
             to="/"
+            onClick={(e) => {
+              // On home, intercept and scroll to top instead of letting the
+              // <Link> no-op (same-route clicks don't trigger ScrollToTop).
+              // Skip when modifier keys are held so cmd/ctrl-click can still
+              // open in a new tab. CSS scroll-behavior on <html> handles the
+              // smooth/instant split for prefers-reduced-motion.
+              if (
+                e.button !== 0 ||
+                e.metaKey ||
+                e.ctrlKey ||
+                e.shiftKey ||
+                e.altKey
+              )
+                return;
+              if (!isHome) return;
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
             className="flex items-center gap-2 text-[var(--text-primary)]"
           >
             <BrandMark variant="static" size="h-5 w-auto sm:h-6" />
