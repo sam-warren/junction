@@ -26,3 +26,7 @@ dist-ssr
 # secrets
 .env
 .vercel
+
+.next
+next-env.d.ts
+*.tsbuildinfo

@@ -1,90 +1,111 @@
-// src/content/site.ts
-import githubIcon from "@/assets/github.svg";
-import linkedinIcon from "@/assets/linkedin.svg";
-
 export const BRAND = {
   full: "Junction Technologies LTD.",
   short: "Junction",
-  legalSuffix: "LTD.",
-  domain: "junction-technologies.com",
   contactEmail: "sam@junctiontech.ca",
-  founded: 2025,
-  founder: {
-    name: "Sam Warren",
-    title: "Founder & Principal Engineer",
-    location: "Victoria, BC",
-  },
 } as const;
 
 export const SOCIAL_LINKS = [
-  {
-    name: "GitHub",
-    href: "https://github.com/sam-warren/junction",
-    icon: githubIcon,
-  },
-  {
-    name: "LinkedIn",
-    href: "https://www.linkedin.com/company/junctiontech",
-    icon: linkedinIcon,
-  },
+  { name: "LinkedIn", href: "https://www.linkedin.com/company/junctiontech" },
+  { name: "GitHub", href: "https://github.com/sam-warren/junction" },
 ] as const;
 
-export const COPY = {
-  hero: {
-    eyebrow: "",
-    headlinePrefix: "We Build",
-    headlineWords: [
-      "Interfaces",
-      "Dashboards",
-      "Platforms",
-      "Products",
-      "Tools",
-    ],
-    sub: "An independent software consultancy. We design and build interfaces, from UX research through production code.",
-    primaryCta: "Start a project",
-    secondaryCta: "See our work",
+export const NAV = [
+  { href: "#work", label: "Work" },
+  { href: "#services", label: "Services" },
+  { href: "#about", label: "About" },
+  { href: "#contact", label: "Contact" },
+] as const;
+
+export const HERO = {
+  headline:
+    "I design and build web software, from user research to production.",
+  sub: "Junction Technologies is Sam Warren in Victoria, BC. You hire one engineer who does both the design and the code.",
+  primaryCta: "Start a project",
+  secondaryCta: "See our work",
+} as const;
+
+export interface Service {
+  name: string;
+  description: string;
+}
+
+export const SERVICES: Service[] = [
+  {
+    name: "Interface design",
+    description:
+      "Interviews with the people who use the tool, then the design system and screens. Most recent: energy traders at Jupiter Power.",
   },
-  cta: {
-    headline: "Let's build something.",
-    sub: "A free 30-minute consultation to discuss scope, timeline, and fit.",
-    primary: "Start a project",
-    secondaryLabel: "or email",
+  {
+    name: "Full-stack development",
+    description:
+      "TypeScript and Python from the database to the UI. Built and runs cedh.io solo.",
   },
-  about: {
-    eyebrow: "About",
-    title: "Junction",
-    company:
-      "Junction Technologies LTD. is an independent software consultancy specializing in interface design and full-stack implementation. We work with public and private sector entities who need polished, reliable tooling.",
-    founderBio:
-      "Sam Warren is a senior full-stack engineer with seven years shipping software across the public and private sectors in North America. A University of Victoria Software Engineering graduate, he currently leads UX/UI and frontend for a Texas-based energy analytics platform; prior work spans BC Justice, BC Health, BC Public Safety, and multiple Alberta government ministries across frontend, backend, and DevOps.",
-    facts: [
-      { label: "Based in", value: "Victoria, BC" },
-      { label: "Founded", value: "2025" },
-      {
-        label: "Practice",
-        value: "Interface design + full-stack implementation",
-      },
-    ] as const,
+  {
+    name: "Dashboards and data",
+    description: "Charts and tables for energy-market and tournament data.",
   },
-  work: {
-    eyebrow: "Selected work",
-    title: "Where we've shipped.",
+  {
+    name: "Systems integration",
+    description:
+      "New front ends on old systems, such as BC's roadside prohibition forms.",
   },
-  capabilities: {
-    eyebrow: "What we do",
-    title: "Capabilities",
+  {
+    name: "AI features",
+    description: "Language-model features built on the data you already have.",
   },
-  convergence: {
-    eyebrow: "How we build",
-    title: "Where design meets implementation.",
-    sub: "Discovery to deployment as one continuous flow. Research informs the design. The design informs the build. The same hands ship every layer. No handoff loss between phases.",
+  {
+    name: "Platform and DevOps",
+    description:
+      "Kept a dozen BC government apps running on OpenShift. Also ships to Azure, Kubernetes and Vercel.",
   },
-  approach: {
-    eyebrow: "Approach",
-    title: "How work moves.",
-    sub: "Research to production through four phases. Each reviewed, each demoable, each shipped.",
-  },
-  stack: {
-    eyebrow: "Stack",
-  },
+];
+
+const CAREER_START = new Date(2018, 4, 1);
+
+const NUMBER_WORDS = [
+  "zero",
+  "one",
+  "two",
+  "three",
+  "four",
+  "five",
+  "six",
+  "seven",
+  "eight",
+  "nine",
+  "ten",
+  "eleven",
+  "twelve",
+  "thirteen",
+  "fourteen",
+  "fifteen",
+  "sixteen",
+  "seventeen",
+  "eighteen",
+  "nineteen",
+  "twenty",
+];
+
+export function yearsSince(start: Date, now: Date = new Date()): number {
+  const months =
+    (now.getFullYear() - start.getFullYear()) * 12 +
+    (now.getMonth() - start.getMonth());
+  return Math.floor(months / 12);
+}
+
+export function yearsOfExperience(now: Date = new Date()): string {
+  const years = yearsSince(CAREER_START, now);
+  return NUMBER_WORDS[years] ?? String(years);
+}
+
+export const ABOUT = {
+  body: [
+    `I started Junction Technologies in 2025 after ${yearsOfExperience()} years of work for BC Health, BC Justice, BC Public Safety and Alberta government ministries, on both frontend and backend.`,
+    "I have a Software Engineering degree from the University of Victoria and lead design and frontend for a Texas energy analytics platform.",
+  ],
+} as const;
+
+export const CONTACT = {
+  title: "Start a project",
+  sub: "The first call is free and takes 30 minutes.",
 } as const;

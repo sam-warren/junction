@@ -1,118 +1,65 @@
-// src/content/case-studies.ts
-export interface CaseStudyMetric {
-  label: string;
-  value: number;
-  prefix?: string;
-  suffix?: string;
-}
-
 export interface CaseStudy {
   slug: string;
   client: string;
   title: string;
-  year: string;
-  outcome: string;
-  description?: string;
+  years: string;
+  summary: string;
   tech: string[];
-  cover?: string;
   link?: string;
-  kind?: "client" | "product";
-  metrics?: CaseStudyMetric[];
 }
 
 export const CASE_STUDIES: CaseStudy[] = [
   {
     slug: "jupiter-power",
     client: "Jupiter Power",
-    title: "Operator platform redesign",
-    year: "2026-Present",
-    outcome:
-      "Redesigning the operator interface that bids grid-scale battery storage into US wholesale energy markets.",
-    description:
-      "UX research with traders and operations staff, design system extension, and frontend implementation across the product surface. Working directly with the engineering and trading teams to ship the next generation of the platform.",
-    tech: ["Figma", "React", "Python", "Azure", "TypeScript"],
-    kind: "client",
+    title: "Battery operations platform",
+    years: "2026–",
+    summary:
+      "Redesigning the interface operators use to bid grid-scale battery storage into US wholesale energy markets. Running research with traders and building the frontend.",
+    tech: ["Figma", "React", "TypeScript", "Python", "Azure"],
   },
   {
     slug: "vantix-alberta",
-    client: "Vantix Systems / Gov. of Alberta",
-    title: "Government energy portals",
-    year: "2025-2026",
-    outcome:
-      "Net-new government portals for energy management and data organization.",
-    tech: [
-      "React",
-      "Python",
-      "Azure",
-      "TypeScript",
-      "TanStack",
-      "shadcn",
-      "Tailwind",
-      "Recharts",
-    ],
-    kind: "client",
+    client: "Vantix Systems for the Government of Alberta",
+    title: "Energy portals",
+    years: "2025–26",
+    summary: "Built new government portals for energy management and data.",
+    tech: ["React", "TypeScript", "Python", "Azure"],
   },
   {
     slug: "bc-justice-devops",
     client: "BC Ministry of Public Safety and Solicitor General",
     title: "Justice DevOps",
-    year: "2024-2025",
-    outcome:
-      "Application management for a dozen public-facing apps including liquor licensing, disaster assistance, and victim services.",
-    tech: [
-      "Angular",
-      "TypeScript",
-      ".NET",
-      "Dynamics",
-      "OpenShift",
-      "Docker",
-      "Kubernetes",
-    ],
-    kind: "client",
+    years: "2024–25",
+    summary:
+      "Ran a dozen public apps, including liquor licensing and disaster assistance.",
+    tech: ["Angular", ".NET", "Dynamics", "OpenShift"],
   },
   {
     slug: "road-safety-initiative",
     client: "BC Ministry of Public Safety and Solicitor General",
     title: "Road Safety Initiative",
-    year: "2023-2024",
-    outcome:
-      "Digitized paper forms for RCMP and BC police, streamlining roadside prohibitions with legacy integration.",
-    tech: ["React", "Redux", "TypeScript", "Python", "PostgreSQL", "OpenShift"],
-    kind: "client",
+    years: "2023–24",
+    summary:
+      "Replaced paper roadside prohibition forms used by the RCMP and BC police, and connected them to the legacy systems.",
+    tech: ["React", "Python", "PostgreSQL", "OpenShift"],
   },
   {
     slug: "health-gateway",
     client: "BC Ministry of Health",
     title: "Health Gateway",
-    year: "2019-2021",
-    outcome:
-      "Cross-sector health information platform giving BC residents secure access to their health records.",
-    tech: ["Vue.js", "TypeScript", ".NET", "PostgreSQL", "OpenShift"],
-    kind: "client",
+    years: "2019–21",
+    summary: "Worked on the site BC residents use to see their health records.",
+    tech: ["Vue.js", ".NET", "PostgreSQL", "OpenShift"],
   },
   {
     slug: "cedh-io",
-    client: "cedh.io",
-    title: "Competitive EDH deck analysis",
-    year: "2026-Present",
-    outcome:
-      "Full-stack Magic: The Gathering analytics product. Proprietary aggregation of tournament APIs recommends cards for Competitive EDH decks.",
-    tech: [
-      "Next.js",
-      "Vercel",
-      "Supabase",
-      "Redis",
-      "TypeScript",
-      "shadcn",
-      "Tailwind",
-      "TanStack",
-      "Recharts",
-    ],
-    kind: "product",
-    metrics: [
-      { label: "Active users", value: 1500, suffix: "+" },
-      { label: "MRR", value: 250, prefix: "$" },
-    ],
+    client: "Own product",
+    title: "cedh.io",
+    years: "2026–",
+    summary:
+      "cedh.io analyzes competitive Magic: The Gathering decks against tournament results.",
+    tech: ["Next.js", "Supabase", "Redis", "Vercel"],
     link: "https://cedh.io",
   },
 ];
