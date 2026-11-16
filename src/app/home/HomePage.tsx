@@ -8,13 +8,11 @@ import { CASE_STUDIES } from "@/content/case-studies";
 import {
   ABOUT,
   BRAND,
-  CAREER_START,
   CONTACT,
   HERO,
   NAV,
   SERVICES,
   SOCIAL_LINKS,
-  yearsSince,
 } from "@/content/site";
 
 const gutter = "mx-auto w-full max-w-5xl px-4 sm:px-7 lg:px-9";
@@ -84,11 +82,6 @@ function Section({
 }
 
 function Hero() {
-  const stats = [
-    { value: String(yearsSince(CAREER_START)), label: "Years shipping" },
-    { value: "4", label: "Government projects" },
-    { value: "1", label: "Own product" },
-  ];
   return (
     <section id="top" className="overflow-x-clip">
       <div
@@ -99,18 +92,6 @@ function Hero() {
             {HERO.headline}
           </h1>
           <p className="text-body text-fg-muted mt-4 max-w-xl">{HERO.sub}</p>
-          <dl className="mt-8 flex flex-wrap gap-x-8 gap-y-4">
-            {stats.map((stat) => (
-              <div key={stat.label} className="flex flex-col-reverse">
-                <dt className="text-meta text-fg-subtle whitespace-nowrap">
-                  {stat.label}
-                </dt>
-                <dd className="text-title font-mono font-semibold tabular-nums">
-                  {stat.value}
-                </dd>
-              </div>
-            ))}
-          </dl>
           <div className="mt-8 flex flex-wrap gap-3">
             <a href="#contact" className={buttonClass("brand")}>
               {HERO.primaryCta}
