@@ -100,8 +100,8 @@ export function yearsOfExperience(now: Date = new Date()): string {
 
 export const ABOUT = {
   body: [
-    `Started Junction Technologies in 2025 after ${yearsOfExperience()} years of work for BC Health, BC Justice, BC Public Safety and Alberta government ministries, on both frontend and backend.`,
-    "Software Engineering degree from the University of Victoria. Now leading design and frontend for a Texas energy analytics platform.",
+    `I started Junction Technologies in 2025 after ${yearsOfExperience()} years of work for BC Health, BC Justice, BC Public Safety and Alberta government ministries, on both frontend and backend.`,
+    "I have a Software Engineering degree from the University of Victoria and lead design and frontend for a Texas energy analytics platform.",
   ],
 } as const;
 
