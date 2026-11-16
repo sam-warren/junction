@@ -17,8 +17,9 @@ export const NAV = [
 ] as const;
 
 export const HERO = {
-  headline: "We design and build software for government and energy.",
-  sub: "Junction Technologies is Sam Warren, a software engineer in Victoria, BC. You work with one person from the first interview to the release.",
+  headline:
+    "Product design and full-stack engineering from one senior developer.",
+  sub: "Junction Technologies is Sam Warren, in Victoria, BC. I do the user research, the design and the code myself.",
   primaryCta: "Start a project",
   secondaryCta: "See our work",
 } as const;
@@ -31,31 +32,33 @@ export interface Service {
 export const SERVICES: Service[] = [
   {
     name: "Interface design",
-    description: "User research, design systems and screens ready to build.",
+    description:
+      "Interviews with the people who use the tool, then a design system and screens. Most recently for energy traders at Jupiter Power.",
   },
   {
     name: "Full-stack development",
     description:
-      "TypeScript and Python, from the frontend to the infrastructure.",
+      "TypeScript and Python from database to UI. I built and run cedh.io on my own.",
   },
   {
     name: "Dashboards and data",
     description:
-      "Charts and tables for complex data that anyone on staff can read.",
+      "Charts and tables for energy-market, government and tournament data.",
   },
   {
     name: "Systems integration",
-    description: "APIs, identity and legacy systems connected to new work.",
+    description:
+      "New front ends on old systems, like BC's roadside prohibition forms.",
   },
   {
     name: "AI features",
     description:
-      "Language-model agents, retrieval and extraction on your own data.",
+      "Language-model tools on your own data. Claude can query cedh.io's tournament data through its connector.",
   },
   {
     name: "Platform and DevOps",
     description:
-      "CI/CD and hosting on Azure, OpenShift, Kubernetes and Vercel.",
+      "I kept a dozen BC government apps running on OpenShift. I also deploy to Azure, Kubernetes and Vercel.",
   },
 ];
 
@@ -99,8 +102,8 @@ export function yearsOfExperience(now: Date = new Date()): string {
 
 export const ABOUT = {
   body: [
-    `Sam founded Junction Technologies in 2025 after ${yearsOfExperience()} years of work for BC Health, BC Justice, BC Public Safety and Alberta government ministries, across frontend, backend and DevOps.`,
-    "Sam has a Software Engineering degree from the University of Victoria and currently leads design and frontend for a Texas energy analytics platform.",
+    `I started Junction Technologies in 2025 after ${yearsOfExperience()} years of work for BC Health, BC Justice, BC Public Safety and Alberta government ministries, across frontend, backend and DevOps.`,
+    "I have a Software Engineering degree from the University of Victoria and currently lead design and frontend for a Texas energy analytics platform.",
   ],
 } as const;
 
