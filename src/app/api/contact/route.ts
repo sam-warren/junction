@@ -1,23 +1,23 @@
 import { Resend } from "resend";
 
-function formatMessage(message: string) {
-  return message
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(
-      /(https?:\/\/[^\s]+)/g,
-      '<a href="$1" style="color: #007bff; text-decoration: underline;">$1</a>',
-    )
-    .split("\n")
-    .join("<br>");
-}
-
 function escape(value: string) {
   return value
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;");
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function formatMessage(message: string) {
+  return escape(message)
+    .replace(
+      /https?:\/\/[^\s&]+/g,
+      (url) =>
+        `<a href="${url}" style="color: #007bff; text-decoration: underline;">${url}</a>`,
+    )
+    .split("\n")
+    .join("<br>");
 }
 
 export async function POST(request: Request) {
