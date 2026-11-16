@@ -1,16 +1,7 @@
 // src/app/contact/ContactForm.test.tsx
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { toast } from "sonner";
 import { ContactForm } from "./ContactForm";
-
-vi.mock("sonner", () => ({
-  toast: {
-    success: vi.fn(),
-    error: vi.fn(),
-  },
-  Toaster: () => null,
-}));
 
 describe("ContactForm", () => {
   beforeEach(() => {
@@ -18,8 +9,6 @@ describe("ContactForm", () => {
       ok: true,
       json: async () => ({ success: true }),
     } as Response);
-    vi.mocked(toast.success).mockClear();
-    vi.mocked(toast.error).mockClear();
   });
 
   it("shows validation errors on empty submit", async () => {
@@ -47,9 +36,7 @@ describe("ContactForm", () => {
     });
     fireEvent.click(screen.getByRole("button", { name: /send/i }));
     await waitFor(() => {
-      expect(toast.success).toHaveBeenCalledWith(
-        expect.stringMatching(/Message sent/i),
-      );
+      expect(screen.getByRole("status")).toHaveTextContent(/Message sent/i);
     });
   });
 });

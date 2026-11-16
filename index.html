@@ -6,36 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Independent software consultancy. We design and build interfaces, end-to-end."
+      content="Software consultancy in Victoria, BC. We design and build software for government and energy."
     />
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://junction-technologies.com/" />
-    <meta property="og:title" content="Junction" />
+    <meta property="og:title" content="Junction Technologies" />
     <meta
       property="og:description"
-      content="Independent software consultancy. We design and build interfaces, end-to-end."
+      content="Software consultancy in Victoria, BC. We design and build software for government and energy."
     />
     <meta property="og:image" content="https://junction-technologies.com/og-image.png" />
 
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://junction-technologies.com/" />
-    <meta property="twitter:title" content="Junction" />
+    <meta property="twitter:title" content="Junction Technologies" />
     <meta
       property="twitter:description"
-      content="Independent software consultancy. We design and build interfaces, end-to-end."
+      content="Software consultancy in Victoria, BC. We design and build software for government and energy."
     />
     <meta
       property="twitter:image"
       content="https://junction-technologies.com/og-image.png"
     />
 
-    <title>Junction</title>
+    <title>Junction Technologies</title>
 
     <script>
-      // Theme persistence + system fallback. Default is dark.
       (function () {
-        var stored = localStorage.theme;
+        var stored;
+        try { stored = localStorage.theme; } catch (e) { stored = null; }
         var prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
         var useLight = stored === "light" || (!stored && prefersLight);
         document.documentElement.classList.toggle("light", useLight);
@@ -43,7 +43,7 @@
       })();
     </script>
   </head>
-  <body class="dark">
+  <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

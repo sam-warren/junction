@@ -1,13 +1,5 @@
-// src/app/contact/ContactForm.tsx
-import { Loader, Mail, Pencil, UserCircle, XCircle } from "lucide-react";
-import {
-  useState,
-  type ChangeEvent,
-  type FormEvent,
-  type ReactNode,
-} from "react";
-import { toast } from "sonner";
-import { Button } from "@/components/ui/button";
+import { useState, type ChangeEvent, type FormEvent, type ReactNode } from "react";
+import { buttonClass } from "@/components/ui/button-styles";
 import { cn } from "@/lib/utils";
 
 interface FormData {
@@ -17,47 +9,47 @@ interface FormData {
   honeypot: string;
 }
 type FormField = "name" | "email" | "message";
-interface FormErrors {
-  name?: string;
-  email?: string;
-  message?: string;
-}
-export function ContactForm() {
-  const [data, setData] = useState<FormData>({
-    name: "",
-    email: "",
-    message: "",
-    honeypot: "",
-  });
-  const [errors, setErrors] = useState<FormErrors>({});
-  const [submitting, setSubmitting] = useState(false);
+type FormErrors = Partial<Record<FormField, string>>;
+type Status =
+  | { kind: "idle" }
+  | { kind: "sending" }
+  | { kind: "sent" }
+  | { kind: "failed"; message: string };
 
-  function validate(field: FormField, value: string): string | undefined {
-    if (field === "name" && !value.trim()) return "Name is required";
-    if (field === "email") {
-      if (!value) return "Email is required";
-      if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value))
-        return "Invalid email address";
-    }
-    if (field === "message") {
-      if (!value.trim()) return "Message is required";
-      if (value.length < 10) return "Message must be at least 10 characters";
-    }
-    return undefined;
+const EMPTY: FormData = { name: "", email: "", message: "", honeypot: "" };
+
+function validate(field: FormField, value: string): string | undefined {
+  if (field === "name" && !value.trim()) return "Name is required";
+  if (field === "email") {
+    if (!value) return "Email is required";
+    if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value))
+      return "Enter a valid email address";
   }
+  if (field === "message") {
+    if (!value.trim()) return "Message is required";
+    if (value.trim().length < 10) return "Message must be at least 10 characters";
+  }
+  return undefined;
+}
+
+const inputClass =
+  "w-full rounded-md border bg-surface px-3 py-2 text-body text-fg placeholder:text-fg-subtle sm:text-supporting";
+
+export function ContactForm() {
+  const [data, setData] = useState<FormData>(EMPTY);
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [status, setStatus] = useState<Status>({ kind: "idle" });
 
   function onChange(e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     const { name, value } = e.target;
     setData((d) => ({ ...d, [name]: value }));
     setErrors((prev) => ({ ...prev, [name]: undefined }));
+    if (status.kind !== "sending") setStatus({ kind: "idle" });
   }
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (data.honeypot) {
-      toast.error("Form submission failed.");
-      return;
-    }
+    if (data.honeypot) return;
     const next: FormErrors = {
       name: validate("name", data.name),
       email: validate("email", data.email),
@@ -66,7 +58,7 @@ export function ContactForm() {
     setErrors(next);
     if (Object.values(next).some(Boolean)) return;
 
-    setSubmitting(true);
+    setStatus({ kind: "sending" });
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
@@ -74,167 +66,111 @@ export function ContactForm() {
         body: JSON.stringify({ ...data, timestamp: new Date().toISOString() }),
       });
       const body: { success?: boolean; error?: string } = await res.json();
-      if (!res.ok) throw new Error(body.error || "Failed to send message");
-      toast.success(
-        "Message sent. We'll get back to you within one business day.",
-      );
-      setData({ name: "", email: "", message: "", honeypot: "" });
+      if (!res.ok) throw new Error(body.error || "The message didn't send.");
+      setStatus({ kind: "sent" });
+      setData(EMPTY);
     } catch (err) {
-      toast.error(
-        err instanceof Error
-          ? err.message
-          : "Failed to send message. Please try again later.",
-      );
-    } finally {
-      setSubmitting(false);
+      setStatus({
+        kind: "failed",
+        message: err instanceof Error ? err.message : "The message didn't send.",
+      });
     }
   }
 
-  const inputBase =
-    "w-full rounded-[var(--radius-sm)] border bg-[var(--surface-2)] px-4 py-3 text-[length:var(--text-body)] text-[var(--text-primary)] placeholder:text-[var(--text-tertiary)] focus-visible:outline-none focus-visible:outline-2 focus-visible:outline-[var(--color-brand-400)] focus-visible:outline-offset-2";
-
   return (
-    <>
-      <form
-        onSubmit={onSubmit}
-        noValidate
-        className="rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--surface-1)] p-2 shadow-[var(--shadow-md)] lg:p-2"
-      >
-        <div className="space-y-4 p-4 sm:p-6 lg:p-8">
+    <form onSubmit={onSubmit} noValidate className="flex flex-col gap-4">
+      <input
+        type="text"
+        name="honeypot"
+        value={data.honeypot}
+        onChange={onChange}
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden
+        className="hidden"
+      />
+      <div className="grid gap-4 sm:grid-cols-2">
+        <Field label="Name" htmlFor="name" error={errors.name}>
           <input
             type="text"
-            name="honeypot"
-            value={data.honeypot}
+            name="name"
+            id="name"
+            autoComplete="name"
+            value={data.name}
             onChange={onChange}
-            tabIndex={-1}
-            autoComplete="off"
-            className="hidden"
+            aria-invalid={Boolean(errors.name)}
+            className={cn(inputClass, errors.name ? "border-danger" : "border-hairline")}
           />
-
-          <Field
-            label="Name"
-            htmlFor="name"
-            icon={<UserCircle className="h-5 w-5" />}
-            error={errors.name}
-          >
-            <input
-              type="text"
-              name="name"
-              id="name"
-              value={data.name}
-              onChange={onChange}
-              placeholder="Your name"
-              className={cn(
-                inputBase,
-                errors.name
-                  ? "border-[var(--danger)]"
-                  : "border-[var(--border)]",
-              )}
-            />
-          </Field>
-
-          <Field
-            label="Email"
-            htmlFor="email"
-            icon={<Mail className="h-5 w-5" />}
-            error={errors.email}
-          >
-            <input
-              type="email"
-              name="email"
-              id="email"
-              value={data.email}
-              onChange={onChange}
-              placeholder="you@example.com"
-              className={cn(
-                inputBase,
-                errors.email
-                  ? "border-[var(--danger)]"
-                  : "border-[var(--border)]",
-              )}
-            />
-          </Field>
-
-          <Field
-            label="Message"
-            htmlFor="message"
-            icon={<Pencil className="h-5 w-5" />}
-            error={errors.message}
-          >
-            <textarea
-              name="message"
-              id="message"
-              value={data.message}
-              onChange={onChange}
-              rows={6}
-              placeholder="What are you building? What problem are you trying to solve?"
-              className={cn(
-                inputBase,
-                "h-40 resize-none",
-                errors.message
-                  ? "border-[var(--danger)]"
-                  : "border-[var(--border)]",
-              )}
-            />
-          </Field>
-
-          <div className="pt-2">
-            <Button
-              type="submit"
-              disabled={submitting}
-              withBorderBeam
-              className="w-full"
-            >
-              {submitting ? (
-                <span className="inline-flex items-center gap-2">
-                  <Loader className="h-5 w-5 animate-spin" /> Sending…
-                </span>
-              ) : (
-                "Send message"
-              )}
-            </Button>
-          </div>
-        </div>
-      </form>
-    </>
+        </Field>
+        <Field label="Email" htmlFor="email" error={errors.email}>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            autoComplete="email"
+            value={data.email}
+            onChange={onChange}
+            aria-invalid={Boolean(errors.email)}
+            className={cn(inputClass, errors.email ? "border-danger" : "border-hairline")}
+          />
+        </Field>
+      </div>
+      <Field label="Message" htmlFor="message" error={errors.message}>
+        <textarea
+          name="message"
+          id="message"
+          rows={5}
+          value={data.message}
+          onChange={onChange}
+          aria-invalid={Boolean(errors.message)}
+          className={cn(
+            inputClass,
+            "resize-y",
+            errors.message ? "border-danger" : "border-hairline",
+          )}
+        />
+      </Field>
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+        <button
+          type="submit"
+          disabled={status.kind === "sending"}
+          className={buttonClass("brand")}
+        >
+          {status.kind === "sending" ? "Sending…" : "Send message"}
+        </button>
+        <p role="status" className="text-supporting">
+          {status.kind === "sent" && (
+            <span className="text-positive">
+              Message sent. We reply within one business day.
+            </span>
+          )}
+          {status.kind === "failed" && (
+            <span className="text-danger">{status.message}</span>
+          )}
+        </p>
+      </div>
+    </form>
   );
 }
 
 function Field({
   label,
   htmlFor,
-  icon,
   error,
   children,
 }: {
   label: string;
   htmlFor: string;
-  icon: ReactNode;
   error?: string;
   children: ReactNode;
 }) {
   return (
-    <div className="flex flex-col gap-2">
-      <label
-        htmlFor={htmlFor}
-        className="flex items-center gap-2 text-[length:var(--text-body-sm)] text-[var(--text-secondary)]"
-      >
-        {icon}
+    <div className="flex flex-col gap-1.5">
+      <label htmlFor={htmlFor} className="text-meta font-medium text-fg-muted">
         {label}
       </label>
       {children}
-      <div
-        className={cn(
-          "overflow-hidden text-[length:var(--text-body-sm)] text-[var(--danger)] transition-[max-height,opacity] duration-200",
-          error ? "max-h-6 opacity-100" : "max-h-0 opacity-0",
-        )}
-      >
-        {error && (
-          <span className="inline-flex items-center gap-1">
-            <XCircle className="h-4 w-4" /> {error}
-          </span>
-        )}
-      </div>
+      {error && <p className="text-meta text-danger">{error}</p>}
     </div>
   );
 }

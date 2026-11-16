@@ -1,90 +1,69 @@
-// src/content/site.ts
-import githubIcon from "@/assets/github.svg";
-import linkedinIcon from "@/assets/linkedin.svg";
-
 export const BRAND = {
   full: "Junction Technologies LTD.",
   short: "Junction",
-  legalSuffix: "LTD.",
-  domain: "junction-technologies.com",
   contactEmail: "sam@junctiontech.ca",
-  founded: 2025,
-  founder: {
-    name: "Sam Warren",
-    title: "Founder & Principal Engineer",
-    location: "Victoria, BC",
-  },
 } as const;
 
 export const SOCIAL_LINKS = [
-  {
-    name: "GitHub",
-    href: "https://github.com/sam-warren/junction",
-    icon: githubIcon,
-  },
-  {
-    name: "LinkedIn",
-    href: "https://www.linkedin.com/company/junctiontech",
-    icon: linkedinIcon,
-  },
+  { name: "LinkedIn", href: "https://www.linkedin.com/company/junctiontech" },
+  { name: "GitHub", href: "https://github.com/sam-warren/junction" },
 ] as const;
 
-export const COPY = {
-  hero: {
-    eyebrow: "",
-    headlinePrefix: "We Build",
-    headlineWords: [
-      "Interfaces",
-      "Dashboards",
-      "Platforms",
-      "Products",
-      "Tools",
-    ],
-    sub: "An independent software consultancy. We design and build interfaces, from UX research through production code.",
-    primaryCta: "Start a project",
-    secondaryCta: "See our work",
+export const NAV = [
+  { href: "#work", label: "Work" },
+  { href: "#services", label: "Services" },
+  { href: "#about", label: "About" },
+  { href: "#contact", label: "Contact" },
+] as const;
+
+export const HERO = {
+  headline: "We design and build software for government and energy.",
+  sub: "Junction Technologies is a software consultancy in Victoria, BC. The same people do the research, the design and the code.",
+  primaryCta: "Start a project",
+  secondaryCta: "See our work",
+} as const;
+
+export interface Service {
+  name: string;
+  description: string;
+}
+
+export const SERVICES: Service[] = [
+  {
+    name: "Interface design",
+    description: "User research, design systems and screens ready to build.",
   },
-  cta: {
-    headline: "Let's build something.",
-    sub: "A free 30-minute consultation to discuss scope, timeline, and fit.",
-    primary: "Start a project",
-    secondaryLabel: "or email",
+  {
+    name: "Full-stack development",
+    description:
+      "TypeScript and Python, from the frontend to the infrastructure.",
   },
-  about: {
-    eyebrow: "About",
-    title: "Junction",
-    company:
-      "Junction Technologies LTD. is an independent software consultancy specializing in interface design and full-stack implementation. We work with public and private sector entities who need polished, reliable tooling.",
-    founderBio:
-      "Sam Warren is a senior full-stack engineer with seven years shipping software across the public and private sectors in North America. A University of Victoria Software Engineering graduate, he currently leads UX/UI and frontend for a Texas-based energy analytics platform; prior work spans BC Justice, BC Health, BC Public Safety, and multiple Alberta government ministries across frontend, backend, and DevOps.",
-    facts: [
-      { label: "Based in", value: "Victoria, BC" },
-      { label: "Founded", value: "2025" },
-      {
-        label: "Practice",
-        value: "Interface design + full-stack implementation",
-      },
-    ] as const,
+  {
+    name: "Dashboards and data",
+    description: "Charts and tables for complex data that anyone on staff can read.",
   },
-  work: {
-    eyebrow: "Selected work",
-    title: "Where we've shipped.",
+  {
+    name: "Systems integration",
+    description: "APIs, identity and legacy systems connected to new work.",
   },
-  capabilities: {
-    eyebrow: "What we do",
-    title: "Capabilities",
+  {
+    name: "AI features",
+    description: "Language-model agents, retrieval and extraction on your own data.",
   },
-  convergence: {
-    eyebrow: "How we build",
-    title: "Where design meets implementation.",
-    sub: "Discovery to deployment as one continuous flow. Research informs the design. The design informs the build. The same hands ship every layer. No handoff loss between phases.",
+  {
+    name: "Platform and DevOps",
+    description: "CI/CD and hosting on Azure, OpenShift, Kubernetes and Vercel.",
   },
-  approach: {
-    eyebrow: "Approach",
-    title: "How work moves.",
-    sub: "Research to production through four phases. Each reviewed, each demoable, each shipped.",
-  },
-  stack: {
-    eyebrow: "Stack",
-  },
+];
+
+export const ABOUT = {
+  body: [
+    "Junction Technologies was founded in 2025 by Sam Warren, a software engineer with seven years of work for BC Health, BC Justice, BC Public Safety and Alberta government ministries, across frontend, backend and DevOps.",
+    "Sam has a Software Engineering degree from the University of Victoria and currently leads design and frontend for a Texas energy analytics platform.",
+  ],
+} as const;
+
+export const CONTACT = {
+  title: "Start a project",
+  sub: "The first call is free and takes 30 minutes.",
 } as const;
