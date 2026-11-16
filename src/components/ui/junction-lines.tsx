@@ -24,15 +24,15 @@ export function JunctionLines({ className }: { className?: string }) {
         return (
           <g key={label}>
             <path
-              d={`M0,${y} H180 C290,${y} 290,${MERGE_Y} ${MERGE_X},${MERGE_Y}`}
+              d={`M6,${y} H180 C290,${y} 290,${MERGE_Y} ${MERGE_X},${MERGE_Y}`}
               fill="none"
               stroke="var(--hairline-strong)"
               strokeWidth={2}
               strokeLinecap="round"
             />
-            <circle cx={0} cy={y} r={4} fill="var(--hairline-strong)" />
+            <circle cx={6} cy={y} r={4} fill="var(--hairline-strong)" />
             <text
-              x={12}
+              x={18}
               y={y - 10}
               fill="var(--fg-subtle)"
               fontFamily="var(--font-mono)"
