@@ -154,7 +154,7 @@ export function ContactForm() {
         <p role="status" className="text-supporting">
           {status.kind === "sent" && (
             <span className="text-positive">
-              I'll reply within one business day.
+              Replies within one business day.
             </span>
           )}
           {status.kind === "failed" && (
