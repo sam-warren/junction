@@ -17,3 +17,12 @@ describe("HomePage", () => {
     );
   });
 });
+
+describe("yearsOfExperience", () => {
+  it("counts whole years from May 2018", async () => {
+    const { yearsOfExperience } = await import("@/content/site");
+    expect(yearsOfExperience(new Date(2025, 3, 30))).toBe("six");
+    expect(yearsOfExperience(new Date(2025, 4, 1))).toBe("seven");
+    expect(yearsOfExperience(new Date(2026, 10, 16))).toBe("eight");
+  });
+});

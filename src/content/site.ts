@@ -40,7 +40,8 @@ export const SERVICES: Service[] = [
   },
   {
     name: "Dashboards and data",
-    description: "Charts and tables for complex data that anyone on staff can read.",
+    description:
+      "Charts and tables for complex data that anyone on staff can read.",
   },
   {
     name: "Systems integration",
@@ -48,17 +49,57 @@ export const SERVICES: Service[] = [
   },
   {
     name: "AI features",
-    description: "Language-model agents, retrieval and extraction on your own data.",
+    description:
+      "Language-model agents, retrieval and extraction on your own data.",
   },
   {
     name: "Platform and DevOps",
-    description: "CI/CD and hosting on Azure, OpenShift, Kubernetes and Vercel.",
+    description:
+      "CI/CD and hosting on Azure, OpenShift, Kubernetes and Vercel.",
   },
 ];
 
+const CAREER_START = new Date(2018, 4, 1);
+
+const NUMBER_WORDS = [
+  "zero",
+  "one",
+  "two",
+  "three",
+  "four",
+  "five",
+  "six",
+  "seven",
+  "eight",
+  "nine",
+  "ten",
+  "eleven",
+  "twelve",
+  "thirteen",
+  "fourteen",
+  "fifteen",
+  "sixteen",
+  "seventeen",
+  "eighteen",
+  "nineteen",
+  "twenty",
+];
+
+export function yearsSince(start: Date, now: Date = new Date()): number {
+  const months =
+    (now.getFullYear() - start.getFullYear()) * 12 +
+    (now.getMonth() - start.getMonth());
+  return Math.floor(months / 12);
+}
+
+export function yearsOfExperience(now: Date = new Date()): string {
+  const years = yearsSince(CAREER_START, now);
+  return NUMBER_WORDS[years] ?? String(years);
+}
+
 export const ABOUT = {
   body: [
-    "Junction Technologies was founded in 2025 by Sam Warren, a software engineer with seven years of work for BC Health, BC Justice, BC Public Safety and Alberta government ministries, across frontend, backend and DevOps.",
+    `Junction Technologies was founded in 2025 by Sam Warren, a software engineer with ${yearsOfExperience()} years of work for BC Health, BC Justice, BC Public Safety and Alberta government ministries, across frontend, backend and DevOps.`,
     "Sam has a Software Engineering degree from the University of Victoria and currently leads design and frontend for a Texas energy analytics platform.",
   ],
 } as const;
