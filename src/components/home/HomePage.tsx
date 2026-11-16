@@ -63,7 +63,9 @@ function Section({
       className={raised ? "bg-surface" : undefined}
     >
       <div className={gutter}>
-        <div className="border-hairline grid gap-6 border-t py-14 md:grid-cols-[12rem_1fr] md:gap-10 md:py-20">
+        <div
+          className={`grid gap-6 py-14 md:grid-cols-[12rem_1fr] md:gap-10 md:py-20 ${raised ? "" : "border-hairline border-t"}`}
+        >
           <h2
             id={`${id}-title`}
             className="text-title flex items-baseline gap-3 font-semibold"
@@ -200,7 +202,7 @@ function Footer() {
   return (
     <footer>
       <div className={gutter}>
-        <div className="border-hairline text-meta text-fg-subtle flex flex-wrap items-center justify-between gap-4 border-t py-8">
+        <div className="text-meta text-fg-subtle flex flex-wrap items-center justify-between gap-4 py-8">
           <p>
             © {new Date().getFullYear()} {BRAND.full}
           </p>
