@@ -52,8 +52,7 @@ export const SERVICES: Service[] = [
   },
   {
     name: "AI features",
-    description:
-      "Language-model tools that read and act on your own data: agents, search and extraction.",
+    description: "Language-model features built on the data you already have.",
   },
   {
     name: "Platform and DevOps",
