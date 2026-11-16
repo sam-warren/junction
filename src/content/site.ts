@@ -59,7 +59,7 @@ export const SERVICES: Service[] = [
   },
 ];
 
-const CAREER_START = new Date(2018, 4, 1);
+export const CAREER_START = new Date(2018, 4, 1);
 
 const NUMBER_WORDS = [
   "zero",

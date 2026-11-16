@@ -1,4 +1,9 @@
-import { useState, type ChangeEvent, type FormEvent, type ReactNode } from "react";
+import {
+  useState,
+  type ChangeEvent,
+  type FormEvent,
+  type ReactNode,
+} from "react";
 import { buttonClass } from "@/components/ui/button-styles";
 import { cn } from "@/lib/utils";
 
@@ -27,13 +32,14 @@ function validate(field: FormField, value: string): string | undefined {
   }
   if (field === "message") {
     if (!value.trim()) return "Message is required";
-    if (value.trim().length < 10) return "Message must be at least 10 characters";
+    if (value.trim().length < 10)
+      return "Message must be at least 10 characters";
   }
   return undefined;
 }
 
 const inputClass =
-  "w-full rounded-md border bg-surface px-3 py-2 text-body text-fg placeholder:text-fg-subtle sm:text-supporting";
+  "w-full rounded-md border bg-canvas px-3 py-2 text-body text-fg placeholder:text-fg-subtle sm:text-supporting";
 
 export function ContactForm() {
   const [data, setData] = useState<FormData>(EMPTY);
@@ -72,7 +78,8 @@ export function ContactForm() {
     } catch (err) {
       setStatus({
         kind: "failed",
-        message: err instanceof Error ? err.message : "The message didn't send.",
+        message:
+          err instanceof Error ? err.message : "The message didn't send.",
       });
     }
   }
@@ -99,7 +106,10 @@ export function ContactForm() {
             value={data.name}
             onChange={onChange}
             aria-invalid={Boolean(errors.name)}
-            className={cn(inputClass, errors.name ? "border-danger" : "border-hairline")}
+            className={cn(
+              inputClass,
+              errors.name ? "border-danger" : "border-hairline",
+            )}
           />
         </Field>
         <Field label="Email" htmlFor="email" error={errors.email}>
@@ -111,7 +121,10 @@ export function ContactForm() {
             value={data.email}
             onChange={onChange}
             aria-invalid={Boolean(errors.email)}
-            className={cn(inputClass, errors.email ? "border-danger" : "border-hairline")}
+            className={cn(
+              inputClass,
+              errors.email ? "border-danger" : "border-hairline",
+            )}
           />
         </Field>
       </div>
@@ -166,7 +179,7 @@ function Field({
 }) {
   return (
     <div className="flex flex-col gap-1.5">
-      <label htmlFor={htmlFor} className="text-meta font-medium text-fg-muted">
+      <label htmlFor={htmlFor} className="text-meta text-fg-muted font-medium">
         {label}
       </label>
       {children}

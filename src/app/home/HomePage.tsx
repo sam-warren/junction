@@ -3,24 +3,30 @@ import { ContactForm } from "@/app/contact/ContactForm";
 import { BrandMark } from "@/components/ui/brand-mark";
 import { buttonClass } from "@/components/ui/button-styles";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { JunctionLines } from "@/components/ui/junction-lines";
 import { CASE_STUDIES } from "@/content/case-studies";
 import {
   ABOUT,
   BRAND,
+  CAREER_START,
   CONTACT,
   HERO,
   NAV,
   SERVICES,
   SOCIAL_LINKS,
+  yearsSince,
 } from "@/content/site";
 
 const gutter = "mx-auto w-full max-w-5xl px-4 sm:px-7 lg:px-9";
 
 function Header() {
   return (
-    <header className="sticky top-0 z-10 border-b border-hairline bg-canvas">
+    <header className="border-hairline bg-canvas sticky top-0 z-10 border-b">
       <div className={`${gutter} flex h-14 items-center justify-between gap-4`}>
-        <a href="#top" className="flex items-center gap-2 text-supporting font-semibold">
+        <a
+          href="#top"
+          className="text-supporting flex items-center gap-2 font-semibold"
+        >
           <BrandMark />
           {BRAND.short}
         </a>
@@ -29,7 +35,7 @@ function Header() {
             <a
               key={item.href}
               href={item.href}
-              className={`${item.href === "#contact" ? "inline-flex" : "hidden sm:inline-flex"} h-10 items-center rounded-md px-3 text-supporting text-fg-muted transition-colors duration-150 [@media(hover:hover)]:hover:text-fg`}
+              className={`${item.href === "#contact" ? "inline-flex" : "hidden sm:inline-flex"} text-supporting text-fg-muted [@media(hover:hover)]:hover:text-fg h-10 items-center rounded-md px-3 transition-colors duration-150`}
             >
               {item.label}
             </a>
@@ -45,15 +51,30 @@ function Section({
   id,
   title,
   children,
+  raised,
 }: {
   id: string;
   title: string;
   children: ReactNode;
+  raised?: boolean;
 }) {
   return (
-    <section id={id} aria-labelledby={`${id}-title`} className="border-t border-hairline">
-      <div className={`${gutter} grid gap-6 py-14 md:grid-cols-[12rem_1fr] md:gap-10 md:py-20`}>
-        <h2 id={`${id}-title`} className="text-title font-semibold">
+    <section
+      id={id}
+      aria-labelledby={`${id}-title`}
+      className={`border-hairline border-t ${raised ? "bg-surface" : ""}`}
+    >
+      <div
+        className={`${gutter} grid gap-6 py-14 md:grid-cols-[12rem_1fr] md:gap-10 md:py-20`}
+      >
+        <h2
+          id={`${id}-title`}
+          className="text-title flex items-baseline gap-3 font-semibold"
+        >
+          <span
+            aria-hidden
+            className="bg-brand-line h-[3px] w-4 translate-y-[-0.3em] rounded-full"
+          />
           {title}
         </h2>
         <div className="min-w-0">{children}</div>
@@ -63,19 +84,43 @@ function Section({
 }
 
 function Hero() {
+  const stats = [
+    { value: String(yearsSince(CAREER_START)), label: "Years shipping" },
+    { value: "4", label: "Government projects" },
+    { value: "1", label: "Own product" },
+  ];
   return (
-    <section id="top" className={`${gutter} py-16 md:py-28`}>
-      <h1 className="max-w-3xl text-display-sm font-semibold md:text-display">
-        {HERO.headline}
-      </h1>
-      <p className="mt-4 max-w-xl text-body text-fg-muted">{HERO.sub}</p>
-      <div className="mt-8 flex flex-wrap gap-3">
-        <a href="#contact" className={buttonClass("brand")}>
-          {HERO.primaryCta}
-        </a>
-        <a href="#work" className={buttonClass("outline")}>
-          {HERO.secondaryCta}
-        </a>
+    <section id="top" className="overflow-x-clip">
+      <div
+        className={`${gutter} grid items-center gap-12 py-16 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] md:py-24`}
+      >
+        <div>
+          <h1 className="text-display-sm md:text-display max-w-3xl font-semibold">
+            {HERO.headline}
+          </h1>
+          <p className="text-body text-fg-muted mt-4 max-w-xl">{HERO.sub}</p>
+          <dl className="mt-8 flex flex-wrap gap-x-8 gap-y-4">
+            {stats.map((stat) => (
+              <div key={stat.label} className="flex flex-col-reverse">
+                <dt className="text-meta text-fg-subtle whitespace-nowrap">
+                  {stat.label}
+                </dt>
+                <dd className="text-title font-mono font-semibold tabular-nums">
+                  {stat.value}
+                </dd>
+              </div>
+            ))}
+          </dl>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a href="#contact" className={buttonClass("brand")}>
+              {HERO.primaryCta}
+            </a>
+            <a href="#work" className={buttonClass("outline")}>
+              {HERO.secondaryCta}
+            </a>
+          </div>
+        </div>
+        <JunctionLines className="w-full max-w-md md:max-w-none" />
       </div>
     </section>
   );
@@ -84,13 +129,13 @@ function Hero() {
 function Work() {
   return (
     <Section id="work" title="Work">
-      <ol className="divide-y divide-hairline">
+      <ol className="divide-hairline divide-y">
         {CASE_STUDIES.map((study) => (
           <li
             key={study.slug}
             className="grid gap-1 py-5 first:pt-0 last:pb-0 sm:grid-cols-[4.5rem_1fr] sm:gap-x-6"
           >
-            <p className="font-mono text-meta tabular-nums text-fg-subtle sm:pt-0.5">
+            <p className="text-meta text-fg-subtle font-mono tabular-nums sm:pt-0.5">
               {study.years}
             </p>
             <div>
@@ -107,8 +152,10 @@ function Work() {
                 )}
               </h3>
               <p className="text-supporting text-fg-muted">{study.client}</p>
-              <p className="mt-2 max-w-[65ch] text-supporting">{study.summary}</p>
-              <p className="mt-2 font-mono text-meta text-fg-subtle">
+              <p className="text-supporting mt-2 max-w-[65ch]">
+                {study.summary}
+              </p>
+              <p className="text-meta text-fg-subtle mt-2 font-mono">
                 {study.tech.join(" · ")}
               </p>
             </div>
@@ -126,7 +173,9 @@ function Services() {
         {SERVICES.map((service) => (
           <div key={service.name}>
             <dt className="text-body font-semibold">{service.name}</dt>
-            <dd className="mt-1 text-supporting text-fg-muted">{service.description}</dd>
+            <dd className="text-supporting text-fg-muted mt-1">
+              {service.description}
+            </dd>
           </div>
         ))}
       </dl>
@@ -137,7 +186,7 @@ function Services() {
 function About() {
   return (
     <Section id="about" title="About">
-      <div className="max-w-[65ch] space-y-4 text-body">
+      <div className="text-body max-w-[65ch] space-y-4">
         {ABOUT.body.map((paragraph) => (
           <p key={paragraph}>{paragraph}</p>
         ))}
@@ -148,7 +197,7 @@ function About() {
 
 function Contact() {
   return (
-    <Section id="contact" title={CONTACT.title}>
+    <Section id="contact" title={CONTACT.title} raised>
       <p className="text-body">
         {CONTACT.sub} Email{" "}
         <a
@@ -168,9 +217,9 @@ function Contact() {
 
 function Footer() {
   return (
-    <footer className="border-t border-hairline">
+    <footer className="border-hairline border-t">
       <div
-        className={`${gutter} flex flex-wrap items-center justify-between gap-4 py-8 text-meta text-fg-subtle`}
+        className={`${gutter} text-meta text-fg-subtle flex flex-wrap items-center justify-between gap-4 py-8`}
       >
         <p>
           © {new Date().getFullYear()} {BRAND.full}
@@ -180,7 +229,7 @@ function Footer() {
             <li key={link.name}>
               <a
                 href={link.href}
-                className="transition-colors duration-150 [@media(hover:hover)]:hover:text-fg"
+                className="[@media(hover:hover)]:hover:text-fg transition-colors duration-150"
               >
                 {link.name}
               </a>

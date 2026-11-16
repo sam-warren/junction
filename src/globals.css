@@ -31,6 +31,7 @@
   --color-canvas: var(--canvas);
   --color-surface: var(--surface);
   --color-hairline: var(--hairline);
+  --color-brand-line: var(--brand-line);
   --color-fg: var(--fg);
   --color-fg-muted: var(--fg-muted);
   --color-fg-subtle: var(--fg-subtle);
@@ -47,6 +48,8 @@
   --canvas: oklch(0.168 0.004 285.9);
   --surface: oklch(0.193 0.004 285.9);
   --hairline: oklch(0.252 0.005 286);
+  --hairline-strong: oklch(0.34 0.006 286);
+  --brand-line: oklch(0.6 0.15 268);
   --fg: oklch(0.93 0.004 285.9);
   --fg-muted: oklch(0.7 0.012 286);
   --fg-subtle: oklch(0.6 0.012 286);
@@ -63,6 +66,8 @@
   --canvas: oklch(0.985 0.002 286);
   --surface: oklch(1 0 0);
   --hairline: oklch(0.898 0.005 286);
+  --hairline-strong: oklch(0.82 0.006 286);
+  --brand-line: oklch(0.426 0.168 267);
   --fg: oklch(0.21 0.006 286);
   --fg-muted: oklch(0.45 0.012 286);
   --fg-subtle: oklch(0.505 0.012 286);
