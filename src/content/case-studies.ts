@@ -15,7 +15,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     title: "Operator platform redesign",
     years: "2026–",
     summary:
-      "The interface operators use to bid grid-scale battery storage into US wholesale energy markets. Research with traders and operations staff, the design system and the frontend.",
+      "I'm redesigning the interface operators use to bid grid-scale battery storage into US wholesale energy markets. I run research with traders and build the frontend.",
     tech: ["Figma", "React", "TypeScript", "Python", "Azure"],
   },
   {
@@ -23,7 +23,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     client: "Vantix Systems for the Government of Alberta",
     title: "Energy portals",
     years: "2025–26",
-    summary: "New government portals for energy management and data.",
+    summary: "I built new government portals for energy management and data.",
     tech: ["React", "TypeScript", "Python", "Azure"],
   },
   {
@@ -32,7 +32,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     title: "Justice DevOps",
     years: "2024–25",
     summary:
-      "Ran a dozen public apps, including liquor licensing, disaster assistance and victim services.",
+      "I ran a dozen public apps, including liquor licensing and disaster assistance.",
     tech: ["Angular", ".NET", "Dynamics", "OpenShift"],
   },
   {
@@ -41,7 +41,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     title: "Road Safety Initiative",
     years: "2023–24",
     summary:
-      "Replaced paper roadside prohibition forms for the RCMP and BC police, connected to the legacy systems behind them.",
+      "I replaced paper roadside prohibition forms used by the RCMP and BC police, and connected them to the legacy systems.",
     tech: ["React", "Python", "PostgreSQL", "OpenShift"],
   },
   {
@@ -49,7 +49,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     client: "BC Ministry of Health",
     title: "Health Gateway",
     years: "2019–21",
-    summary: "Secure online access to health records for BC residents.",
+    summary:
+      "I worked on the site BC residents use to see their health records.",
     tech: ["Vue.js", ".NET", "PostgreSQL", "OpenShift"],
   },
   {
@@ -58,7 +59,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     title: "cedh.io",
     years: "2026–",
     summary:
-      "Deck analysis for competitive Magic: The Gathering, built on tournament results.",
+      "cedh.io analyzes competitive Magic: The Gathering decks against tournament results.",
     tech: ["Next.js", "Supabase", "Redis", "Vercel"],
     link: "https://cedh.io",
   },

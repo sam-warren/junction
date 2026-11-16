@@ -36,7 +36,9 @@ describe("ContactForm", () => {
     });
     fireEvent.click(screen.getByRole("button", { name: /send/i }));
     await waitFor(() => {
-      expect(screen.getByRole("status")).toHaveTextContent(/Message sent/i);
+      expect(screen.getByRole("status")).toHaveTextContent(
+        /reply within one business day/i,
+      );
     });
   });
 });

@@ -13,7 +13,7 @@ describe("HomePage", () => {
   it("renders the headline", () => {
     render(<HomePage />);
     expect(screen.getByRole("heading", { level: 1 }).textContent).toMatch(
-      /full-stack engineering/i,
+      /user research to production/i,
     );
   });
 });

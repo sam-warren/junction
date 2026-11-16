@@ -18,8 +18,8 @@ export const NAV = [
 
 export const HERO = {
   headline:
-    "Product design and full-stack engineering from one senior developer.",
-  sub: "Junction Technologies is Sam Warren, in Victoria, BC. I do the user research, the design and the code myself.",
+    "I design and build web software, from user research to production.",
+  sub: "Junction Technologies is Sam Warren in Victoria, BC. You hire one engineer who does both the design and the code.",
   primaryCta: "Start a project",
   secondaryCta: "See our work",
 } as const;
@@ -33,26 +33,27 @@ export const SERVICES: Service[] = [
   {
     name: "Interface design",
     description:
-      "Interviews with the people who use the tool, then a design system and screens. Most recently for energy traders at Jupiter Power.",
+      "I interview the people who use the tool, then design the system and screens. I did this last for energy traders at Jupiter Power.",
   },
   {
     name: "Full-stack development",
     description:
-      "TypeScript and Python from database to UI. I built and run cedh.io on my own.",
+      "I write TypeScript and Python from the database to the UI, and I built and run cedh.io alone.",
   },
   {
     name: "Dashboards and data",
     description:
-      "Charts and tables for energy-market, government and tournament data.",
+      "I build charts and tables for energy-market and tournament data.",
   },
   {
     name: "Systems integration",
     description:
-      "New front ends on old systems, like BC's roadside prohibition forms.",
+      "I put new front ends on old systems, as I did for BC's roadside prohibition forms.",
   },
   {
     name: "AI features",
-    description: "Language-model features built on the data you already have.",
+    description:
+      "I build language-model features on the data you already have.",
   },
   {
     name: "Platform and DevOps",
@@ -101,8 +102,8 @@ export function yearsOfExperience(now: Date = new Date()): string {
 
 export const ABOUT = {
   body: [
-    `I started Junction Technologies in 2025 after ${yearsOfExperience()} years of work for BC Health, BC Justice, BC Public Safety and Alberta government ministries, across frontend, backend and DevOps.`,
-    "I have a Software Engineering degree from the University of Victoria and currently lead design and frontend for a Texas energy analytics platform.",
+    `I started Junction Technologies in 2025 after ${yearsOfExperience()} years of work for BC Health, BC Justice, BC Public Safety and Alberta government ministries, on both frontend and backend.`,
+    "I have a Software Engineering degree from the University of Victoria and lead design and frontend for a Texas energy analytics platform.",
   ],
 } as const;
 
