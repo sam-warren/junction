@@ -54,7 +54,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   },
   {
     slug: "cedh-io",
-    client: "Our product",
+    client: "Own product",
     title: "cedh.io",
     years: "2026–",
     summary:

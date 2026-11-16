@@ -18,7 +18,7 @@ export const NAV = [
 
 export const HERO = {
   headline: "We design and build software for government and energy.",
-  sub: "Junction Technologies is a software consultancy in Victoria, BC. The same people do the research, the design and the code.",
+  sub: "Junction Technologies is Sam Warren, a software engineer in Victoria, BC. You work with one person from the first interview to the release.",
   primaryCta: "Start a project",
   secondaryCta: "See our work",
 } as const;
@@ -99,7 +99,7 @@ export function yearsOfExperience(now: Date = new Date()): string {
 
 export const ABOUT = {
   body: [
-    `Junction Technologies was founded in 2025 by Sam Warren, a software engineer with ${yearsOfExperience()} years of work for BC Health, BC Justice, BC Public Safety and Alberta government ministries, across frontend, backend and DevOps.`,
+    `Sam founded Junction Technologies in 2025 after ${yearsOfExperience()} years of work for BC Health, BC Justice, BC Public Safety and Alberta government ministries, across frontend, backend and DevOps.`,
     "Sam has a Software Engineering degree from the University of Victoria and currently leads design and frontend for a Texas energy analytics platform.",
   ],
 } as const;
