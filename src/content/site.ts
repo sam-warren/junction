@@ -53,7 +53,7 @@ export const SERVICES: Service[] = [
   {
     name: "AI features",
     description:
-      "Language-model tools on your own data. Claude can query cedh.io's tournament data through its connector.",
+      "Language-model tools that read and act on your own data: agents, search and extraction.",
   },
   {
     name: "Platform and DevOps",
