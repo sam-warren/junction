@@ -1,13 +1,10 @@
 @import "tailwindcss";
 
-@import "@fontsource-variable/geist";
-@import "@fontsource-variable/geist-mono";
-
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "Geist Mono Variable", ui-monospace, monospace;
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 
   --text-display: 2.5rem;
   --text-display--line-height: 1.15;

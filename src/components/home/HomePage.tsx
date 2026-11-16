@@ -1,5 +1,5 @@
-import { useEffect, type ReactNode } from "react";
-import { ContactForm } from "@/app/contact/ContactForm";
+import type { ReactNode } from "react";
+import { ContactForm } from "@/components/contact/ContactForm";
 import { BrandMark } from "@/components/ui/brand-mark";
 import { buttonClass } from "@/components/ui/button-styles";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
@@ -223,12 +223,6 @@ function Footer() {
 }
 
 export default function HomePage() {
-  useEffect(() => {
-    if (window.location.pathname.replace(/\/$/, "") === "/contact") {
-      document.getElementById("contact")?.scrollIntoView();
-    }
-  }, []);
-
   return (
     <>
       <Header />
