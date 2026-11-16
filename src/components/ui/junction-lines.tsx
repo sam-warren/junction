@@ -16,7 +16,6 @@ export function JunctionLines({ className }: { className?: string }) {
     <svg
       viewBox="0 0 560 340"
       className={className}
-      overflow="visible"
       role="img"
       aria-label="Research, design, frontend, backend, data and platform work joining into one line"
     >
@@ -45,7 +44,7 @@ export function JunctionLines({ className }: { className?: string }) {
         );
       })}
       <path
-        d={`M${MERGE_X},${MERGE_Y} H1400`}
+        d={`M${MERGE_X},${MERGE_Y} H552`}
         stroke="var(--brand-line)"
         strokeWidth={8}
         strokeLinecap="round"

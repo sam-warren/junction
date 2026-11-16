@@ -60,22 +60,22 @@ function Section({
     <section
       id={id}
       aria-labelledby={`${id}-title`}
-      className={`border-hairline border-t ${raised ? "bg-surface" : ""}`}
+      className={raised ? "bg-surface" : undefined}
     >
-      <div
-        className={`${gutter} grid gap-6 py-14 md:grid-cols-[12rem_1fr] md:gap-10 md:py-20`}
-      >
-        <h2
-          id={`${id}-title`}
-          className="text-title flex items-baseline gap-3 font-semibold"
-        >
-          <span
-            aria-hidden
-            className="bg-brand-line h-[3px] w-4 translate-y-[-0.3em] rounded-full"
-          />
-          {title}
-        </h2>
-        <div className="min-w-0">{children}</div>
+      <div className={gutter}>
+        <div className="border-hairline grid gap-6 border-t py-14 md:grid-cols-[12rem_1fr] md:gap-10 md:py-20">
+          <h2
+            id={`${id}-title`}
+            className="text-title flex items-baseline gap-3 font-semibold"
+          >
+            <span
+              aria-hidden
+              className="bg-brand-line h-[3px] w-4 translate-y-[-0.3em] rounded-full"
+            />
+            {title}
+          </h2>
+          <div className="min-w-0">{children}</div>
+        </div>
       </div>
     </section>
   );
@@ -198,25 +198,25 @@ function Contact() {
 
 function Footer() {
   return (
-    <footer className="border-hairline border-t">
-      <div
-        className={`${gutter} text-meta text-fg-subtle flex flex-wrap items-center justify-between gap-4 py-8`}
-      >
-        <p>
-          © {new Date().getFullYear()} {BRAND.full}
-        </p>
-        <ul className="flex gap-4">
-          {SOCIAL_LINKS.map((link) => (
-            <li key={link.name}>
-              <a
-                href={link.href}
-                className="[@media(hover:hover)]:hover:text-fg transition-colors duration-150"
-              >
-                {link.name}
-              </a>
-            </li>
-          ))}
-        </ul>
+    <footer>
+      <div className={gutter}>
+        <div className="border-hairline text-meta text-fg-subtle flex flex-wrap items-center justify-between gap-4 border-t py-8">
+          <p>
+            © {new Date().getFullYear()} {BRAND.full}
+          </p>
+          <ul className="flex gap-4">
+            {SOCIAL_LINKS.map((link) => (
+              <li key={link.name}>
+                <a
+                  href={link.href}
+                  className="[@media(hover:hover)]:hover:text-fg transition-colors duration-150"
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </footer>
   );
